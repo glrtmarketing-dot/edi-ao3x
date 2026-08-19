@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDIÇÃO 3X — Formatos Validados de Edição</title>
+<meta name="description" content="Editor de vídeo descobre como ganhar de 5 a 15 mil reais por mês editando com os Formatos Validados de Edição usando o celular.">
+<!--
+  ════════════════════════════════════════════════════════════════
+  EDIÇÃO 3X — PÁGINA DE VENDAS · V2 (SEM VSL)
+  Produto: Edição 3x · Pedro Goulart
+
+  V2 = estrutura da referência edicaodofuturo.com.br:
+  hero direto → diagnóstico → autoridade → "levante um dedo"
+  → mecanismo → prova → módulos → benefícios → bônus
+  → oferta → garantia → FAQ → CTA final
+
+  Diferenças p/ a V1:
+  ▸ SEM VSL — a página abre direto na headline + CTA
+  ▸ Tema predominantemente CLARO (a V1 é escura) — pra A/B real
+  ▸ Página mais curta e direta, menos narrativa
+
+  ▸ Tudo entre [colchetes] é placeholder — preencher.
+  ▸ Notas de compliance em comentários HTML (invisíveis).
+  ▸ Vídeos: troque o .tile dentro de .vplayer por <video>.
+  ════════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════ TOKENS ════════════ */
+:root{
+  --black:#000;
+  --panel:#111111;
+  --card-dark:#141414;
+  --light:#f3f1ec;
+  --paper:#fbfaf7;
+  --white:#fff;
+  --accent:#ff5a00;
+  --accent-soft:#ff7a33;
+  --accent-deep:#e04e00;
+  --blue:#3d7bff;
+  --gray:#8f8f8f;
+  --gray-dark:#5c5c5c;
+  --line:rgba(255,255,255,.14);
+  --line-d:rgba(0,0,0,.12);
+  --fd:'Unbounded',sans-serif;
+  --fb:'Inter',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;overflow-x:clip}
+body{background:var(--light);color:#111;font-family:var(--fb);font-size:14px;line-height:1.5;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+.container{max-width:1240px;margin:0 auto;padding:0 clamp(20px,3.5vw,48px)}
+.narrow{max-width:900px}
+section{position:relative}
+.sec-pad{padding:clamp(64px,7vw,110px) 0}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
+.center{text-align:center}
+.h-big{font-size:clamp(30px,4vw,58px);line-height:1.06;letter-spacing:-.04em;font-weight:600}
+.h-mid{font-size:clamp(24px,3vw,42px);line-height:1.1;font-weight:600;letter-spacing:-.03em}
+.o{color:var(--accent-deep)}
+.dim{color:var(--gray-dark)}
+.lead{font-size:clamp(15px,1.25vw,18px);line-height:1.75;color:#4a4a4a}
+.lead b{color:#111;font-weight:600}
+
+/* seções escuras */
+.dark{background:var(--black);color:#fff}
+.dark h1,.dark h2,.dark h3,.dark h4{color:#fff}
+.dark .o{color:var(--accent)}
+.dark .dim{color:var(--gray)}
+.dark .lead{color:#b0b0b0}
+.dark .lead b{color:#fff}
+
+/* badge */
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid rgba(0,0,0,.18);border-radius:999px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#111}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-deep)}
+.dark .badge{border-color:var(--line);color:#fff}
+.dark .badge::before{background:var(--accent)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 32px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-family:var(--fd);border-radius:999px;transition:transform .45s var(--ease),background .45s var(--ease),color .45s var(--ease)}
+.btn:hover{transform:translateY(-3px)}
+.btn-accent{background:var(--accent);color:#000;box-shadow:0 12px 34px rgba(255,90,0,.3)}
+.btn-accent:hover{background:#111;color:#fff}
+.btn-lg{padding:21px 46px;font-size:14px}
+.cta-note{display:block;margin-top:16px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-dark)}
+.dark .cta-note{color:var(--gray)}
+
+/* tiles */
+.tile{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;text-align:center;padding:16px;font-family:var(--fd)}
+.tile b{font-size:clamp(18px,1.9vw,30px);font-weight:600;letter-spacing:-.02em;line-height:1.1;text-transform:uppercase}
+.tile span{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.75;font-family:var(--fb);font-weight:600}
+.tile::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,rgba(255,255,255,.14),transparent 55%);pointer-events:none}
+.tile--orange{background:var(--accent);color:#000}
+.tile--blue{background:var(--blue);color:#fff}
+.tile--black{background:#0d0d0d;color:var(--accent)}
+.tile--blueblack{background:#0d0d0d;color:var(--blue)}
+.tile--light{background:#e9e6df;color:#111}
+
+/* player de vídeo */
+.vplayer{position:relative;overflow:hidden;border-radius:14px;background:#0d0d0d;cursor:pointer}
+.vplayer.v916{aspect-ratio:9/16}
+.vplayer.v169{aspect-ratio:16/9}
+.vplayer video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#0d0d0d}
+.vplayer .tile{position:absolute;inset:0;height:100%}
+.vplayer .vplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:clamp(46px,4vw,62px);aspect-ratio:1;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 38px rgba(255,90,0,.42);transition:transform .35s var(--ease),opacity .3s}
+.vplayer .vplay svg{margin-left:3px}
+.vplayer:hover .vplay{transform:translate(-50%,-50%) scale(1.09)}
+.vplayer.playing .vplay,.vplayer.playing .vtag{opacity:0;pointer-events:none}
+.vplayer .vtag{position:absolute;left:11px;top:11px;z-index:4;font-family:var(--fd);font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.62);backdrop-filter:blur(6px);color:#fff;padding:6px 10px;border-radius:999px;transition:opacity .3s}
+
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+[data-reveal="left"]{transform:translateX(-48px)}
+[data-reveal="right"]{transform:translateX(48px)}
+[data-reveal="scale"]{transform:scale(.9)}
+[data-reveal="left"].in,[data-reveal="right"].in,[data-reveal="scale"].in{transform:none}
+
+/* ════════════ HEADER ════════════ */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;padding:18px clamp(20px,3.5vw,48px);display:flex;justify-content:space-between;align-items:center;transition:background .5s,backdrop-filter .5s,padding .5s}
+.header.scrolled{background:rgba(243,241,236,.85);backdrop-filter:blur(14px);padding-top:12px;padding-bottom:12px;border-bottom:1px solid var(--line-d)}
+.logo{font-family:var(--fd);font-weight:600;font-size:16px;letter-spacing:.02em;color:#111}
+.logo i{font-style:normal;color:var(--accent-deep)}
+.header .btn{padding:11px 22px;font-size:11px}
+@media(max-width:560px){.header .btn{display:none}}
+
+/* ════════════ 01 HERO ════════════ */
+.hero{padding:168px 0 clamp(56px,6vw,90px);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(46% 40% at 78% 26%,rgba(255,90,0,.13),transparent 68%)}
+.hero .container{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1fr .95fr;gap:clamp(26px,3.4vw,54px);align-items:center}
+.hero h1{font-size:clamp(29px,3.5vw,52px);line-height:1.06;letter-spacing:-.035em;font-weight:600;max-width:19ch}
+.hero h1 .o{color:var(--accent-deep)}
+.hero .sub{margin-top:24px;max-width:50ch;font-size:clamp(14.5px,1.2vw,17.5px);line-height:1.7;color:#4a4a4a}
+.hero .sub b{color:#111;font-weight:600}
+.hero-cta{margin-top:34px}
+.hero-media{position:relative}
+.stage{position:relative;aspect-ratio:1/1.12;max-width:620px;margin-left:auto}
+.stage::before{content:"";position:absolute;left:6%;right:6%;top:6%;bottom:8%;border-radius:50%;
+  background:radial-gradient(60% 55% at 50% 45%,rgba(255,90,0,.16),transparent 70%);filter:blur(26px);z-index:0}
+
+/* tipografia gigante ao fundo */
+.stage-type{position:absolute;z-index:0;left:50%;top:26%;transform:translate(-50%,-50%);
+  font-family:var(--fd);font-weight:600;font-size:min(30vw,300px);line-height:.8;
+  letter-spacing:-.06em;color:rgba(17,17,17,.055);pointer-events:none;user-select:none;white-space:nowrap}
+
+/* clientes ao fundo — molduras */
+.clients{position:absolute;inset:0;z-index:1;pointer-events:none}
+.clients .c{position:absolute;border-radius:9px;overflow:hidden;background:#e2ddd3;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 14px 30px rgba(0,0,0,.12);
+  filter:grayscale(.55) sepia(.22) saturate(1.05);opacity:.55}
+.clients .c::after{content:"";position:absolute;inset:0;background:rgba(255,90,0,.14)}
+.clients .c i{font-style:normal;font-family:var(--fd);font-size:10px;color:#a5a094}
+.clients .c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.clients .c1{width:23%;aspect-ratio:4/3;left:-3%;top:4%;transform:rotate(-4deg);opacity:.52}
+.clients .c2{width:17%;aspect-ratio:4/3;left:23%;top:-1%;transform:rotate(3deg);opacity:.44}
+.clients .c3{width:26%;aspect-ratio:4/3;right:-4%;top:2%;transform:rotate(4deg);opacity:.62}
+.clients .c4{width:19%;aspect-ratio:4/3;right:2%;top:26%;transform:rotate(-3deg);opacity:.4}
+.clients .c5{width:21%;aspect-ratio:4/3;left:-5%;bottom:10%;transform:rotate(3deg);opacity:.36;z-index:3}
+
+/* Pedro na frente, dissolvendo embaixo */
+.subject{position:absolute;left:0;right:0;top:13%;bottom:0;z-index:2;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.55) 82%,transparent 99%);
+          mask-image:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.55) 82%,transparent 99%)}
+.subject img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:20px 20px 0 0}
+/* recorte PNG transparente — escala da referência, subido pra alinhar o queixo
+   com o "3X" do fundo. A caixa mantém a mesma altura (124%), só desloca 13%. */
+/* SEM máscara: máscara deixa a camisa preta translúcida (vira cinza sobre o
+   fundo claro) e ainda corta o glow no topo da caixa, criando aquela linha reta.
+   O degradê é feito por sobreposição da própria cor de fundo — ele dissolve
+   na cor da página em vez de ficar transparente. */
+/* Tamanho e posição desacoplados: --sub-h controla a escala, --sub-b a altura.
+   Assim eu subo/desço sem mudar o tamanho (com object-fit:contain os dois
+   ficavam presos um no outro). Ele sangra pela base do hero, que tem
+   overflow:hidden — o corte é feito pela borda da seção, como na referência. */
+.subject.cut{top:-11%;left:-16%;right:-16%;bottom:-4%;
+  -webkit-mask-image:none;mask-image:none}
+/* degradê radial: sem nenhuma borda reta, então não marca retângulo sobre o
+   radial laranja do fundo. Só suaviza a transição perto da cintura. */
+.subject.cut::after{
+  content:"";position:absolute;left:50%;bottom:-8%;transform:translateX(-50%);
+  width:160%;height:40%;z-index:3;pointer-events:none;
+  background:radial-gradient(58% 108% at 50% 100%,
+    rgba(243,241,236,.92) 0%,
+    rgba(243,241,236,.72) 38%,
+    rgba(243,241,236,.34) 64%,
+    rgba(243,241,236,0)   86%)}
+.subject.cut img{object-fit:contain;object-position:50% 100%;border-radius:0;
+  /* glow laranja acompanhando o contorno do recorte + sombra pra assentar */
+  filter:
+    drop-shadow(0 0 22px rgba(255,90,0,.17))
+    drop-shadow(0 0 60px rgba(255,90,0,.09))
+    drop-shadow(0 22px 40px rgba(0,0,0,.18))}
+
+/* faixa de mantras */
+.strip{background:#111;color:#fff;padding:18px 0;overflow:hidden}
+.strip .marquee{display:flex;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.strip .track{display:flex;align-items:center;gap:clamp(30px,4vw,64px);padding-right:clamp(30px,4vw,64px);flex-shrink:0;animation:mq 30s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+.strip .item{display:flex;align-items:center;gap:11px;font-family:var(--fd);font-size:clamp(12px,1.1vw,15px);white-space:nowrap;letter-spacing:.02em}
+.strip .item em{font-style:normal;font-size:14px;line-height:1;flex:none}
+
+/* ════════════ 02 DIAGNÓSTICO ════════════ */
+.diag h2{max-width:17ch;margin:22px auto 0}
+.diag .lead{max-width:52ch;margin:28px auto 0}
+.diag-split{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:52px auto 0}
+.diag-card{border-radius:16px;padding:clamp(24px,2.6vw,34px);border:1px solid var(--line-d)}
+.diag-card.bad{background:#fff}
+.diag-card.good{background:#111;color:#fff;border-color:#111}
+.diag-card .k{font-family:var(--fd);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-dark);display:block;margin-bottom:16px}
+.diag-card.good .k{color:var(--accent)}
+.diag-card p{font-size:clamp(15px,1.4vw,19px);line-height:1.45;font-family:var(--fd);font-weight:500;letter-spacing:-.02em}
+
+/* ════════════ 03 AUTORIDADE ════════════ */
+.auth-grid{display:grid;grid-template-columns:minmax(240px,400px) 1fr;gap:clamp(28px,4.4vw,72px);align-items:center}
+.auth-img{aspect-ratio:4/5;overflow:hidden;border-radius:18px;background:#e4e0d8}
+.auth-img img{width:100%;height:100%;object-fit:cover}
+.auth-txt h2{margin-top:20px}
+.auth-txt p{margin-top:22px}
+.auth-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.auth-facts div{border-top:1px solid var(--line-d);padding-top:16px}
+.dark .auth-facts div{border-color:var(--line)}
+.auth-facts b{display:block;font-family:var(--fd);font-size:clamp(20px,2.2vw,32px);font-weight:600;letter-spacing:-.03em}
+.auth-facts span{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-dark);margin-top:8px;line-height:1.5}
+.dark .auth-facts span{color:var(--gray)}
+
+/* ════════════ 04 LEVANTE UM DEDO ════════════ */
+.hand h2{max-width:16ch;margin:22px auto 0}
+.hand-list{max-width:820px;margin:48px auto 0}
+.hand-list li{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-top:1px solid var(--line-d);font-size:clamp(14.5px,1.25vw,17px);line-height:1.6;color:#3f3f3f}
+.hand-list li:last-child{border-bottom:1px solid var(--line-d)}
+.hand-list li i{flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#000;font-style:normal;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.hand-list li b{color:#111;font-weight:600}
+.hand-out{max-width:44ch;margin:48px auto 0;font-family:var(--fd);font-size:clamp(17px,1.9vw,26px);font-weight:500;line-height:1.35;letter-spacing:-.02em}
+
+/* ════════════ 05 MECANISMO ════════════ */
+.mec h2{max-width:19ch;margin:22px auto 0}
+.mec .lead{max-width:54ch;margin:28px auto 0}
+.speed{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(14px,2.4vw,34px);align-items:center;max-width:820px;margin:54px auto 0}
+.speed-card{border-radius:16px;padding:clamp(22px,2.4vw,32px);text-align:center;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.speed-card.hot{background:var(--accent);border-color:var(--accent);color:#000}
+.speed-card .t{font-family:var(--fd);font-size:clamp(30px,3.6vw,52px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.speed-card .t small{font-size:.32em;font-weight:400;letter-spacing:.04em;opacity:.7}
+.speed-card .l{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-top:12px;opacity:.72}
+.speed .arrow{font-family:var(--fd);font-size:clamp(18px,2vw,26px);color:var(--accent);font-weight:600}
+.ladder{max-width:760px;margin:54px auto 0}
+.ladder-lead{text-align:center;font-size:14px;color:var(--gray);margin-top:56px}
+.ladder li{display:grid;grid-template-columns:minmax(96px,130px) 1fr minmax(120px,auto);gap:clamp(12px,2.2vw,30px);align-items:center;padding:16px 0;border-top:1px solid var(--line)}
+.ladder li:last-child{border-bottom:1px solid var(--line)}
+.ladder .q{font-family:var(--fd);font-size:12.5px;color:#c5c5c5;white-space:nowrap}
+.ladder .bar{height:7px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
+.ladder .bar i{display:block;height:100%;width:var(--w);background:var(--accent);border-radius:999px;transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease) .2s}
+.ladder li.in .bar i{transform:scaleX(1)}
+.ladder .v{font-family:var(--fd);font-size:clamp(13px,1.3vw,17px);font-weight:600;text-align:right;white-space:nowrap}
+.ladder li.top .q,.ladder li.top .v{color:var(--accent)}
+.mec-note{max-width:56ch;margin:44px auto 0;text-align:center;font-size:13.5px;line-height:1.75;color:var(--gray)}
+.mec-note b{color:#fff;font-weight:600}
+
+/* ════════════ 06 PROVA ════════════ */
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.proof-grid .tile{aspect-ratio:4/5;border-radius:12px}
+.proof-note{text-align:center;max-width:62ch;margin:36px auto 0;font-size:12px;color:var(--gray-dark);line-height:1.7}
+
+/* carrossel de trabalhos */
+.works{margin-top:50px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.works-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px clamp(20px,3.5vw,48px) 12px;scrollbar-width:none;cursor:grab}
+.works-track::-webkit-scrollbar{display:none}
+.works-track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.work{flex:0 0 clamp(168px,17vw,220px);scroll-snap-align:center;-webkit-user-select:none;user-select:none}
+.work b{display:block;font-family:var(--fd);font-size:14px;font-weight:600;margin-top:14px;letter-spacing:-.01em}
+.work span{display:block;font-size:12px;color:var(--gray-dark);margin-top:5px;line-height:1.5}
+.dark .work span{color:var(--gray)}
+.works-nav{display:flex;gap:10px;justify-content:center;margin-top:30px}
+.works-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-d);color:#111;font-size:15px;transition:all .35s var(--ease)}
+.dark .works-nav button{border-color:var(--line);color:#fff}
+.works-nav button:hover{background:var(--accent);border-color:var(--accent);color:#000;transform:translateY(-3px)}
+
+/* ════════════ 07 MÓDULOS ════════════ */
+.mods{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+.mod{background:#fff;border-radius:16px;padding:24px;min-height:236px;display:flex;flex-direction:column;transition:transform .5s var(--ease),background .5s;border:1px solid var(--line-d)}
+.mod:hover{transform:translateY(-8px);background:var(--accent);border-color:var(--accent)}
+.mod-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--fd);font-size:11.5px}
+.mod-top .dots{display:flex;gap:4px}
+.mod-top .dots i{width:5px;height:5px;background:#111;border-radius:1px;opacity:.8}
+.mod .btag{font-family:var(--fd);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;background:#111;color:var(--accent);padding:5px 10px;border-radius:999px}
+.mod h4{margin-top:auto;font-size:clamp(15px,1.4vw,20px);text-transform:uppercase;padding-top:48px;line-height:1.2}
+.mod p{font-size:12.5px;color:#4a4a4a;margin-top:11px;line-height:1.6}
+.mod.is-bonus{background:var(--accent);border-color:var(--accent)}
+.mod.is-bonus .btag{background:#111;color:#fff}
+.mod.is-bonus:hover{background:#111;border-color:#111}
+.mod.is-bonus:hover h4{color:#fff}
+.mod.is-bonus:hover p{color:#b5b5b5}
+.mod.is-bonus:hover .btag{background:var(--accent);color:#000}
+.mod.is-pilares{background:#111;border-color:#111;color:#fff}
+.mod.is-pilares h4{color:#fff}
+.mod.is-pilares p{color:#a5a5a5}
+.mod.is-pilares .btag{background:var(--accent);color:#000}
+.mod.is-pilares .mod-top{color:#8f8f8f}
+.mod.is-pilares:hover{background:var(--accent);border-color:var(--accent)}
+.mod.is-pilares:hover h4,.mod.is-pilares:hover .mod-top{color:#000}
+.mod.is-pilares:hover p{color:#2a1300}
+.mod.is-pilares:hover .btag{background:#111;color:#fff}
+
+/* ════════════ 08 BENEFÍCIOS ════════════ */
+.gains{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:940px;margin:48px auto 0}
+.gain{display:flex;gap:18px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:26px}
+.gain i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#000;font-style:normal;font-family:var(--fd);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.gain b{display:block;font-family:var(--fd);font-size:clamp(15px,1.4vw,19px);font-weight:600;letter-spacing:-.02em;line-height:1.25}
+.gain span{display:block;font-size:13px;color:var(--gray);margin-top:9px;line-height:1.65}
+
+/* ════════════ 09 OFERTA ════════════ */
+.offer-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;max-width:1000px;margin:48px auto 0;align-items:stretch}
+.offer-items{background:#fff;border-radius:18px;padding:clamp(24px,2.6vw,36px);border:1px solid var(--line-d)}
+.offer-items h3{font-size:clamp(15px,1.4vw,20px);text-transform:uppercase;border-bottom:1px solid var(--line-d);padding-bottom:18px}
+.stack{margin-top:20px}
+.stack li{display:flex;justify-content:space-between;align-items:center;gap:clamp(12px,2.4vw,26px);background:#111;color:#fff;border-radius:13px;padding:18px clamp(16px,1.8vw,22px);margin-bottom:11px}
+.stack li b{font-family:var(--fd);font-size:clamp(13px,1.2vw,16px);font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.stack li s{font-family:var(--fd);font-size:clamp(13.5px,1.35vw,18px);font-weight:600;color:var(--accent);white-space:nowrap;text-decoration-thickness:2px}
+.stack li.total{background:var(--accent);color:#000;margin-top:16px;margin-bottom:0}
+.stack li.total b{font-size:clamp(14px,1.5vw,20px);letter-spacing:.04em}
+.stack li.total s{color:#000}
+.offer-extra{margin-top:18px;font-size:12px;color:#666;line-height:1.6;display:flex;gap:9px;align-items:baseline}
+.offer-extra i{color:var(--accent-deep);font-style:normal;font-weight:700}
+.offer-price{background:#111;color:#fff;border-radius:18px;padding:clamp(26px,2.8vw,40px);text-align:center;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.offer-price::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 0%,rgba(255,90,0,.2),transparent 62%);pointer-events:none}
+.offer-price>*{position:relative;z-index:2}
+.offer-price .anchor{font-size:13.5px;color:#9a9a9a}
+.offer-price .main{font-family:var(--fd);font-size:clamp(30px,3.4vw,46px);font-weight:600;letter-spacing:-.035em;line-height:1.1;margin:14px 0 8px}
+.offer-price .cash{font-size:14px;color:#c5c5c5}
+.offer-price .cash b{color:#fff;font-weight:600}
+.offer-price .daily{margin:22px auto 0;font-size:12.5px;color:#a5a5a5;max-width:32ch;line-height:1.65}
+.offer-price .daily b{color:#fff;font-weight:600}
+.offer-price .btn{margin:26px auto 0}
+.offer-price .secure{margin-top:16px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7a7a7a}
+
+/* ════════════ 10 GARANTIA ════════════ */
+.gar{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,3.4vw,52px);align-items:center;max-width:860px;margin:0 auto;background:#fff;border:1px solid var(--line-d);border-radius:18px;padding:clamp(26px,3vw,42px)}
+.gar-seal{width:146px;height:146px;border-radius:50%;flex:none;background:var(--accent);color:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--fd)}
+.gar-seal b{font-size:50px;line-height:1;font-weight:600;letter-spacing:-.04em}
+.gar-seal span{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:7px;font-family:var(--fb);font-weight:600}
+.gar h3{font-size:clamp(19px,2.2vw,30px);line-height:1.2}
+.gar p{margin-top:16px;font-size:14px;line-height:1.75;color:#4a4a4a;max-width:50ch}
+.gar p b{color:#111;font-weight:600}
+
+/* ════════════ 11 FAQ ════════════ */
+.faq-wrap{max-width:840px;margin:44px auto 0}
+.acc{background:#fff;border:1px solid var(--line-d);border-radius:14px;margin-bottom:12px;overflow:hidden;transition:background .4s}
+.acc.open{background:#fff}
+.acc-head{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 24px;text-align:left}
+.acc-head h4{font-size:clamp(14.5px,1.3vw,18px);letter-spacing:-.02em}
+.acc-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid rgba(0,0,0,.3);position:relative;transition:transform .5s var(--ease),background .4s}
+.acc-icon::before,.acc-icon::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.6px;background:#111;transform:translate(-50%,-50%)}
+.acc-icon::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .5s var(--ease)}
+.acc.open .acc-icon{background:var(--accent);border-color:var(--accent);transform:rotate(180deg)}
+.acc.open .acc-icon::after{transform:translate(-50%,-50%) rotate(0)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
+.acc-body p{padding:0 24px 22px;font-size:13.5px;color:#555;line-height:1.75}
+.acc-body p b{color:#111;font-weight:600}
+
+/* ════════════ 12 CTA FINAL ════════════ */
+.final{text-align:center}
+.final h2{max-width:18ch;margin:22px auto 0}
+.final .lead{max-width:48ch;margin:26px auto 0}
+.final .btn{margin-top:38px}
+
+/* ════════════ FOOTER ════════════ */
+.footer{background:#080809;color:#fff;padding:clamp(50px,6vw,80px) 0 30px}
+.footer-brand{font-family:var(--fd);font-weight:600;font-size:clamp(40px,9vw,130px);letter-spacing:-.04em;line-height:.95;color:var(--accent)}
+.footer-brand i{font-style:normal;color:#fff}
+.footer-desc{max-width:400px;color:#a9a9a9;font-size:13px;line-height:1.7;margin-top:26px}
+.disclaimer{border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:22px 24px;margin-top:42px;font-size:11.5px;line-height:1.85;color:#7d7d7d}
+.disclaimer b{color:#a9a9a9}
+.footer-end{border-top:1px solid rgba(255,255,255,.12);margin-top:32px;padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:11.5px;color:#7d7d7d}
+.footer-end a:hover{color:var(--accent)}
+
+/* ════════════ COMPOSIÇÃO STORIES (hero, coluna direita) ════════════ */
+/* ─── card de story (experts em loop) ─── */
+.storycard{position:absolute;z-index:4;left:-4%;bottom:3%;width:43%;
+  background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:17px;
+  overflow:hidden;box-shadow:0 26px 62px rgba(0,0,0,.45)}
+.sc-bars{display:flex;gap:3px;padding:9px 10px 2px}
+.sc-bars i{flex:1;height:2.5px;border-radius:2px;background:rgba(255,255,255,.26);position:relative;overflow:hidden}
+.sc-bars i b{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
+.sc-bars i.done b{transform:scaleX(1)}
+.sc-bars i.now b{animation:scfill var(--dur,4.2s) linear forwards}
+@keyframes scfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.sc-head{display:flex;align-items:center;gap:6px;padding:9px 10px}
+.sc-av{width:21px;height:21px;border-radius:50%;overflow:hidden;flex:none;background:#3a3a3a}
+.sc-av img{width:100%;height:100%;object-fit:cover}
+.sc-name{font-family:var(--fd);font-size:10px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sc-ver{flex:none;width:10px;height:10px;fill:var(--accent)}
+.sc-time{font-size:9px;color:#9a9a9a;flex:none}
+.sc-dots{margin-left:auto;color:#fff;font-size:12px;letter-spacing:1.5px;flex:none;line-height:1}
+.sc-x{color:#fff;font-size:11px;flex:none;opacity:.85;line-height:1}
+.sc-media{position:relative;aspect-ratio:4/5;background:#0d0d0f;overflow:hidden}
+.sc-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .55s var(--ease)}
+.sc-media img.on{opacity:1}
+.sc-media .ph-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:22px;color:#3a3a3a}
+.sc-foot{display:flex;align-items:center;gap:7px;padding:9px 10px}
+.sc-msg{flex:1;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:6px 11px;font-size:9px;color:#b0b0b0;min-width:0}
+.sc-foot svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:1.8;flex:none}
+
+/* ─── caixa "manda sua pergunta" (ativa) ─── */
+.askbox{position:absolute;z-index:6;right:-7%;top:4%;width:51%;
+  background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:19px;
+  padding:27px 17px 17px;box-shadow:0 26px 62px rgba(0,0,0,.45);text-align:center}
+.ab-av{position:absolute;left:50%;top:-21px;transform:translateX(-50%);
+  width:42px;height:42px;border-radius:50%;overflow:hidden;border:2.5px solid #17171a;background:#3a3a3a}
+.ab-av img{width:100%;height:100%;object-fit:cover}
+.askbox > b{display:block;font-family:var(--fd);font-size:clamp(11.5px,1.1vw,15px);color:#fff;letter-spacing:-.01em;line-height:1.3}
+.ab-form{margin-top:12px;display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+  border-radius:999px;padding:4px 4px 4px 13px;transition:border-color .3s}
+.ab-form:focus-within{border-color:rgba(255,90,0,.6)}
+.ab-form input{flex:1;background:none;border:none;outline:none;color:#fff;
+  font-family:var(--fb);font-size:11px;min-width:0;padding:5px 0}
+.ab-form input::placeholder{color:#8a8a8a}
+.ab-send{flex:none;width:27px;height:27px;border-radius:50%;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
+.ab-send:hover{transform:scale(1.1)}
+.ab-send svg{width:12px;height:12px;stroke:#000;fill:none;stroke-width:2.2}
+
+/* ─── selo circular rotativo ─── */
+.seal{position:absolute;z-index:3;right:14%;bottom:27%;width:18%;aspect-ratio:1;pointer-events:none}
+.seal .ring{width:100%;height:100%;animation:sealspin 20s linear infinite}
+@keyframes sealspin{to{transform:rotate(360deg)}}
+.seal .ring text{font-family:var(--fd);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.14em}
+.seal .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:46%;aspect-ratio:1;border-radius:50%;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(255,90,0,.45)}
+.seal .core svg{width:46%;height:46%;stroke:#000;fill:none;stroke-width:2}
+
+/* ════════════ MODAL DE CAPTURA ════════════ */
+.modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(8,8,9,.72);backdrop-filter:blur(6px)}
+.modal-box{position:relative;z-index:2;width:100%;max-width:440px;background:var(--paper);
+  border-radius:20px;padding:clamp(26px,3vw,38px);box-shadow:0 40px 90px rgba(0,0,0,.4);
+  animation:mIn .45s var(--ease)}
+@keyframes mIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+.modal-box h3{font-size:clamp(18px,2vw,25px);line-height:1.2}
+.modal-box .m-sub{margin-top:10px;font-size:13px;color:#5c5c5c;line-height:1.6}
+.modal-q{margin-top:18px;background:#fff;border:1px solid var(--line-d);border-radius:12px;
+  padding:14px 16px;font-size:13.5px;color:#333;line-height:1.55}
+.modal-q span{display:block;font-family:var(--fd);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-deep);margin-bottom:7px}
+.m-field{margin-top:14px}
+.m-field label{display:block;font-family:var(--fd);font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:#6a6a6a;margin-bottom:7px}
+.m-field input,.m-field textarea{width:100%;background:#fff;border:1px solid var(--line-d);
+  border-radius:11px;padding:12px 14px;font-family:var(--fb);font-size:14px;color:#111;outline:none;
+  transition:border-color .3s}
+.m-field input:focus,.m-field textarea:focus{border-color:var(--accent)}
+.m-field textarea{min-height:78px;resize:vertical;line-height:1.55}
+.modal-box .btn{width:100%;margin-top:20px}
+.m-close{position:absolute;top:14px;right:16px;width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--line-d);color:#111;font-size:14px;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:all .3s}
+.m-close:hover{background:#111;color:#fff;border-color:#111}
+.m-legal{margin-top:14px;font-size:10.5px;color:#8a8a8a;line-height:1.6;text-align:center}
+.m-ok{text-align:center;padding:10px 0}
+.m-ok .tick{width:56px;height:56px;border-radius:50%;background:var(--accent);color:#000;
+  display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px}
+
+/* ════════════ PAINEL ADMIN ════════════ */
+.admin{position:fixed;inset:0;z-index:400;background:var(--light);display:none;overflow-y:auto;padding:clamp(20px,4vw,56px)}
+.admin.open{display:block}
+.admin-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.admin-head h2{font-size:clamp(20px,2.4vw,32px)}
+.admin-tools{display:flex;gap:10px;flex-wrap:wrap}
+.admin .btn{padding:12px 22px;font-size:11px}
+.admin-gate{max-width:380px;margin:12vh auto;background:#fff;border:1px solid var(--line-d);
+  border-radius:18px;padding:34px}
+.admin-gate h3{font-size:20px;margin-bottom:8px}
+.admin-gate p{font-size:12.5px;color:#6a6a6a;line-height:1.6;margin-bottom:18px}
+.admin-warn{background:#fff4ef;border:1px solid rgba(224,78,0,.3);border-radius:12px;
+  padding:14px 16px;font-size:11.5px;line-height:1.65;color:#7a3a1a;margin-bottom:22px}
+.admin-warn b{color:#b03c00}
+.lead-table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 8px 26px rgba(0,0,0,.06);font-size:13px}
+.lead-table th{font-family:var(--fd);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  text-align:left;padding:14px 16px;background:#111;color:#fff;white-space:nowrap}
+.lead-table td{padding:14px 16px;border-top:1px solid var(--line-d);vertical-align:top;color:#333;line-height:1.55}
+.lead-table tr:hover td{background:#faf9f6}
+.lead-empty{background:#fff;border:1px dashed var(--line-d);border-radius:14px;padding:44px;
+  text-align:center;color:#8a8a8a;font-size:13.5px}
+.admin-count{font-family:var(--fd);font-size:12px;color:#6a6a6a}
+@media(max-width:700px){
+  .lead-table{display:block;overflow-x:auto;white-space:nowrap}
+}
+
+/* ════════════ RESPONSIVO ════════════ */
+@media(max-width:980px){
+  .hero-grid,.auth-grid,.offer-grid,.diag-split{grid-template-columns:1fr}
+  .hero-media{max-width:420px;margin:0 auto}
+  .auth-img{max-width:400px}
+  .mods{grid-template-columns:repeat(2,1fr)}
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
+  .gains{grid-template-columns:1fr}
+  .speed{grid-template-columns:1fr;gap:14px}
+  .speed .arrow{transform:rotate(90deg)}
+  .gar{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .gar p{margin-left:auto;margin-right:auto}
+  .auth-facts{grid-template-columns:1fr;gap:0}
+  .auth-facts div{padding:14px 0}
+}
+@media(max-width:600px){
+  .mods,.proof-grid{grid-template-columns:1fr}
+  .ladder li{grid-template-columns:1fr auto}
+  .ladder .bar{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  [data-reveal]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="header" id="header">
+  <a href="#top" class="logo">EDIÇÃO 3X<i>.</i></a>
+</header>
+
+<!-- ═══════════════ 01. HERO (sem VSL) ═══════════════ -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div data-reveal="left">
+      <span class="badge">Formatos Validados de Edição</span>
+      <h1 style="margin-top:22px">Editor de Vídeo descobre como ganhar de <span class="o">5 a 15 mil reais por mês</span> editando com os Formatos Validados de Edição usando o celular</h1>
+      <p class="sub">Mesmo que você <b>nunca tenha editado na vida</b>, sem precisar de equipamentos caros e com <b>2 horas de trabalho por dia</b>.</p>
+    </div>
+
+    <figure class="hero-media" data-reveal="right">
+      <div class="stage">
+        <!-- tipografia gigante ao fundo — quase invisível, só dá profundidade -->
+        <span class="stage-type" aria-hidden="true">3X</span>
+
+        <!-- Pedro em primeiro plano, na escala da referência (grande, sangrando
+             pela base). Salve o recorte em assets/ como pedro-recorte.png
+             (ou pedro-sem-fundo.png) e a página assume o PNG automaticamente. -->
+        <div class="subject">
+          <img src="assets/pedro-trabalho.jpg" alt="Pedro Goulart editando pelo celular">
+        </div>
+
+        <!-- selo circular rotativo -->
+        <div class="seal" aria-hidden="true">
+          <svg class="ring" viewBox="0 0 100 100">
+            <defs><path id="sealPath" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+            <text><textPath href="#sealPath" startOffset="0%">EDIÇÃO 3X • FORMATOS VALIDADOS • EDIÇÃO 3X • </textPath></text>
+          </svg>
+          <span class="core">
+            <svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </span>
+        </div>
+
+        <!-- CARD DE STORY — experts em loop (estrutura completa, conteúdo via JS) -->
+        <article class="storycard" id="storyCard" aria-label="Experts atendidos">
+          <div class="sc-bars" id="scBars"></div>
+          <header class="sc-head">
+            <span class="sc-av"><img id="scAv" alt="" style="display:none"></span>
+            <b class="sc-name" id="scName">—</b>
+            <svg class="sc-ver" viewBox="0 0 24 24"><path d="M12 1l2.6 2.1 3.3-.4 1.2 3.1 3 1.5-1 3.2 1 3.2-3 1.5-1.2 3.1-3.3-.4L12 23l-2.6-2.1-3.3.4-1.2-3.1-3-1.5 1-3.2-1-3.2 3-1.5 1.2-3.1 3.3.4z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke="#17171a" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+            <span class="sc-time" id="scTime">1d</span>
+            <span class="sc-dots">•••</span>
+            <span class="sc-x">✕</span>
+          </header>
+          <div class="sc-media" id="scMedia"></div>
+          <footer class="sc-foot">
+            <span class="sc-msg">Enviar mensagem</span>
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.5-8.5C.6 9.4 2.4 5.5 6 5.5c2.2 0 3.5 1.2 4 2 .5-.8 1.8-2 4-2 3.6 0 5.4 3.9 3.5 7C19 16.4 12 21 12 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </footer>
+        </article>
+
+        <!-- CAIXA "MANDA SUA PERGUNTA" — ativa -->
+        <div class="askbox">
+          <span class="ab-av"><img src="assets/pedro-hero.jpg" alt="Pedro Goulart" onerror="this.remove()"></span>
+          <b>Manda sua pergunta 🔥</b>
+          <form class="ab-form" id="askForm" autocomplete="off">
+            <input type="text" id="askInput" placeholder="Digite algo..." aria-label="Sua pergunta" maxlength="280">
+            <button class="ab-send" type="submit" aria-label="Enviar pergunta">
+              <svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- faixa de mantras -->
+<div class="strip">
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="stripA"></div>
+    <div class="track" id="stripB"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ 02. DIAGNÓSTICO ═══════════════ -->
+<section class="sec-pad diag center">
+  <div class="container narrow">
+    <span class="badge" data-reveal>O diagnóstico</span>
+    <h2 class="h-big" data-reveal>Seu problema não é talento.<br><span class="dim">É que você edita devagar.</span></h2>
+    <p class="lead" data-reveal>Ninguém contrata editor porque ele é criativo. Contrata porque <b>precisa do vídeo pronto</b> — e paga melhor quem entrega antes. Quem improvisa a cada projeto trava, refaz e some por uma semana. Quem tem formato pronto, entrega no mesmo dia.</p>
+
+    <div class="diag-split">
+      <div class="diag-card bad" data-reveal="left">
+        <span class="k">Sem formato</span>
+        <p>"Deixa eu ver o que dá pra fazer com esse material…"</p>
+      </div>
+      <div class="diag-card good" data-reveal="right">
+        <span class="k">Com formato validado</span>
+        <p>"Esse aqui é o formato 03. Te entrego amanhã."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 03. AUTORIDADE ═══════════════ -->
+<section class="sec-pad" style="background:var(--paper)">
+  <div class="container auth-grid">
+    <figure class="auth-img" data-reveal="left">
+      <img src="assets/pedro-hero.jpg" alt="Pedro Goulart">
+    </figure>
+    <div class="auth-txt" data-reveal="right">
+      <span class="badge">Quem te ensina</span>
+      <h2 class="h-mid">Eu sou Pedro Goulart — e passei os últimos anos editando pra quem não aceita atraso.</h2>
+      <p class="lead">Comecei editando de madrugada, cobrando pouco, achando que precisava de mais curso e mais equipamento. Até entender que o mercado não paga pelo capricho: paga por <b>entrega previsível</b>.</p>
+      <p class="lead">Foi testando formato atrás de formato — no meu trabalho e no dos maiores players do digital — que eu mapeei os <b>Formatos Validados de Edição</b>: as estruturas que se repetem nos vídeos que performam. É isso que eu te entrego aqui, destilado.</p>
+      <!-- PEDRO: bio/autoridade — só fatos verificáveis que você sustenta em público.
+           Nomes citados na copy base (CONFIRMAR antes de publicar): Hanah Franklin,
+           Marcos Paulo, Leandro Ladeira, Ícaro de Carvalho, Bettina Rudolph, Duda Vieira. -->
+      <div class="auth-facts">
+        <div><b>[X]+</b><span>Vídeos entregues</span></div>
+        <div><b>[X]</b><span>Players atendidos</span></div>
+        <div><b>[X] anos</b><span>Dentro do jogo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 04. LEVANTE UM DEDO ═══════════════ -->
+<section class="sec-pad hand center">
+  <div class="container">
+    <span class="badge" data-reveal>Se identificou?</span>
+    <h2 class="h-big" data-reveal>Levante um dedo se você:</h2>
+
+    <ul class="hand-list" style="text-align:left">
+      <li data-reveal><i>1</i><span>Trava na frente da timeline sem saber <b>por onde começar</b> a edição</span></li>
+      <li data-reveal><i>2</i><span>Passa a noite inteira num vídeo que <b>devia levar duas horas</b></span></li>
+      <li data-reveal><i>3</i><span>Acha que precisa de <b>computador caro</b> pra começar a cobrar</span></li>
+      <li data-reveal><i>4</i><span>Já perdeu job porque <b>demorou demais</b> pra entregar</span></li>
+      <li data-reveal><i>5</i><span>Refaz o mesmo corte três vezes porque <b>não gostou do ritmo</b></span></li>
+      <li data-reveal><i>6</i><span>Nunca sabe <b>quanto cobrar</b> — e acaba aceitando qualquer valor</span></li>
+      <li data-reveal><i>7</i><span>Tem medo de <b>abordar cliente</b> e parecer desesperado</span></li>
+      <li data-reveal><i>8</i><span>Sente que <b>dá conta de mais</b>, mas a agenda não fecha a conta</span></li>
+    </ul>
+
+    <p class="hand-out" data-reveal>Se você levantou o dedo em <span class="o">três ou mais</span>, o teu gargalo tem nome — e não é falta de talento.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 05. MECANISMO ═══════════════ -->
+<section class="sec-pad dark mec center">
+  <div class="container">
+    <span class="badge" data-reveal>O mecanismo</span>
+    <h2 class="h-big" data-reveal>Existe um padrão que se repete nos vídeos que performam. <span class="o">Ele tem nome: formato.</span></h2>
+    <p class="lead" data-reveal>Vídeo que funciona não é sorte nem inspiração — é <b>estrutura repetível</b>. Quando você para de inventar do zero e passa a montar em cima de formatos já validados, a edição deixa de ser criação e vira execução. É aí que o tempo cai.</p>
+
+    <div class="speed">
+      <div class="speed-card" data-reveal="left">
+        <div class="t">6h <small>/ vídeo</small></div>
+        <span class="l">Improvisando a cada projeto</span>
+      </div>
+      <span class="arrow" data-reveal>→</span>
+      <div class="speed-card hot" data-reveal="right">
+        <div class="t">2h <small>/ vídeo</small></div>
+        <span class="l">Com formato validado</span>
+      </div>
+    </div>
+
+    <p class="ladder-lead" data-reveal>E velocidade vira agenda. Agenda vira cliente. Cliente é a tabela que o mercado já pratica:</p>
+    <ul class="ladder">
+      <li data-reveal><span class="q">1 cliente fixo</span><span class="bar"><i style="--w:17%"></i></span><span class="v">R$ 1.500 – 2.500</span></li>
+      <li data-reveal style="transition-delay:.1s"><span class="q">2 clientes fixos</span><span class="bar"><i style="--w:34%"></i></span><span class="v">R$ 3.000 – 5.000</span></li>
+      <li data-reveal style="transition-delay:.2s"><span class="q">4 clientes fixos</span><span class="bar"><i style="--w:67%"></i></span><span class="v">R$ 6.000 – 10.000</span></li>
+      <li class="top" data-reveal style="transition-delay:.3s"><span class="q">6 clientes fixos</span><span class="bar"><i style="--w:100%"></i></span><span class="v">R$ 9.000 – 15.000</span></li>
+    </ul>
+
+    <p class="mec-note" data-reveal>Nenhum número aí é promessa minha — é o preço que o mercado já paga. O que o Edição 3x entrega é a parte que depende de método: <b>a velocidade pra dar conta do serviço</b> e <b>o caminho até o primeiro cliente</b>. Em qual degrau você vai parar depende de quanta hora você coloca e de quanto você executa.</p>
+    <!-- PEDRO — ATENÇÃO (compliance + coerência):
+         1) A headline promete "5 a 15 mil". O topo da escada (15k) exige 6 clientes fixos.
+            Com as "2 horas por dia" da sub, a conta realista fecha em 3–4 clientes (R$6–10 mil).
+            Ou você sobe o ticket, ou deixa claro que 15k pressupõe mais horas. Está sinalizado
+            no texto acima ("depende de quanta hora você coloca"), mas revise antes de subir.
+         2) Validar a faixa R$1.500–2.500 com prints/propostas reais e GUARDAR a evidência. -->
+  </div>
+</section>
+
+<!-- ═══════════════ 06. PROVA SOCIAL ═══════════════ -->
+<section class="sec-pad center">
+  <div class="container">
+    <span class="badge" data-reveal>Alunos</span>
+    <h2 class="h-big" data-reveal>Não acredite em mim.<br><span class="dim">Olha o que eles entregaram.</span></h2>
+  </div>
+
+  <!-- carrossel de vídeos editados -->
+  <div class="works" data-reveal>
+    <div class="works-track" id="worksTrack"></div>
+  </div>
+  <div class="container">
+    <div class="works-nav" data-reveal>
+      <button id="wPrev" aria-label="Anterior">←</button>
+      <button id="wNext" aria-label="Próximo">→</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="proof-grid">
+      <div class="tile tile--light" data-reveal><b>Print 01</b><span>depoimento autorizado</span></div>
+      <div class="tile tile--light" data-reveal style="transition-delay:.08s"><b>Print 02</b><span>depoimento autorizado</span></div>
+      <div class="tile tile--light" data-reveal style="transition-delay:.16s"><b>Print 03</b><span>depoimento autorizado</span></div>
+      <div class="tile tile--light" data-reveal style="transition-delay:.24s"><b>Print 04</b><span>depoimento autorizado</span></div>
+    </div>
+    <p class="proof-note">Depoimentos reais, com autorização expressa e por escrito. Resultados citados são casos individuais — não típicos nem garantidos.</p>
+    <!-- PEDRO: depoimento de RENDA só com autorização por escrito, valores reais e verificáveis,
+         sempre apresentado como caso individual. Nunca generalizar, nunca "editar" o print. -->
+  </div>
+</section>
+
+<!-- ═══════════════ 07. MÓDULOS ═══════════════ -->
+<section class="sec-pad center" style="background:var(--paper)">
+  <div class="container">
+    <span class="badge" data-reveal>O conteúdo</span>
+    <h2 class="h-big" data-reveal>7 módulos. Zero enrolação.</h2>
+
+    <div class="mods" style="text-align:left">
+      <article class="mod" data-reveal>
+        <div class="mod-top"><span>[ 01 ]</span><span class="dots"><i></i><i style="opacity:.25"></i><i style="opacity:.25"></i></span></div>
+        <h4>Formatos Validados de Edição</h4>
+        <p>Os formatos que realmente funcionam nas redes. Você para de inventar e passa a usar o que já performa.</p>
+      </article>
+      <article class="mod" data-reveal style="transition-delay:.06s">
+        <div class="mod-top"><span>[ 02 ]</span><span class="dots"><i></i><i></i><i style="opacity:.25"></i></span></div>
+        <h4>Edição na Prática</h4>
+        <p>Todo o processo de cada formato sendo editado na tua frente. Do bruto ao vídeo pronto, sem pular etapa.</p>
+      </article>
+      <article class="mod" data-reveal style="transition-delay:.12s">
+        <div class="mod-top"><span>[ 03 ]</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <h4>Equipamentos BB</h4>
+        <p>Os equipamentos bons e baratos pra quem tá começando. Você não precisa gastar caro — precisa comprar certo.</p>
+      </article>
+      <article class="mod" data-reveal style="transition-delay:.18s">
+        <div class="mod-top"><span>[ 04 ]</span><span class="dots"><i></i><i style="opacity:.25"></i><i style="opacity:.25"></i></span></div>
+        <h4>Cor</h4>
+        <p>Colorização simplificada que dá cara de cinema — sem virar colorista e sem plugin caro.</p>
+      </article>
+      <article class="mod is-bonus" data-reveal style="transition-delay:.24s">
+        <div class="mod-top"><span>[ 05 ]</span><span class="btag">Bônus</span></div>
+        <h4>Como fechar clientes sem ser chato</h4>
+        <p>Os primeiros clientes sem parecer desesperado nem sair pedindo trabalho no direct.</p>
+      </article>
+      <article class="mod" data-reveal style="transition-delay:.3s">
+        <div class="mod-top"><span>[ 06 ]</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <h4>Organização do Jeito Certo</h4>
+        <p>Pastas, arquivos e projeto organizados pra você nunca mais perder tempo procurando material.</p>
+      </article>
+      <article class="mod is-bonus" data-reveal style="transition-delay:.36s">
+        <div class="mod-top"><span>[ 07 ]</span><span class="btag">Bônus</span></div>
+        <h4>Gravação na Prática</h4>
+        <p>O jeito simples de gravar que já facilita a edição depois. Material bem gravado corta metade do trabalho.</p>
+      </article>
+      <article class="mod is-pilares" data-reveal style="transition-delay:.42s">
+        <div class="mod-top"><span>[ + ]</span><span class="btag">O método</span></div>
+        <h4>Os 3 pilares</h4>
+        <p>Decupagem, Montagem e Finalização — a ordem que atravessa todos os módulos e sustenta a velocidade.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 08. BENEFÍCIOS ═══════════════ -->
+<section class="sec-pad dark center">
+  <div class="container">
+    <span class="badge" data-reveal>O que muda</span>
+    <h2 class="h-big" data-reveal>No fim do método,<br><span class="dim">você sai com isso:</span></h2>
+
+    <div class="gains" style="text-align:left">
+      <div class="gain" data-reveal>
+        <i>01</i>
+        <div>
+          <b>Edita 3x mais rápido</b>
+          <span>O vídeo que levava a noite inteira sai em duas horas — com formato pronto, não com improviso.</span>
+        </div>
+      </div>
+      <div class="gain" data-reveal style="transition-delay:.08s">
+        <i>02</i>
+        <div>
+          <b>Entrega com cara de cinema</b>
+          <span>Cor, ritmo e acabamento no nível que faz o cliente achar que valeu cada real.</span>
+        </div>
+      </div>
+      <div class="gain" data-reveal style="transition-delay:.16s">
+        <i>03</i>
+        <div>
+          <b>Trabalha com o que você já tem</b>
+          <span>Do celular ao setup simples — sem esperar comprar equipamento pra começar a cobrar.</span>
+        </div>
+      </div>
+      <div class="gain" data-reveal style="transition-delay:.24s">
+        <i>04</i>
+        <div>
+          <b>Sabe como conseguir cliente</b>
+          <span>Um caminho pronto pros primeiros clientes, sem parecer desesperado nem baixar teu preço.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 09. OFERTA ═══════════════ -->
+<section class="sec-pad center" id="oferta">
+  <div class="container">
+    <span class="badge" data-reveal>A oferta</span>
+    <h2 class="h-big" data-reveal>Tudo isso, hoje,<br><span class="o">por menos que um job avulso.</span></h2>
+
+    <div class="offer-grid" style="text-align:left">
+      <article class="offer-items" data-reveal="left">
+        <h3>Você recebe acesso a:</h3>
+        <ul class="stack">
+          <li><b>Curso Edição 3x</b><s>R$ 477,00</s></li>
+          <li><b>Bônus: Gravação na Prática</b><s>R$ 297,00</s></li>
+          <li><b>Bônus: Como fechar clientes sem ser chato</b><s>R$ 197,00</s></li>
+          <li class="total"><b>TOTAL:</b><s>R$ 971,00</s></li>
+        </ul>
+        <p class="offer-extra"><i>+</i><span>Acesso por <b>12 meses</b>, com atualizações e suporte inclusos.</span></p>
+        <!-- PEDRO: a ancoragem (R$477 / R$297 / R$197) só se sustenta se forem preços que você
+             realmente praticaria. Se não forem, reduza os valores ou apague a coluna e o TOTAL. -->
+      </article>
+
+      <article class="offer-price" data-reveal="right">
+        <span class="anchor">de <s>R$ 971</s> por apenas</span>
+        <div class="main">12× R$ 28,63</div>
+        <span class="cash">ou <b>R$ 277</b> à vista</span>
+        <p class="daily">Um único cliente na faixa da tabela — <b>R$1.500 a R$2.500</b> — paga esse curso mais de <b>5 vezes</b>.</p>
+        <a href="[LINK-DO-CHECKOUT]" class="btn btn-accent btn-lg">Acessar o método agora</a>
+        <div class="secure"><span>🔒 Compra segura</span><span>⚡ Acesso imediato</span><span>↩ 14 dias de garantia</span></div>
+        <!-- PEDRO: confirme a parcela no checkout. R$277 em 12x com juros ≈ R$28,63;
+             12x SEM juros = R$23,08. -->
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 10. GARANTIA ═══════════════ -->
+<section class="sec-pad" style="background:var(--paper);padding-top:0">
+  <div class="container">
+    <div class="gar" data-reveal>
+      <div class="gar-seal"><b>14</b><span>dias de garantia</span></div>
+      <div>
+        <h3>Testa. Se não fizer sentido, <span class="o">devolvo tudo.</span></h3>
+        <p>A lei me obriga a te dar 7 dias. Eu te dou <b>14</b> — porque quero que você teste editando um projeto real, não só assistindo aula. Um e-mail e <b>devolvemos 100%</b>, sem perguntas e sem letra miúda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 11. FAQ ═══════════════ -->
+<section class="sec-pad center">
+  <div class="container">
+    <span class="badge" data-reveal>Dúvidas</span>
+    <h2 class="h-big" data-reveal>Antes de você perguntar.</h2>
+    <div class="faq-wrap" style="text-align:left" id="faqList" data-reveal></div>
+  </div>
+</section>
+
+<!-- ═══════════════ 12. CTA FINAL ═══════════════ -->
+<section class="sec-pad dark final">
+  <div class="container">
+    <span class="badge" data-reveal>Última chamada</span>
+    <h2 class="h-big" data-reveal>O mercado não vai esperar você <span class="o">ficar pronto.</span></h2>
+    <p class="lead" data-reveal>Cada mês que você adia é um mês da tabela que fica na mesa de outro editor — que não edita melhor que você, só entrega mais rápido.</p>
+    <div data-reveal>
+      <a href="[LINK-DO-CHECKOUT]" class="btn btn-accent btn-lg">Acessar o método agora</a>
+      <span class="cta-note">R$ 277 à vista · 14 dias de garantia · acesso imediato</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MODAL DE CAPTURA ═══════════════ -->
+<div class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box">
+    <button class="m-close" data-close aria-label="Fechar">✕</button>
+
+    <div id="lmForm">
+      <h3 id="lmTitle">Sua pergunta chegou.<br>Só falta saber quem é você.</h3>
+      <p class="m-sub">Preenche aí embaixo que eu te respondo direto.</p>
+
+      <div class="modal-q"><span>Sua pergunta</span><em id="lmQuestion" style="font-style:normal"></em></div>
+
+      <form id="leadForm" autocomplete="on">
+        <div class="m-field">
+          <label for="lfNome">Nome</label>
+          <input type="text" id="lfNome" name="nome" required placeholder="Como você se chama?">
+        </div>
+        <div class="m-field">
+          <label for="lfEmail">E-mail</label>
+          <input type="email" id="lfEmail" name="email" required placeholder="voce@email.com">
+        </div>
+        <div class="m-field">
+          <label for="lfZap">WhatsApp</label>
+          <input type="tel" id="lfZap" name="whatsapp" placeholder="(00) 00000-0000">
+        </div>
+        <button class="btn btn-accent" type="submit" id="lfSubmit">Enviar minha pergunta</button>
+        <p class="m-legal">Seus dados são usados só pra te responder e te avisar sobre o Edição 3x. Sem spam.</p>
+      </form>
+    </div>
+
+    <div id="lmDone" style="display:none">
+      <div class="m-ok">
+        <div class="tick">✓</div>
+        <h3>Recebi sua pergunta!</h3>
+        <p class="m-sub">Vou te responder no e-mail que você deixou. Fica de olho.</p>
+      </div>
+      <button class="btn btn-accent" data-close type="button">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PAINEL ADMIN (acesse com #admin) ═══════════════ -->
+<div class="admin" id="adminPanel">
+  <!-- portão de senha -->
+  <div class="admin-gate" id="adminGate">
+    <h3>Área restrita</h3>
+    <p>Painel de perguntas capturadas no site.</p>
+    <form id="adminLogin" autocomplete="off">
+      <div class="m-field">
+        <label for="adPass">Senha</label>
+        <input type="password" id="adPass" placeholder="••••••••">
+      </div>
+      <button class="btn btn-accent" type="submit" style="width:100%;margin-top:16px">Entrar</button>
+    </form>
+    <p class="m-legal" style="margin-top:16px">Sair: feche a aba ou remova <b>#admin</b> da URL.</p>
+  </div>
+
+  <!-- conteúdo -->
+  <div id="adminBody" style="display:none">
+    <div class="admin-head">
+      <div>
+        <h2>Perguntas capturadas</h2>
+        <span class="admin-count" id="adCount">—</span>
+      </div>
+      <div class="admin-tools">
+        <button class="btn btn-accent" id="adExport" type="button">Baixar CSV</button>
+        <button class="btn btn-accent" id="adClear" type="button" style="background:#111;color:#fff">Limpar lista</button>
+        <button class="btn btn-accent" id="adExit" type="button" style="background:#111;color:#fff">Sair</button>
+      </div>
+    </div>
+
+    <div class="admin-warn">
+      <b>Leia antes de usar em produção.</b> Esta lista fica no <b>navegador deste computador</b> (localStorage) —
+      ela existe pra você testar o fluxo. Perguntas enviadas por visitantes ficam no navegador
+      <i>deles</i> e <b>não chegam até você</b>. Pra capturar de verdade, configure a constante
+      <b>LEADS.endpoint</b> no script da página (Formspree, webhook do Make/Zapier, Google Apps Script
+      ou Supabase). E lembre: senha escrita no HTML não protege nada — quem abrir o código-fonte lê.
+      A lista real deve viver no painel do serviço que você conectar.
+    </div>
+
+    <div id="adList"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <h2 class="footer-brand">EDIÇÃO<i>3X</i></h2>
+    <p class="footer-desc">O método de Pedro Goulart que transforma edição de vídeo na habilidade mais demandada do mercado digital — do zero à velocidade de quem entrega antes.</p>
+
+    <div class="disclaimer">
+      <b>Aviso legal:</b> os valores citados nesta página refletem preços praticados no mercado de edição de vídeo freelancer e resultados individuais de alunos. <b>Não constituem promessa ou garantia de ganho.</b> Resultados dependem de dedicação, execução, número de horas trabalhadas e fatores individuais, podendo variar de pessoa para pessoa. Nenhum resultado apresentado deve ser interpretado como típico ou garantido. Este site não é afiliado ao Facebook, Instagram, Google ou qualquer de suas entidades.
+    </div>
+
+    <div class="footer-end">
+      <span>© 2026 Edição 3X — Pedro Goulart · CNPJ [00.000.000/0000-00]</span>
+      <span><a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></span>
+      <span><a href="#top">Voltar ao topo ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $ = s => document.querySelector(s);
+
+/* ---------- FAIXA DE MANTRAS ---------- */
+const MANTRAS = ['Pelo celular','Sem equipamento caro','2 horas por dia','Começando do zero','Formatos validados','Editar 3x mais rápido','Sem enrolação teórica'];
+const stripHTML = MANTRAS.map(c=>`<span class="item"><em>🎬</em>${c}</span>`).join('');
+$('#stripA').innerHTML = stripHTML; $('#stripB').innerHTML = stripHTML;
+
+/* ---------- CARROSSEL DE TRABALHOS ----------
+   PEDRO: aponte "video" pro arquivo (ex.: 'assets/job-01.mp4') e "poster" pro frame de capa.
+   Deixe video:'' pra manter o placeholder. */
+const WORKS = [
+  {nome:'[Cliente 01]', tipo:'[Formato / entrega]', video:'', poster:'', tile:'tile--orange'},
+  {nome:'[Cliente 02]', tipo:'[Formato / entrega]', video:'', poster:'', tile:'tile--blue'},
+  {nome:'[Cliente 03]', tipo:'[Formato / entrega]', video:'', poster:'', tile:'tile--light'},
+  {nome:'[Cliente 04]', tipo:'[Formato / entrega]', video:'', poster:'', tile:'tile--blueblack'},
+  {nome:'[Cliente 05]', tipo:'[Formato / entrega]', video:'', poster:'', tile:'tile--black'},
+  {nome:'[Cliente 06]', tipo:'[Formato / entrega]', video:'', poster:'', tile:'tile--light'}
+];
+$('#worksTrack').innerHTML = WORKS.map((w,i)=>`
+  <article class="work">
+    <div class="vplayer v916">
+      ${w.video
+        ? `<video src="${w.video}" ${w.poster?`poster="${w.poster}"`:''} playsinline preload="metadata"></video>`
+        : `<div class="tile ${w.tile}"><b>${String(i+1).padStart(2,'0')}</b><span>vídeo 9:16</span></div>`}
+      <span class="vtag">Editado por mim</span>
+      <button class="vplay" aria-label="Assistir"><svg width="19" height="19" viewBox="0 0 24 24" fill="#000"><polygon points="7,4 21,12 7,20"/></svg></button>
+    </div>
+    <b>${w.nome}</b>
+    <span>${w.tipo}</span>
+  </article>`).join('');
+
+(function(){
+  const tr = $('#worksTrack');
+  if(!tr) return;
+  const step = () => (tr.querySelector('.work')?.offsetWidth || 200) + 18;
+  $('#wNext').onclick = ()=> tr.scrollBy({left: step()*2, behavior:'smooth'});
+  $('#wPrev').onclick = ()=> tr.scrollBy({left:-step()*2, behavior:'smooth'});
+  let down=false,startX=0,startLeft=0,moved=0;
+  tr.addEventListener('pointerdown',e=>{down=true;moved=0;startX=e.clientX;startLeft=tr.scrollLeft;tr.classList.add('dragging');tr.setPointerCapture(e.pointerId);});
+  tr.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-startX;moved=Math.max(moved,Math.abs(dx));tr.scrollLeft=startLeft-dx;});
+  const end=e=>{if(!down)return;down=false;tr.classList.remove('dragging');try{tr.releasePointerCapture(e.pointerId);}catch(_){}};
+  tr.addEventListener('pointerup',end); tr.addEventListener('pointercancel',end);
+  tr.addEventListener('click',e=>{if(moved>6)e.preventDefault();},true);
+})();
+
+/* ---------- PLAYERS DE VÍDEO ---------- */
+(function(){
+  function toggle(box){
+    const v = box.querySelector('video');
+    if(!v) return;
+    if(v.paused){
+      document.querySelectorAll('.vplayer video').forEach(o=>{
+        if(o!==v){o.pause();o.closest('.vplayer').classList.remove('playing');}
+      });
+      v.setAttribute('controls','');
+      v.play(); box.classList.add('playing');
+    } else { v.pause(); box.classList.remove('playing'); }
+  }
+  document.addEventListener('click', e=>{
+    const box = e.target.closest('.vplayer');
+    if(!box || e.target.closest('video')) return;
+    toggle(box);
+  });
+  document.addEventListener('play', e=>{ if(e.target.tagName==='VIDEO') e.target.closest('.vplayer')?.classList.add('playing'); }, true);
+  document.addEventListener('pause', e=>{ if(e.target.tagName==='VIDEO') e.target.closest('.vplayer')?.classList.remove('playing'); }, true);
+})();
+
+/* ---------- FAQ ---------- */
+const FAQS = [
+  {q:'Dá pra editar mesmo só pelo celular?', a:'Sim — o método foi desenhado pra funcionar no setup que você já tem, e o <b>Módulo 3 (Equipamentos BB)</b> mostra o que é bom e barato pra evoluir depois, se você quiser. [PEDRO: confirmar que o curso cobre edição por celular — a headline promete isso]'},
+  {q:'Nunca editei nada. Consigo?', a:'Consegue. No <b>Módulo 2</b> você me vê editando cada formato do início ao fim: abre o projeto junto e edita comigo. Você aprende editando, não assistindo.'},
+  {q:'Quanto tempo por dia eu preciso?', a:'Dá pra aplicar com <b>2 horas por dia</b>. É exatamente o que os formatos resolvem: o vídeo que levava a noite inteira sai numa fração do tempo.'},
+  {q:'Em quanto tempo eu começo a ganhar?', a:'Depende da <b>tua execução</b> — do teu ritmo aprendendo os formatos e de quando você sai a campo com o Módulo 5. O método entrega o caminho e a habilidade; o resultado é proporcional ao que você fizer com eles.'},
+  {q:'Já edito há anos. Vou aprender algo?', a:'O gargalo de editor experiente raramente é técnica — é <b>processo</b>. Se você ainda improvisa a cada vídeo ou perde tempo procurando arquivo, os Módulos 1 e 6 sozinhos já mudam a tua velocidade.'},
+  {q:'Eu não sei vender. Como consigo cliente?', a:'Esse é o <b>Módulo 5 — Como fechar clientes sem ser chato</b>: como conseguir os primeiros clientes sem parecer desesperado e sem sair pedindo trabalho no direct.'},
+  {q:'Como funciona o acesso?', a:'Acesso imediato após a compra, por <b>12 meses</b>, com atualizações incluídas. Você assiste de onde quiser, no seu ritmo.'},
+  {q:'E se não funcionar pra mim?', a:'Você tem <b>14 dias de garantia incondicional</b>. Um e-mail e devolvemos 100% — sem perguntas.'}
+];
+$('#faqList').innerHTML = FAQS.map((f,i)=>`
+  <div class="acc ${i===0?'open':''}">
+    <button class="acc-head"><h4>${f.q}</h4><span class="acc-icon"></span></button>
+    <div class="acc-body"><p>${f.a}</p></div>
+  </div>`).join('');
+document.querySelectorAll('.acc').forEach(acc=>{
+  const body = acc.querySelector('.acc-body');
+  const sync = ()=> body.style.maxHeight = acc.classList.contains('open') ? body.scrollHeight+'px' : 0;
+  acc.querySelector('.acc-head').onclick = ()=>{
+    document.querySelectorAll('.acc.open').forEach(o=>{ if(o!==acc){o.classList.remove('open'); o.querySelector('.acc-body').style.maxHeight=0;} });
+    acc.classList.toggle('open'); sync();
+  };
+  sync();
+});
+
+/* ---------- REVEAL ---------- */
+const io = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+}),{threshold:.14, rootMargin:'0px 0px -5% 0px'});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+/* ══════════════════════════════════════════════════════════════
+   EXPERTS DO CARD DE STORY
+   PEDRO: edite só este array. "foto" = imagem grande do story,
+   "avatar" = a bolinha do topo (pode ser a mesma). Deixe foto:''
+   pra manter o placeholder numerado.
+   ══════════════════════════════════════════════════════════════ */
+const EXPERTS = [
+  {nome:'Hanah Franklin',     foto:'assets/hanah.jpg',      pos:'50% 22%'},
+  {nome:'Ícaro de Carvalho',  foto:'assets/icaro.jpg',      pos:'50% 24%'},
+  {nome:'Marcos Paulo',       foto:'assets/mp.jpg',         pos:'44% 32%'},
+  {nome:'Walter Galvão Neto', foto:'assets/DSC07718.JPG',   pos:'50% 26%'},
+  {nome:'Bettina Rudolph',    foto:'assets/bettina.jpg',    pos:'50% 28%'},
+  {nome:'Hyeser',             foto:'assets/hyeser.jpg',     pos:'50% 24%'}
+];
+const STORY_DUR = 4200; /* ms por expert */
+
+/* ---------- monta o card de story + loop ---------- */
+(function(){
+  const bars  = document.getElementById('scBars');
+  const media = document.getElementById('scMedia');
+  const nameEl= document.getElementById('scName');
+  const avEl  = document.getElementById('scAv');
+  if(!bars || !media) return;
+
+  /* barras de progresso: uma por expert */
+  bars.innerHTML = EXPERTS.map(()=>'<i><b></b></i>').join('');
+  bars.style.setProperty('--dur', (STORY_DUR/1000)+'s');
+
+  /* slides */
+  media.innerHTML = EXPERTS.map((e,i)=>
+    e.foto
+      ? `<img src="${e.foto}" alt="" style="object-position:${e.pos}" onerror="this.remove()">`
+      : `<span class="ph-num" data-slide="${i}">${String(i+1).padStart(2,'0')}</span>`
+  ).join('');
+
+  const slides = [...media.children];
+  const segs   = [...bars.children];
+  let idx = -1, timer;
+
+  function show(n){
+    idx = n % EXPERTS.length;
+    const e = EXPERTS[idx];
+
+    slides.forEach((s,i)=>s.classList.toggle('on', i===idx));
+    /* placeholders não têm .on — garante visibilidade */
+    slides.forEach((s,i)=>{ if(!s.matches('img')) s.style.opacity = (i===idx? 1 : 0); });
+
+    nameEl.textContent = e.nome;
+    if(avEl){
+      if(e.foto){ avEl.src = e.foto; avEl.style.objectPosition = e.pos; avEl.style.display=''; }
+      else avEl.style.display = 'none';
+    }
+
+    segs.forEach((s,i)=>{
+      s.classList.remove('now','done');
+      if(i < idx) s.classList.add('done');
+    });
+    /* reinicia a animação da barra ativa */
+    const atual = segs[idx];
+    const clone = atual.cloneNode(true);
+    atual.replaceWith(clone);
+    segs[idx] = clone;
+    clone.classList.add('now');
+
+    clearTimeout(timer);
+    timer = setTimeout(()=>show(idx+1), STORY_DUR);
+  }
+
+  /* clicar no card avança */
+  document.getElementById('storyCard').addEventListener('click', ()=>show(idx+1));
+
+  /* só roda quando o hero está visível (economiza bateria) */
+  const io = new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){ if(idx<0) show(0); }
+    else clearTimeout(timer);
+  }),{threshold:.2});
+  io.observe(document.getElementById('storyCard'));
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   CAPTURA DE PERGUNTAS
+   ▸ Para capturar DE VERDADE, cole abaixo a URL do seu serviço.
+     Funciona com Formspree, webhook (Make/Zapier/n8n),
+     Google Apps Script ou Supabase REST.
+     Ex.: endpoint:'https://formspree.io/f/SEU_ID'
+   ▸ Vazio = modo teste: grava só no navegador local (localStorage).
+   ══════════════════════════════════════════════════════════════ */
+const LEADS = {
+  endpoint: '',
+  chave: 'edicao3x_leads',
+  async salvar(lead){
+    if(this.endpoint){
+      const r = await fetch(this.endpoint,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(lead)
+      });
+      if(!r.ok) throw new Error('Falha no envio ('+r.status+')');
+      return 'remoto';
+    }
+    const lista = this.listar();
+    lista.unshift(lead);
+    localStorage.setItem(this.chave, JSON.stringify(lista));
+    return 'local';
+  },
+  listar(){
+    try{ return JSON.parse(localStorage.getItem(this.chave)) || []; }
+    catch(_){ return []; }
+  },
+  limpar(){ localStorage.removeItem(this.chave); }
+};
+
+/* ---------- caixa de pergunta → modal ---------- */
+(function(){
+  const form   = document.getElementById('askForm');
+  const input  = document.getElementById('askInput');
+  const modal  = document.getElementById('leadModal');
+  const qEcho  = document.getElementById('lmQuestion');
+  const lead   = document.getElementById('leadForm');
+  const passo1 = document.getElementById('lmForm');
+  const passo2 = document.getElementById('lmDone');
+  const btn    = document.getElementById('lfSubmit');
+  if(!form || !modal) return;
+
+  let pergunta = '';
+
+  function abrir(){
+    pergunta = (input.value || '').trim();
+    if(!pergunta){ input.focus(); return; }
+    qEcho.textContent = pergunta;
+    passo1.style.display = ''; passo2.style.display = 'none';
+    lead.reset();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(()=>document.getElementById('lfNome').focus(), 120);
+  }
+  function fechar(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  form.addEventListener('submit', e=>{ e.preventDefault(); abrir(); });
+  modal.addEventListener('click', e=>{ if(e.target.closest('[data-close]')) fechar(); });
+  addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) fechar(); });
+
+  lead.addEventListener('submit', async e=>{
+    e.preventDefault();
+    btn.disabled = true;
+    const txtOriginal = btn.textContent;
+    btn.textContent = 'Enviando…';
+    try{
+      await LEADS.salvar({
+        pergunta,
+        nome: document.getElementById('lfNome').value.trim(),
+        email: document.getElementById('lfEmail').value.trim(),
+        whatsapp: document.getElementById('lfZap').value.trim(),
+        origem: location.href,
+        data: new Date().toISOString()
+      });
+      passo1.style.display='none'; passo2.style.display='';
+      input.value = '';
+    }catch(err){
+      alert('Não conseguimos enviar agora. Tenta de novo em instantes.\n\n('+err.message+')');
+    }finally{
+      btn.disabled = false; btn.textContent = txtOriginal;
+    }
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   PAINEL ADMIN — abre com #admin
+   ATENÇÃO: senha no front-end NÃO é segurança (qualquer pessoa lê
+   o código-fonte). Serve só pra evitar abertura acidental. A lista
+   real deve ficar no painel do serviço configurado em LEADS.endpoint.
+   ══════════════════════════════════════════════════════════════ */
+const ADMIN_SENHA = 'edicao3x';   /* PEDRO: troque essa senha */
+
+(function(){
+  const panel = document.getElementById('adminPanel');
+  const gate  = document.getElementById('adminGate');
+  const body  = document.getElementById('adminBody');
+  const lista = document.getElementById('adList');
+  const contador = document.getElementById('adCount');
+  if(!panel) return;
+
+  function render(){
+    const dados = LEADS.listar();
+    contador.textContent = dados.length
+      ? `${dados.length} pergunta${dados.length>1?'s':''} neste navegador`
+      : 'nenhuma pergunta neste navegador';
+    if(!dados.length){
+      lista.innerHTML = `<div class="lead-empty">Nada capturado ainda.<br>
+        Envie uma pergunta pela caixa do topo da página pra testar o fluxo.</div>`;
+      return;
+    }
+    lista.innerHTML = `<table class="lead-table"><thead><tr>
+        <th>Data</th><th>Nome</th><th>E-mail</th><th>WhatsApp</th><th>Pergunta</th>
+      </tr></thead><tbody>${dados.map(l=>`<tr>
+        <td>${new Date(l.data).toLocaleString('pt-BR')}</td>
+        <td>${esc(l.nome)}</td>
+        <td>${esc(l.email)}</td>
+        <td>${esc(l.whatsapp||'—')}</td>
+        <td style="white-space:normal;max-width:340px">${esc(l.pergunta)}</td>
+      </tr>`).join('')}</tbody></table>`;
+  }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, m=>(
+    {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+
+  function abrirPanel(){
+    panel.classList.add('open');
+    document.body.style.overflow='hidden';
+    const liberado = sessionStorage.getItem('edicao3x_admin')==='1';
+    gate.style.display = liberado ? 'none' : '';
+    body.style.display = liberado ? '' : 'none';
+    if(liberado) render();
+  }
+  function fecharPanel(){
+    panel.classList.remove('open');
+    document.body.style.overflow='';
+    if(location.hash==='#admin') history.replaceState(null,'',location.pathname);
+  }
+
+  document.getElementById('adminLogin').addEventListener('submit', e=>{
+    e.preventDefault();
+    const campo = document.getElementById('adPass');
+    if(campo.value === ADMIN_SENHA){
+      sessionStorage.setItem('edicao3x_admin','1');
+      gate.style.display='none'; body.style.display=''; render();
+    } else {
+      campo.value=''; campo.placeholder='Senha incorreta';
+      campo.style.borderColor='#e04e00';
+    }
+  });
+
+  document.getElementById('adExit').onclick = ()=>{
+    sessionStorage.removeItem('edicao3x_admin');
+    fecharPanel();
+  };
+  document.getElementById('adClear').onclick = ()=>{
+    if(confirm('Apagar todas as perguntas guardadas neste navegador?')){ LEADS.limpar(); render(); }
+  };
+  document.getElementById('adExport').onclick = ()=>{
+    const dados = LEADS.listar();
+    if(!dados.length) return alert('Nada pra exportar.');
+    const cols = ['data','nome','email','whatsapp','pergunta','origem'];
+    const csv = [cols.join(';')].concat(
+      dados.map(l=>cols.map(c=>`"${String(l[c]??'').replace(/"/g,'""')}"`).join(';'))
+    ).join('\r\n');
+    const url = URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));
+    const a = document.createElement('a');
+    a.href = url; a.download = 'perguntas-edicao3x.csv'; a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  if(location.hash==='#admin') abrirPanel();
+  addEventListener('hashchange', ()=>{ location.hash==='#admin' ? abrirPanel() : fecharPanel(); });
+})();
+
+/* ---------- RECORTE DO HERO (auto) ----------
+   Se existir assets/pedro-recorte.png (PNG com fundo transparente), a página
+   troca sozinha para o layout de recorte: Pedro maior, sem moldura, com sombra
+   projetada e os clientes aparecendo atrás. Enquanto o arquivo não existir,
+   segue a versão com máscara de degradê. Nada quebra nos dois casos. */
+(function(){
+  const subject = document.querySelector('.subject');
+  if(!subject) return;
+  /* tenta estes nomes, na ordem — o primeiro que existir é usado */
+  const nomes = [
+    'assets/pedro-recorte.png',
+    'assets/pedro-sem-fundo.png',
+    'assets/pedro-png.png',
+    'assets/pedro.png'
+  ];
+  (function tenta(i){
+    if(i >= nomes.length) return;              /* nenhum existe: fica na máscara */
+    const teste = new Image();
+    teste.onload  = ()=>{
+      subject.querySelector('img').src = nomes[i];
+      subject.classList.add('cut');
+    };
+    teste.onerror = ()=> tenta(i+1);
+    teste.src = nomes[i];
+  })(0);
+})();
+
+/* ---------- HEADER ---------- */
+const header = $('#header');
+addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', scrollY>50);
+}, {passive:true});
+</script>
+</body>
+</html>

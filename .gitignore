@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+._*
+
+# Cópias originais com espaço no nome (duplicadas dos arquivos limpos:
+# "Pedro PNG.png" = pedro-recorte.png / "Pedro Full.png" = pedro-full.png).
+# Espaço em nome quebra URL em servidor — o site usa só as versões limpas.
+assets/Pedro PNG.png
+assets/Pedro Full.png

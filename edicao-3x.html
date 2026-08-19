@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDIÇÃO 3X — Renda extra com edição de vídeo</title>
+<meta name="description" content="O método prático que te ensina a habilidade mais demandada do mercado digital — do zero à velocidade de quem atende vários clientes ao mesmo tempo.">
+<!--
+  ════════════════════════════════════════════════════════════════
+  EDIÇÃO 3X — PÁGINA DE VENDAS · PEDRO GOULART
+  Identidade visual: Comunidade Editados (Unbounded/Inter,
+  preto · laranja #ff5a00 · azul #3d7bff · claro #f3f1ec)
+
+  ESTRUTURA (ordem da referência FCC):
+  01 Hero + VSL VERTICAL (sem CTA — página abre no pitch)
+  02 Marquee de validação      03 Gatilho de dor
+  04 Objeções                  05 História pessoal
+  06 O começo (fundo do poço)  07 A descoberta
+  08 Números                   09 Credibilidades
+  10 Mecanismo (a conta)       11 Prova social
+  12 O produto                 13 Objeções com casos
+  14 Os 3 pilares do método    15 Os 6 módulos
+  16 Bônus                     17 Oferta + preço
+  18 Quem é Pedro Goulart      19 Garantia
+  20 FAQ                       21 Último aviso
+  22 Footer + disclaimer legal
+
+  ▸ Tudo entre [colchetes] é placeholder — preencher.
+  ▸ Notas de compliance em comentários HTML (invisíveis no site).
+  ▸ Imagens: trocar os .tile por <img class="imgc" src="...">
+  ════════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════ TOKENS / BASE ════════════ */
+:root{
+  --black:#000;
+  --panel:#111111;
+  --card-dark:#141414;
+  --light:#f3f1ec;
+  --white:#fff;
+  --accent:#ff5a00;
+  --accent-soft:#ff7a33;
+  --accent-deep:#e04e00;
+  --blue:#3d7bff;
+  --blue-deep:#1f4dc4;
+  --gray:#8f8f8f;
+  --gray-dark:#5c5c5c;
+  --line:rgba(255,255,255,.14);
+  --line-d:rgba(0,0,0,.12);
+  --fd:'Unbounded',sans-serif;
+  --fb:'Inter',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px;overflow-x:clip}
+body{background:var(--black);color:var(--white);font-family:var(--fb);font-size:14px;line-height:1.5;overflow-x:hidden}
+::selection{background:var(--blue);color:#fff}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+.container{max-width:1520px;margin:0 auto;padding:0 clamp(20px,3.5vw,56px)}
+.narrow{max-width:1080px}
+section{position:relative}
+.sec-pad{padding:clamp(70px,8vw,120px) 0}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
+.h-display{font-size:clamp(34px,3.2vw,52px);line-height:1.08}
+.h-big{font-size:clamp(38px,4.4vw,72px);line-height:1.04;letter-spacing:-.04em;font-weight:600}
+.center{text-align:center}
+.o{color:var(--accent)}
+.light .o{color:var(--accent-deep)}
+.b{color:var(--blue)}
+.dim{color:var(--gray)}
+.light .dim{color:var(--gray-dark)}
+
+/* badge pill */
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.light .badge{border-color:rgba(0,0,0,.18);color:#111}
+.light .badge::before{background:var(--accent-deep)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-family:var(--fd);transition:transform .45s var(--ease),background .45s var(--ease),color .45s var(--ease)}
+.btn:hover{transform:translateY(-3px)}
+.btn-accent{background:var(--accent);color:#000}
+.btn-accent:hover{background:var(--white)}
+.btn-dark{background:#111;color:#fff}
+.btn-dark:hover{background:var(--accent);color:#000}
+.btn-outline{border:1px solid var(--line);color:var(--accent)}
+.btn-outline:hover{background:var(--accent);color:#000;border-color:var(--accent)}
+.btn-lg{padding:20px 42px;font-size:14px}
+
+/* seções claras */
+.light{background:var(--light);color:#111}
+.light h1,.light h2,.light h3,.light h4{color:#111}
+
+/* imagens reais */
+.imgc{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ════════════ TILES TIPOGRÁFICOS ════════════ */
+.tile{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;text-align:center;padding:18px;font-family:var(--fd)}
+.tile b{font-size:clamp(24px,2.4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;text-transform:uppercase}
+.tile span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.75;font-family:var(--fb);font-weight:600}
+.tile::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,rgba(255,255,255,.14),transparent 55%);pointer-events:none}
+.tile--orange{background:var(--accent);color:#000}
+.tile--blue{background:var(--blue);color:#fff}
+.tile--black{background:#0d0d0d;color:var(--accent);border:1px solid var(--line)}
+.tile--blueblack{background:#0d0d0d;color:var(--blue);border:1px solid var(--line)}
+.tile--light{background:#efece5;color:#111;border:1px solid rgba(0,0,0,.1)}
+
+/* ════════════ ANIMAÇÕES ════════════ */
+[data-reveal]{opacity:0;transform:translateY(46px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+[data-reveal="left"]{transform:translateX(-56px)}
+[data-reveal="right"]{transform:translateX(56px)}
+[data-reveal="scale"]{transform:scale(.88)}
+[data-reveal="left"].in,[data-reveal="right"].in,[data-reveal="scale"].in{transform:none}
+
+/* ════════════ HEADER ════════════ */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;padding:24px clamp(20px,3.5vw,56px);display:flex;justify-content:space-between;align-items:center;transition:background .5s,backdrop-filter .5s,padding .5s}
+.header.scrolled{background:rgba(0,0,0,.72);backdrop-filter:blur(14px);padding-top:14px;padding-bottom:14px}
+.logo{font-family:var(--fd);font-weight:600;font-size:17px;letter-spacing:.02em;color:var(--white)}
+.logo i{font-style:normal;color:var(--accent)}
+.header-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9a9a9a}
+@media(max-width:640px){.header-tag{display:none}}
+
+/* CTA flutuante — só aparece depois do hero */
+.fab{position:fixed;left:clamp(16px,3vw,40px);bottom:26px;z-index:110;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.fab.on{opacity:1;transform:none;pointer-events:auto}
+.fab .btn{box-shadow:0 10px 40px rgba(255,90,0,.35)}
+
+/* ════════════ 01 HERO + VSL VERTICAL ════════════ */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 70px;overflow:hidden;background:#000}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(48% 44% at 74% 46%,rgba(255,90,0,.16),transparent 68%),radial-gradient(52% 46% at 20% 78%,rgba(61,123,255,.09),transparent 68%)}
+.hero .container{position:relative;z-index:3}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(34px,5vw,86px);align-items:center}
+.hero h1{font-size:clamp(31px,3.5vw,58px);line-height:1.05;letter-spacing:-.035em;font-weight:600;max-width:19ch}
+.hero .sub{margin-top:26px;max-width:54ch;font-size:clamp(14px,1.1vw,16.5px);line-height:1.7;color:#b8b8b8}
+.hero .sub b{color:#fff;font-weight:600}
+.evenif{margin-top:28px;display:flex;flex-direction:column;gap:11px}
+.evenif li{display:flex;align-items:baseline;gap:12px;font-size:14px;color:#c9c9c9;line-height:1.45}
+.evenif li .pl{color:var(--accent);font-weight:600;font-size:15px}
+.hero-side{position:absolute;z-index:4;top:50%;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#7d7d7d;writing-mode:vertical-rl}
+.hero-side.l{left:clamp(8px,1vw,18px)}
+.hero-side.r{right:clamp(8px,1vw,18px);transform:rotate(180deg)}
+.hero-fade{position:absolute;z-index:2;left:0;right:0;bottom:0;height:180px;background:linear-gradient(180deg,transparent,#000 92%);pointer-events:none}
+@media(max-width:1080px){.hero-side{display:none}}
+
+/* VSL vertical — mockup de celular 9:16 */
+.vsl{display:flex;flex-direction:column;align-items:center;gap:16px}
+.phone{position:relative;width:min(320px,76vw);aspect-ratio:9/17.4;border-radius:46px;background:#0b0b0b;border:1px solid rgba(255,255,255,.16);box-shadow:0 44px 130px rgba(0,0,0,.8),0 0 100px rgba(255,90,0,.14),inset 0 0 0 6px #000;overflow:hidden}
+.phone .tile{position:absolute;inset:0;height:100%}
+.phone .tile b{font-size:clamp(20px,2vw,28px)}
+.phone__notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:88px;height:25px;border-radius:999px;background:#000;z-index:7}
+.phone__ov{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,0) 38%,rgba(0,0,0,.6) 100%)}
+.phone__play{width:80px;height:80px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 44px rgba(255,90,0,.5);transition:transform .4s var(--ease)}
+.phone:hover .phone__play{transform:scale(1.09)}
+.phone__hint{position:absolute;bottom:24px;left:0;right:0;z-index:7;text-align:center;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#fff;display:flex;align-items:center;justify-content:center;gap:9px}
+.phone__hint i{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:.15}}
+.vsl-meta{display:flex;gap:22px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f6f6f}
+
+/* ════════════ 02 MARQUEE ════════════ */
+.logos{padding:56px 0 62px;overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.marquee{display:flex;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:clamp(40px,5vw,90px);padding-right:clamp(40px,5vw,90px);flex-shrink:0;animation:mq 32s linear infinite}
+.logos:hover .marquee-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-100%)}}
+.mq-item{display:flex;align-items:center;gap:12px;font-family:var(--fd);font-size:clamp(15px,1.3vw,21px);color:#fff;white-space:nowrap;opacity:.9}
+.mq-item svg{width:24px;height:24px;fill:var(--accent)}
+.mq-item.alt svg{fill:var(--blue)}
+
+/* ════════════ 03 GATILHO DE DOR ════════════ */
+.pain-head{text-align:center;max-width:20ch;margin:26px auto 0}
+.grind{display:flex;justify-content:center;align-items:center;gap:clamp(12px,2.6vw,34px);flex-wrap:wrap;margin-top:52px;font-family:var(--fd)}
+.grind span{font-size:clamp(13px,1.4vw,19px);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.grind i{color:var(--gray-dark);font-style:normal}
+.grind-out{text-align:center;margin-top:24px;font-family:var(--fd);font-size:clamp(15px,1.9vw,26px);font-weight:600;text-transform:uppercase;color:var(--accent);letter-spacing:-.01em}
+.pain-lead{text-align:center;max-width:46ch;margin:46px auto 0;font-size:clamp(15px,1.2vw,17px);color:#b0b0b0;line-height:1.7}
+.pain-lead b{color:#fff;font-weight:600}
+
+/* ════════════ 04 OBJEÇÕES ════════════ */
+.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.obj-card{background:var(--card-dark);border:1px solid rgba(255,255,255,.07);padding:clamp(26px,2.6vw,40px)}
+.obj-card h4{font-family:var(--fd);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.obj-card.alt h4{color:var(--blue)}
+.obj-card li{display:flex;gap:14px;align-items:baseline;padding:15px 0;border-top:1px solid rgba(255,255,255,.07);font-size:14.5px;line-height:1.6;color:#c2c2c2}
+.obj-card li:first-of-type{border-top:none;padding-top:0}
+.obj-card li em{font-style:normal;font-family:var(--fd);font-size:11px;color:var(--gray-dark);flex:none;padding-top:3px}
+
+/* ════════════ 05 HISTÓRIA ════════════ */
+.story-grid{display:grid;grid-template-columns:minmax(260px,440px) 1fr;gap:clamp(30px,5vw,88px);align-items:start}
+.story-img{aspect-ratio:4/5;width:100%;overflow:hidden}
+.story-img .tile{height:100%}
+.story-cap{display:flex;justify-content:space-between;margin-top:14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-dark)}
+.story-txt h2{margin-top:18px}
+.story-txt p{margin-top:22px;font-size:clamp(14.5px,1.15vw,17px);line-height:1.75;color:#4a4a4a;max-width:54ch}
+.story-txt p b{color:#111;font-weight:600}
+
+/* ════════════ 06 O COMEÇO ════════════ */
+.poco-grid{display:grid;grid-template-columns:1fr minmax(260px,420px);gap:clamp(30px,5vw,80px);align-items:center}
+.poco-list{margin-top:36px}
+.poco-list li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid var(--line-d);font-size:14px;color:#5a5a5a}
+.poco-list li b{font-family:var(--fd);font-size:15px;color:#111;font-weight:500;text-align:right}
+.poco-stat{margin-top:44px;background:#111;color:#fff;padding:clamp(24px,2.4vw,34px)}
+.poco-stat b{font-family:var(--fd);font-size:clamp(19px,1.9vw,28px);font-weight:600;line-height:1.25;display:block;letter-spacing:-.02em}
+.poco-stat p{margin-top:14px;font-size:13.5px;line-height:1.7;color:#a5a5a5}
+.poco-stat p em{font-style:normal;color:var(--accent);font-weight:600}
+.poco-img{aspect-ratio:4/5;overflow:hidden}
+.poco-img .tile{height:100%}
+
+/* ════════════ 07 A DESCOBERTA ════════════ */
+.disc{text-align:center}
+.disc .star{font-size:24px;color:var(--accent);display:block;margin-bottom:24px}
+.disc h2{max-width:24ch;margin:0 auto}
+.disc p{max-width:58ch;margin:36px auto 0;font-size:clamp(14.5px,1.15vw,17px);line-height:1.8;color:#b0b0b0}
+.disc p b{color:#fff;font-weight:600}
+
+/* ════════════ 08 NÚMEROS ════════════ */
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+.num-card{border-top:1px solid var(--line);padding-top:26px}
+.num-card .idx{font-family:var(--fd);font-size:12px;color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:18px}
+.num-card b{font-family:var(--fd);font-size:clamp(30px,3vw,50px);font-weight:600;letter-spacing:-.03em;display:block;line-height:1}
+.num-card span{display:block;margin-top:12px;font-size:12.5px;color:var(--gray);letter-spacing:.04em;text-transform:uppercase;line-height:1.6}
+
+/* ════════════ 09 CREDIBILIDADES ════════════ */
+/* ════════════ PLAYER DE VÍDEO (reutilizável) ════════════ */
+.vplayer{position:relative;overflow:hidden;border-radius:14px;background:#0d0d0d;cursor:pointer}
+.vplayer.v916{aspect-ratio:9/16}
+.vplayer.v169{aspect-ratio:16/9}
+.vplayer video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#0d0d0d}
+.vplayer .tile{position:absolute;inset:0;height:100%}
+.vplayer .vplay{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;
+  width:clamp(48px,4.4vw,64px);aspect-ratio:1;border-radius:50%;
+  background:var(--accent);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 38px rgba(255,90,0,.42);
+  transition:transform .35s var(--ease),opacity .3s;
+}
+.vplayer .vplay svg{margin-left:3px}
+.vplayer:hover .vplay{transform:translate(-50%,-50%) scale(1.09)}
+.vplayer.playing .vplay{opacity:0;pointer-events:none}
+.vplayer .vtag{
+  position:absolute;left:12px;top:12px;z-index:4;
+  font-family:var(--fd);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(0,0,0,.62);backdrop-filter:blur(6px);color:#fff;
+  padding:6px 11px;border-radius:999px;
+}
+.vplayer.playing .vtag{opacity:0;transition:opacity .3s}
+.players-lead{max-width:44ch;margin:26px auto 0;font-size:clamp(14.5px,1.2vw,17px);line-height:1.7;color:#5c5c5c}
+/* carrossel horizontal de players */
+.players{margin-top:54px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.players-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px clamp(20px,3.5vw,56px) 14px;scrollbar-width:none;-ms-overflow-style:none;cursor:grab}
+.players-track::-webkit-scrollbar{display:none}
+.players-track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.player{flex:0 0 clamp(178px,18vw,232px);scroll-snap-align:center}
+.player b{display:block;font-family:var(--fd);font-size:clamp(14.5px,1.3vw,18px);font-weight:600;letter-spacing:-.01em;margin-top:16px;color:#111}
+.player span{display:block;font-size:12.5px;color:#6a6a6a;margin-top:7px;line-height:1.5}
+.players-nav{display:flex;gap:10px;justify-content:center;margin-top:36px}
+.players-nav button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(0,0,0,.22);color:#111;font-size:16px;transition:all .35s var(--ease)}
+.players-nav button:hover{background:var(--accent);border-color:var(--accent);color:#000;transform:translateY(-3px)}
+.players *{-webkit-user-select:none;user-select:none}
+
+/* ════════════ 10 MECANISMO ════════════ */
+.mec-lead{max-width:56ch;margin:34px auto 0;text-align:center;font-size:clamp(14.5px,1.15vw,17px);line-height:1.8;color:#b0b0b0}
+.mec-lead b{color:#fff;font-weight:600}
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:64px}
+.vs{background:var(--card-dark);border:1px solid rgba(255,255,255,.07);padding:clamp(28px,2.8vw,44px);position:relative;overflow:hidden}
+.vs.hot{border-color:rgba(255,90,0,.42);background:linear-gradient(180deg,rgba(255,90,0,.07),transparent 60%),var(--card-dark)}
+.vs .cap{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-dark);display:block;margin-bottom:26px}
+.vs.hot .cap{color:var(--accent)}
+.vs .t{font-family:var(--fd);font-size:clamp(38px,4.4vw,64px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.vs .t small{font-size:.32em;color:var(--gray);font-weight:400;letter-spacing:.04em}
+.vs .d{margin-top:18px;font-size:14px;line-height:1.65;color:#a8a8a8}
+.vs .d b{color:#fff;font-weight:600}
+.vs .math{margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;line-height:1.9;color:#6f6f6f;font-family:var(--fd)}
+.vs.hot .math b{color:var(--accent);font-size:16px;font-weight:600}
+.mec-close{text-align:center;max-width:24ch;margin:78px auto 0}
+.mec-cond{text-align:center;max-width:58ch;margin:30px auto 0;font-size:14.5px;line-height:1.8;color:#a5a5a5}
+.mec-cond b{color:#fff;font-weight:600}
+.mec-bridge{text-align:center;margin-top:70px;font-family:var(--fd);font-size:clamp(17px,1.9vw,26px);font-weight:500;letter-spacing:-.02em}
+/* escada da conta de mercado */
+.ladder-lead{text-align:center;margin-top:58px;font-size:14.5px;color:#a5a5a5}
+.ladder{max-width:820px;margin:30px auto 0}
+.ladder li{display:grid;grid-template-columns:minmax(110px,150px) 1fr minmax(120px,auto);gap:clamp(14px,2.5vw,34px);align-items:center;padding:18px 0;border-top:1px solid var(--line)}
+.ladder li:last-child{border-bottom:1px solid var(--line)}
+.ladder .q{font-family:var(--fd);font-size:13.5px;color:#c5c5c5;white-space:nowrap}
+.ladder .bar{height:8px;background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden}
+.ladder .bar i{display:block;height:100%;width:var(--w);background:var(--accent);border-radius:999px;transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease) .25s}
+.ladder li.in .bar i{transform:scaleX(1)}
+.ladder .v{font-family:var(--fd);font-size:clamp(13.5px,1.35vw,18px);font-weight:600;text-align:right;white-space:nowrap}
+.ladder li.top .q,.ladder li.top .v{color:var(--accent)}
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+.loop-item{border-top:1px solid var(--line);padding-top:26px}
+.loop-item .k{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:14px}
+.loop-item:nth-child(2) .k{color:var(--blue)}
+.loop-item h4{font-size:clamp(18px,1.6vw,24px);margin-bottom:12px}
+.loop-item p{font-size:13.5px;line-height:1.7;color:#9a9a9a}
+
+/* ════════════ 11 PROVA SOCIAL ════════════ */
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.dep{background:#fff;padding:10px}
+.dep .tile{aspect-ratio:4/5}
+.dep-foot{display:flex;justify-content:space-between;padding:16px 8px 6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a8a8a}
+.dep-note{text-align:center;margin-top:40px;font-size:12px;color:#7a7a7a;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* ════════════ 12 O PRODUTO ════════════ */
+.prod{text-align:center;overflow:hidden}
+.prod-word{font-family:var(--fd);font-size:clamp(46px,10vw,168px);font-weight:600;letter-spacing:-.045em;line-height:.9;margin-top:28px}
+.prod-word i{font-style:normal;color:var(--accent)}
+.prod-sub{max-width:50ch;margin:38px auto 0;font-family:var(--fd);font-size:clamp(15px,1.5vw,22px);font-weight:500;line-height:1.45;letter-spacing:-.02em}
+.prod-sub i{font-style:normal;color:var(--accent)}
+.chips{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:44px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:12px 22px;font-size:12.5px;color:#b5b5b5}
+.chip b{color:#fff;font-weight:600}
+
+/* ════════════ 13 CASOS ════════════ */
+.caso{margin-top:clamp(56px,6vw,92px)}
+.caso:first-of-type{margin-top:52px}
+.caso h3{font-size:clamp(21px,2.4vw,36px);line-height:1.15;max-width:22ch}
+.caso h3 .g{color:#9c9c9c}
+.caso .resp{margin-top:16px;font-size:14.5px;line-height:1.7;color:#4a4a4a;max-width:58ch}
+.caso .resp b{color:#111;font-weight:600}
+.caso-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.caso-grid.g3{grid-template-columns:repeat(3,1fr)}
+.caso-grid .tile{aspect-ratio:4/5}
+.caso-grid.g3 .tile{aspect-ratio:16/10}
+
+/* ════════════ 14 OS 3 PILARES DO MÉTODO ════════════ */
+.fases-head{text-align:center;max-width:900px;margin:0 auto}
+.fases-head p{margin-top:26px;font-size:clamp(14.5px,1.15vw,17px);line-height:1.75;color:#a5a5a5;max-width:54ch;margin-left:auto;margin-right:auto}
+.fase{border-top:1px solid var(--line);padding:clamp(40px,4vw,64px) 0}
+.fase:last-of-type{border-bottom:1px solid var(--line)}
+.fase-meta{display:flex;justify-content:space-between;align-items:center;font-family:var(--fd);font-size:12.5px;margin-bottom:28px}
+.fase-meta .idx{color:var(--accent);letter-spacing:.1em}
+.fase-meta .lab{color:#8a8a8a;letter-spacing:.06em}
+.fase h3{font-size:clamp(26px,2.8vw,44px);margin-bottom:30px}
+.fase-row{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:clamp(24px,3.4vw,60px);align-items:start}
+.fase-row .tile{aspect-ratio:4/2.9;width:100%}
+.fase-row .tile b{font-size:clamp(26px,2.6vw,40px)}
+.fase .mantra{margin-top:22px;font-size:13.5px;line-height:1.7;color:#9a9a9a;max-width:340px;font-style:italic}
+.fase-list li{display:flex;align-items:flex-start;gap:14px;font-size:14.5px;color:#dcdcdc;padding:12px 0;line-height:1.6;transition:transform .35s var(--ease),color .3s}
+.fase-list li:hover{transform:translateX(6px)}
+.fase-list li .pl{color:var(--accent);font-size:16px;font-weight:600;line-height:1.4}
+.fase-list li b{color:#fff;font-weight:600}
+
+/* ════════════ 15 SPOILER ════════════ */
+.spoiler-head{text-align:center}
+.mods{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
+.mod{background:#e9e6df;color:#111;padding:24px;min-height:250px;display:flex;flex-direction:column;transition:transform .5s var(--ease),background .5s}
+.mod:hover{transform:translateY(-8px);background:var(--accent)}
+.mod-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--fd);font-size:12.5px}
+.mod-top .dots{display:flex;gap:4px}
+.mod-top .dots i{width:5px;height:5px;background:#111;border-radius:1px;opacity:.85}
+.mod h4{margin-top:auto;font-size:clamp(16px,1.5vw,22px);text-transform:uppercase;padding-top:60px}
+.mod p{font-size:13px;color:#3f3f3f;margin-top:12px;line-height:1.6}
+.mod .btag{font-family:var(--fd);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:#111;color:var(--accent);padding:5px 11px;border-radius:999px}
+.mod.bonus-mod{background:var(--accent);color:#000}
+.mod.bonus-mod .btag{background:#111;color:#fff}
+.mod.bonus-mod p{color:#2a1300}
+.mod.bonus-mod:hover{background:#111;color:#fff}
+.mod.bonus-mod:hover h4{color:#fff}
+.mod.bonus-mod:hover p{color:#b5b5b5}
+.mod.bonus-mod:hover .btag{background:var(--accent);color:#000}
+
+/* ════════════ 16 BÔNUS ════════════ */
+.bonus{border-top:1px solid var(--line);padding:clamp(32px,3.2vw,48px) 0;display:grid;grid-template-columns:70px 1fr 1.15fr 150px;gap:26px;align-items:center;transition:background .4s}
+.bonus:last-of-type{border-bottom:1px solid var(--line)}
+.bonus:hover{background:rgba(255,255,255,.02)}
+.bonus .n{font-family:var(--fd);font-size:12.5px;color:var(--gray-dark)}
+.bonus .tag{font-family:var(--fd);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
+.bonus h3{font-size:clamp(19px,2vw,32px)}
+.bonus p{font-size:13.5px;line-height:1.65;color:#9a9a9a;max-width:44ch}
+.bonus .val{text-align:right}
+.bonus .val span{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-dark);margin-bottom:8px}
+.bonus .val b{font-family:var(--fd);font-size:clamp(16px,1.5vw,22px);font-weight:600}
+
+/* ════════════ 17 OFERTA ════════════ */
+.offer-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;margin-top:60px;align-items:stretch}
+.offer-items{background:#fff;padding:clamp(26px,2.8vw,42px)}
+.offer-items h3{font-size:clamp(17px,1.6vw,24px);text-transform:uppercase;border-bottom:1px solid var(--line-d);padding-bottom:20px;margin-bottom:8px}
+/* pilha de ancoragem: curso + bônus + total */
+.stack{margin-top:20px}
+.stack li{display:flex;justify-content:space-between;align-items:center;gap:clamp(14px,2.5vw,30px);background:#111;color:#fff;border-radius:14px;padding:20px clamp(18px,2vw,26px);margin-bottom:12px}
+.stack li b{font-family:var(--fd);font-size:clamp(13.5px,1.3vw,17px);font-weight:600;display:block;letter-spacing:-.01em;line-height:1.25}
+.stack li .sub{display:block;font-size:12px;color:#9a9a9a;margin-top:7px;line-height:1.5;max-width:42ch}
+.stack li s{font-family:var(--fd);font-size:clamp(14px,1.45vw,19px);font-weight:600;color:var(--accent);white-space:nowrap;text-decoration-thickness:2px}
+.stack li.total{background:var(--accent);color:#000;margin-top:18px;margin-bottom:0}
+.stack li.total b{font-size:clamp(15px,1.6vw,21px);letter-spacing:.04em}
+.stack li.total s{color:#000}
+.offer-extra{margin-top:20px;font-size:12.5px;color:#666;line-height:1.6;display:flex;gap:10px;align-items:baseline}
+.offer-extra i{color:var(--accent-deep);font-style:normal;font-weight:700}
+.offer-price{background:#111;color:#fff;padding:clamp(28px,3vw,46px);text-align:center;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.offer-price::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 0%,rgba(255,90,0,.18),transparent 62%);pointer-events:none}
+.offer-price > *{position:relative;z-index:2}
+.offer-price .anchor{font-size:14px;color:#9a9a9a}
+.offer-price .anchor s{text-decoration-thickness:1px}
+.offer-price .main{font-family:var(--fd);font-size:clamp(32px,3.6vw,50px);font-weight:600;letter-spacing:-.035em;line-height:1.1;margin:16px 0 8px}
+.offer-price .cash{font-size:14.5px;color:#c5c5c5}
+.offer-price .daily{margin:26px auto 0;font-size:13px;color:#a5a5a5;max-width:34ch;line-height:1.65}
+.offer-price .daily b{color:#fff;font-weight:600}
+.offer-price .btn{margin:30px auto 0}
+.offer-price .secure{margin-top:20px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#7a7a7a}
+.slots{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:26px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9a9a9a}
+.slots i{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 1.4s steps(1) infinite}
+.slots b{color:#fff;font-weight:600}
+
+/* ════════════ 18 QUEM É PEDRO ════════════ */
+.quem-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:start;margin-top:56px}
+.quem-txt p{font-size:clamp(14.5px,1.15vw,17px);line-height:1.8;color:#4a4a4a;margin-bottom:20px;max-width:54ch}
+.quem-txt p b{color:#111;font-weight:600}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:sticky;top:110px}
+.mosaic .tile,.mosaic figure{aspect-ratio:1/1;overflow:hidden}
+.mosaic .wide{grid-column:span 2;aspect-ratio:16/8}
+
+/* ════════════ 19 GARANTIA ════════════ */
+.gar{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,4vw,60px);align-items:center;max-width:960px;margin:0 auto}
+.gar-seal{width:170px;height:170px;border-radius:50%;flex:none;background:var(--accent);color:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--fd)}
+.gar-seal b{font-size:56px;line-height:1;font-weight:600;letter-spacing:-.04em}
+.gar-seal span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-top:8px;font-family:var(--fb);font-weight:600}
+.gar-txt h2{font-size:clamp(22px,2.6vw,38px);line-height:1.15}
+.gar-txt p{margin-top:20px;font-size:14.5px;line-height:1.8;color:#b0b0b0;max-width:52ch}
+.gar-txt p b{color:#fff;font-weight:600}
+.gar-cta{text-align:center;margin-top:60px}
+
+/* ════════════ 20 FAQ ════════════ */
+.faq-grid{display:grid;grid-template-columns:minmax(260px,1fr) 1.6fr;gap:clamp(30px,5vw,90px)}
+.faq-left .h-display{margin-top:18px;max-width:320px}
+.faq-left .tile{width:170px;aspect-ratio:1/0.86;margin-top:44px}
+.faq-left .tile b{font-size:30px}
+.acc{background:#e9e6df;border-radius:14px;margin-bottom:16px;overflow:hidden;transition:background .4s}
+.acc.open{background:#e2ded5}
+.acc-head{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;text-align:left}
+.acc-head h4{font-size:clamp(15px,1.35vw,20px);letter-spacing:-.02em}
+.acc-icon{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1px solid rgba(0,0,0,.35);position:relative;transition:transform .5s var(--ease),background .4s}
+.acc-icon::before,.acc-icon::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.6px;background:#111;transform:translate(-50%,-50%)}
+.acc-icon::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .5s var(--ease)}
+.acc.open .acc-icon{background:#111;border-color:#111;transform:rotate(180deg)}
+.acc.open .acc-icon::before,.acc.open .acc-icon::after{background:#fff}
+.acc.open .acc-icon::after{transform:translate(-50%,-50%) rotate(0)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .6s var(--ease)}
+.acc-body p{padding:0 26px 24px;font-size:13.5px;color:#555;max-width:600px;line-height:1.75}
+.acc-body p b{color:#111;font-weight:600}
+
+/* ════════════ 21 ÚLTIMO AVISO ════════════ */
+.warn{text-align:center}
+.warn .rec{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:26px}
+.warn .rec i{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:blink 1.2s steps(1) infinite}
+.cen-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:64px}
+.cen{padding:clamp(28px,3vw,46px);position:relative;overflow:hidden;background:var(--card-dark);border:1px solid rgba(255,255,255,.07)}
+.cen.b{background:linear-gradient(180deg,rgba(255,90,0,.09),transparent 60%),var(--card-dark);border-color:rgba(255,90,0,.42)}
+.cen .letter{position:absolute;top:20px;right:26px;font-family:var(--fd);font-size:clamp(58px,7vw,110px);font-weight:600;line-height:.8;color:rgba(255,255,255,.05)}
+.cen.b .letter{color:rgba(255,90,0,.16)}
+.cen .cap{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-dark);display:block;margin-bottom:18px}
+.cen.b .cap{color:var(--accent)}
+.cen h3{font-size:clamp(19px,2.1vw,30px);margin-bottom:18px;max-width:17ch}
+.cen p{font-size:14.5px;line-height:1.7;color:#9a9a9a;max-width:42ch}
+.cen.b p{color:#d8d8d8}
+.fecho-final{text-align:center;max-width:58ch;margin:76px auto 0}
+.fecho-final p{font-family:var(--fd);font-size:clamp(16px,1.9vw,26px);font-weight:500;line-height:1.45;letter-spacing:-.02em}
+.fecho-final p i{font-style:normal;color:var(--accent)}
+.fecho-final .s{margin-top:24px;font-family:var(--fb);font-size:14.5px;font-weight:400;color:#9a9a9a;line-height:1.7;letter-spacing:0}
+.fecho-cta{text-align:center;margin-top:54px}
+.fecho-cta .note{display:block;margin-top:20px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-dark)}
+
+/* ════════════ FOOTER ════════════ */
+.footer{position:relative;padding:clamp(70px,8vw,110px) 0 40px;overflow:hidden}
+.footer-bg{position:absolute;right:0;top:0;width:52%;height:100%;opacity:.55;pointer-events:none;background:radial-gradient(ellipse at 70% 40%,#241203 0%,transparent 60%),radial-gradient(ellipse at 30% 80%,#050d24 0%,transparent 55%),#050505}
+.footer .container{position:relative;z-index:2}
+.footer-brand{font-family:var(--fd);font-weight:600;font-size:clamp(48px,9.5vw,164px);letter-spacing:-.03em;line-height:.95;color:var(--accent)}
+.footer-brand i{font-style:normal;color:#fff}
+.footer-desc{max-width:420px;color:#a9a9a9;font-size:13.5px;line-height:1.7;margin-top:32px}
+.disclaimer{border:1px solid rgba(255,255,255,.12);padding:24px 28px;margin-top:54px;font-size:11.5px;line-height:1.85;color:#7d7d7d}
+.disclaimer b{color:#a9a9a9}
+.footer-end{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#7d7d7d}
+.footer-end a{transition:color .3s}
+.footer-end a:hover{color:var(--accent)}
+
+/* ════════════ RESPONSIVO ════════════ */
+@media(max-width:1080px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .vsl{order:-1}
+  .obj-grid,.story-grid,.poco-grid,.versus,.offer-grid,.quem-grid,.cen-grid,.faq-grid,.fase-row{grid-template-columns:1fr}
+  .story-img,.poco-img{max-width:420px}
+  .nums,.loop{grid-template-columns:1fr;gap:30px}
+  .dep-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .caso-grid{grid-template-columns:repeat(2,1fr)}
+  .caso-grid.g3{grid-template-columns:1fr;max-width:460px}
+  .mods{grid-template-columns:repeat(2,1fr)}
+  .mosaic{position:static}
+  .gar{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .gar-txt p{margin-left:auto;margin-right:auto}
+  .bonus{grid-template-columns:44px 1fr;row-gap:14px}
+  .bonus p,.bonus .val{grid-column:2}
+  .bonus .val{text-align:left}
+}
+@media(max-width:640px){
+  .mods,.caso-grid{grid-template-columns:1fr}
+  .grind{gap:10px}
+  .grind i{display:none}
+  .fab{left:12px;right:12px}
+  .fab .btn{width:100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  [data-reveal]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER (sem CTA — página abre no pitch da VSL) ═══════════════ -->
+<header class="header" id="header">
+  <a href="#hero" class="logo">EDIÇÃO 3X<i>.</i></a>
+  <span class="header-tag">Pedro Goulart · Comunidade Editados</span>
+</header>
+
+<!-- CTA flutuante — só aparece depois do hero -->
+<div class="fab" id="fab">
+  <a href="#oferta" class="btn btn-accent">Quero minha vaga</a>
+</div>
+
+<!-- ═══════════════ 01. HERO + VSL VERTICAL ═══════════════ -->
+<section class="hero" id="hero">
+  <span class="hero-side l">Editando de casa</span>
+  <span class="hero-side r">Sem mimimi</span>
+
+  <div class="container hero-grid">
+    <div data-reveal="left">
+      <span class="badge">A habilidade que o mercado paga</span>
+      <h1 style="margin-top:26px">Pessoas comuns estão descobrindo na edição de vídeo uma renda extra de <span class="o">R$5 a R$10 mil por mês</span> — editando de casa, no tempo que sobra.</h1>
+      <p class="sub">O método prático que te ensina a habilidade mais demandada do mercado digital — do zero até a velocidade de quem atende <b>2, 3, 4 clientes ao mesmo tempo</b> — em 30 dias de prática, sem software caro e <b>sem enrolação teórica</b>.</p>
+      <ul class="evenif">
+        <li><span class="pl">+</span>Mesmo que você nunca tenha editado um vídeo na vida</li>
+        <li><span class="pl">+</span>Mesmo que só tenha 2 horas por dia depois do trabalho</li>
+        <li><span class="pl">+</span>Mesmo que só tenha um celular simples pra começar</li>
+      </ul>
+    </div>
+
+    <!-- VSL VERTICAL 9:16 -->
+    <div class="vsl" data-reveal="scale">
+      <div class="phone">
+        <div class="tile tile--black">
+          <b>VSL<br>Vertical</b>
+          <span>9:16 — colar o embed do player aqui</span>
+        </div>
+        <div class="phone__notch"></div>
+        <div class="phone__ov">
+          <button class="phone__play" aria-label="Assistir o vídeo">
+            <svg width="27" height="27" viewBox="0 0 24 24" fill="#000"><polygon points="7,4 21,12 7,20"/></svg>
+          </button>
+        </div>
+        <span class="phone__hint"><i></i>Assista com som</span>
+      </div>
+      <div class="vsl-meta">
+        <span>vsl_edicao3x.mp4</span>
+        <span>9:16 · Vertical</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-fade"></div>
+</section>
+
+<!-- ═══════════════ 02. MARQUEE DE VALIDAÇÃO ═══════════════ -->
+<section class="logos">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="mqA"></div>
+    <div class="marquee-track" id="mqB"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ 03. GATILHO DE DOR ═══════════════ -->
+<section class="sec-pad center" id="dor">
+  <div class="container">
+    <span class="badge" data-reveal>O espelho</span>
+    <h2 class="h-big pain-head" data-reveal>Até quando o teu mês vai acabar <span class="o">antes do teu salário?</span></h2>
+
+    <div class="grind" data-reveal>
+      <span>Você trabalha</span><i>/</i><span>Faz hora extra</span><i>/</i><span>Corta gasto</span>
+    </div>
+    <p class="grind-out" data-reveal>Mas a conta continua não fechando</p>
+
+    <p class="pain-lead" data-reveal>Você já fez as contas mil vezes. <b>Falta pouco — mas falta TODO mês.</b></p>
+  </div>
+</section>
+
+<!-- ═══════════════ 04. OBJEÇÕES ═══════════════ -->
+<section class="sec-pad" style="padding-top:0">
+  <div class="container obj-grid">
+    <article class="obj-card" data-reveal="left">
+      <h4>Se você está cansado de:</h4>
+      <ul>
+        <li><em>01</em>Trabalhar o mês inteiro pra ver o dinheiro acabar na segunda semana</li>
+        <li><em>02</em>Procurar renda extra e só encontrar furada: revenda, pirâmide, "dropshipping milionário"</li>
+        <li><em>03</em>Ver gente comum — sem diploma, sem QI, sem herança — faturando na internet enquanto você assiste</li>
+        <li><em>04</em>Sentir que tem capacidade de sobra, mas nenhuma habilidade que o mercado digital pague de verdade</li>
+      </ul>
+    </article>
+    <article class="obj-card alt" data-reveal="right">
+      <h4>Então provavelmente você também já:</h4>
+      <ul>
+        <li><em>05</em>Começou algum curso e travou porque era teoria demais e prática de menos</li>
+        <li><em>06</em>Pensou "eu não sou criativo o suficiente pra isso"</li>
+        <li><em>07</em>Adiou a decisão esperando "a hora certa" que nunca chega</li>
+        <li><em>08</em>Se perguntou se ganhar dinheiro na internet é mesmo pra você</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════════ 05. HISTÓRIA PESSOAL ═══════════════ -->
+<section class="light sec-pad" id="historia">
+  <div class="container story-grid">
+    <figure data-reveal="left">
+      <div class="story-img">
+        <img class="imgc" src="assets/pedro-hero.jpg" alt="Pedro Goulart">
+      </div>
+      <figcaption class="story-cap">
+        <span>● pedro_goulart.jpg</span>
+        <span>Edição 3X</span>
+      </figcaption>
+    </figure>
+
+    <div class="story-txt" data-reveal="right">
+      <span class="badge">A história</span>
+      <h2 class="h-display">Meu nome é <span class="o">Pedro Goulart</span> — e antes de estrategista, eu era só mais um editor cobrando pouco.</h2>
+      <p>Eu não comecei ensinando edição. Comecei <b>editando</b> — madrugada adentro, achando que precisava de mais curso, mais plugin, mais equipamento.</p>
+      <p>Aceitava qualquer job, por qualquer valor, com medo de dizer não. E quanto mais eu trabalhava, mais parecia que eu ficava no mesmo lugar.</p>
+      <p>Se você está aí fazendo conta no fim do mês, eu sei exatamente como é. <b>Eu estive exatamente onde você tá.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 06. O COMEÇO (fundo do poço) ═══════════════ -->
+<section class="light sec-pad" style="padding-top:0">
+  <div class="container poco-grid">
+    <div data-reveal="left">
+      <span class="badge">No começo</span>
+      <h2 class="h-display" style="margin-top:18px">Muito trabalho.<br><span class="dim">Pouco dinheiro. Nenhum processo.</span></h2>
+      <ul class="poco-list">
+        <li><span>Horas por vídeo</span><b>[6h ou mais]</b></li>
+        <li><span>Valor cobrado por job</span><b>R$ [valor da época]</b></li>
+        <li><span>Clientes fixos</span><b>Nenhum — só job avulso</b></li>
+        <li><span>Rotina</span><b>Madrugada adentro</b></li>
+      </ul>
+      <!-- PEDRO: preencher com os teus números reais da época. Quanto mais concreto, mais forte (padrão "apartamento 27m² / salário R$700" da referência). -->
+      <div class="poco-stat">
+        <b>[X] vídeos entregues até eu entender o padrão.</b>
+        <p>Não era falta de talento. Não era falta de esforço. Era falta de <em>processo</em>.</p>
+      </div>
+    </div>
+    <figure class="poco-img" data-reveal="right">
+      <img class="imgc" src="assets/pedro-trabalho.jpg" alt="Pedro Goulart trabalhando" style="object-position:50% 30%">
+    </figure>
+  </div>
+</section>
+
+<!-- ═══════════════ 07. A DESCOBERTA ═══════════════ -->
+<section class="sec-pad">
+  <div class="container narrow disc">
+    <span class="star" data-reveal>✦</span>
+    <h2 class="h-big" data-reveal>A descoberta que mudou tudo: os empresários não pagam pra quem entrega. <span class="o">Pagam pra quem entrega rápido.</span></h2>
+    <p data-reveal>Atrás de cada clínica, restaurante, loja, expert e infoprodutor que posta vídeo todo dia, existe uma pessoa invisível segurando tudo: <b>o editor</b>. E ninguém contrata quem some por uma semana pra entregar um vídeo. O que separava os editores bem pagos dos mal pagos nunca foi talento — era <b>processo</b>. E é do processo que vem a velocidade.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 08. NÚMEROS ═══════════════ -->
+<section class="sec-pad" style="padding-top:0">
+  <div class="container">
+    <div class="nums">
+      <div class="num-card" data-reveal>
+        <span class="idx">[ 01 ]</span>
+        <b>[X]+</b>
+        <span>Vídeos entregues no mercado real</span>
+      </div>
+      <div class="num-card" data-reveal style="transition-delay:.1s">
+        <span class="idx">[ 02 ]</span>
+        <b>[X]</b>
+        <span>Players do digital atendidos</span>
+      </div>
+      <div class="num-card" data-reveal style="transition-delay:.2s">
+        <span class="idx">[ 03 ]</span>
+        <b>[X] anos</b>
+        <span>Dentro do jogo — editando e estrategiando</span>
+      </div>
+    </div>
+    <!-- PEDRO: usar números de TRAJETÓRIA (vídeos, clientes, anos) — nunca de renda. Só o que for verificável. -->
+  </div>
+</section>
+
+<!-- ═══════════════ 09. CREDIBILIDADES ═══════════════ -->
+<section class="light sec-pad">
+  <div class="container center">
+    <span class="badge" data-reveal>Trajetória</span>
+    <h2 class="h-display" data-reveal style="margin-top:18px">De editor de madrugada<br><span class="dim">a estrategista dos maiores players.</span></h2>
+    <p class="players-lead" data-reveal>Gente que confiou o vídeo — e a audiência — na minha mão.</p>
+  </div>
+
+  <!-- carrossel horizontal de players -->
+  <div class="players" data-reveal>
+    <div class="players-track" id="playersTrack"><!-- cards gerados via JS --></div>
+  </div>
+
+  <div class="container">
+    <div class="players-nav" data-reveal>
+      <button id="plPrev" aria-label="Anterior">←</button>
+      <button id="plNext" aria-label="Próximo">→</button>
+    </div>
+  </div>
+  <!-- PEDRO: bio/autoridade — só fatos verificáveis que você sustenta em público (nota 7 do doc de compliance).
+       Edite o array PLAYERS no script lá embaixo: troque nome, função e o caminho da foto.
+       Nomes citados na copy base (CONFIRMAR cada um antes de publicar): Hanah Franklin,
+       Marcos Paulo (ex-sócio de Pablo Marçal), Leandro Ladeira, Ícaro de Carvalho,
+       Bettina Rudolph, Duda Vieira. -->
+</section>
+
+<!-- ═══════════════ 10. O MECANISMO (a conta do mercado) ═══════════════ -->
+<section class="sec-pad" id="mecanismo">
+  <div class="container">
+    <div class="center">
+      <span class="badge" data-reveal>A conta do mercado</span>
+      <h2 class="h-big" data-reveal style="margin-top:22px;max-width:18ch;margin-left:auto;margin-right:auto">O mercado não paga esforço. <span class="o">Paga velocidade.</span></h2>
+      <p class="mec-lead" data-reveal>Isso aqui não é promessa minha. É tabela de mercado: um editor freelancer hoje cobra, por cliente fixo, algo entre <b>R$1.500 e R$2.500 por mês</b> pra entregar um pacote de vídeos semanais.</p>
+      <!-- PEDRO: validar a faixa com números reais / prints de mercado e GUARDAR a evidência (defesa Procon/CONAR). -->
+    </div>
+
+    <div class="versus">
+      <article class="vs" data-reveal="left">
+        <span class="cap">Editor lento — sem processo</span>
+        <div class="t">6h <small>/ vídeo</small></div>
+        <p class="d">Improvisa a cada projeto. A semana inteira vai embora atendendo <b>um cliente só</b> — e ainda por preço de job avulso.</p>
+      </article>
+      <article class="vs hot" data-reveal="right">
+        <span class="cap">Editor 3x — com o método</span>
+        <div class="t">2h <small>/ vídeo</small></div>
+        <p class="d">O mesmo vídeo, na mesma semana, em <b>um terço do tempo</b>. E é a agenda que sobra que abre espaço pro próximo cliente.</p>
+      </article>
+    </div>
+
+    <p class="ladder-lead" data-reveal>Daí pra frente vira multiplicação — na tabela que o mercado já pratica:</p>
+    <ul class="ladder">
+      <li data-reveal><span class="q">1 cliente fixo</span><span class="bar"><i style="--w:25%"></i></span><span class="v">R$ 1.500 – 2.500</span></li>
+      <li data-reveal style="transition-delay:.1s"><span class="q">2 clientes fixos</span><span class="bar"><i style="--w:50%"></i></span><span class="v">R$ 3.000 – 5.000</span></li>
+      <li data-reveal style="transition-delay:.2s"><span class="q">3 clientes fixos</span><span class="bar"><i style="--w:75%"></i></span><span class="v">R$ 4.500 – 7.500</span></li>
+      <li class="top" data-reveal style="transition-delay:.3s"><span class="q">4 clientes fixos</span><span class="bar"><i style="--w:100%"></i></span><span class="v">R$ 6.000 – 10.000</span></li>
+    </ul>
+
+    <h3 class="h-display mec-close" data-reveal>Nenhum número aí é promessa minha. <span class="o">É o preço que o mercado já paga.</span></h3>
+    <p class="mec-cond" data-reveal>O que o Edição 3x entrega é a parte que depende de método: <b>a velocidade pra dar conta do serviço</b> e <b>o caminho até o primeiro cliente</b>. Em qual degrau dessa escada você vai parar depende de quanto você executa — quem faz, tem resultado proporcional ao que faz. Quem não faz, não tem.</p>
+
+    <p class="mec-bridge" data-reveal>E velocidade não é dom. É um processo com <span class="o">3 pilares</span>:</p>
+
+    <div class="loop">
+      <div class="loop-item" data-reveal>
+        <span class="k">Pilar 01</span>
+        <h4>Decupagem</h4>
+        <p>Onde a edição rápida começa: separar o que presta antes de tocar na timeline.</p>
+      </div>
+      <div class="loop-item" data-reveal style="transition-delay:.1s">
+        <span class="k">Pilar 02</span>
+        <h4>Montagem</h4>
+        <p>O corte que prende — ritmo, gancho e estrutura no formato certo pra cada rede.</p>
+      </div>
+      <div class="loop-item" data-reveal style="transition-delay:.2s">
+        <span class="k">Pilar 03</span>
+        <h4>Finalização</h4>
+        <p>O acabamento que valoriza: cor, som e entrega com cara de cinema.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 11. PROVA SOCIAL ═══════════════ -->
+<section class="light sec-pad">
+  <div class="container center">
+    <span class="badge" data-reveal>Alunos</span>
+    <h2 class="h-display" data-reveal style="margin-top:18px">Mas não acredite apenas<br><span class="dim">no que eu estou falando.</span></h2>
+    <div class="dep-grid">
+      <figure class="dep" data-reveal>
+        <div class="tile tile--light"><b>Dep. 01</b><span>Print ou vídeo autorizado</span></div>
+        <figcaption class="dep-foot"><span>● depoimento_01</span><span>Aluno(a)</span></figcaption>
+      </figure>
+      <figure class="dep" data-reveal style="transition-delay:.1s">
+        <div class="tile tile--light"><b>Dep. 02</b><span>Print ou vídeo autorizado</span></div>
+        <figcaption class="dep-foot"><span>● depoimento_02</span><span>Aluno(a)</span></figcaption>
+      </figure>
+      <figure class="dep" data-reveal style="transition-delay:.2s">
+        <div class="tile tile--light"><b>Dep. 03</b><span>Print ou vídeo autorizado</span></div>
+        <figcaption class="dep-foot"><span>● depoimento_03</span><span>Aluno(a)</span></figcaption>
+      </figure>
+    </div>
+    <p class="dep-note">Depoimentos reais, com autorização expressa e por escrito. Resultados citados são casos individuais — não típicos nem garantidos.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 12. O PRODUTO ═══════════════ -->
+<section class="sec-pad prod" id="produto">
+  <div class="container">
+    <span class="badge" data-reveal>Apresentando</span>
+    <h2 class="prod-word" data-reveal="scale">EDIÇÃO<i>3X</i></h2>
+    <p class="prod-sub" data-reveal>O método prático que transforma iniciantes em editores <i>3x mais rápidos</i> — a habilidade que o mercado digital disputa e paga todo mês.</p>
+    <div class="chips">
+      <span class="chip" data-reveal>✓ Mesmo que você <b>nunca tenha editado</b></span>
+      <span class="chip" data-reveal style="transition-delay:.08s">✓ Mesmo com <b>2h por dia</b></span>
+      <span class="chip" data-reveal style="transition-delay:.16s">✓ Mesmo <b>só com celular</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 13. OBJEÇÕES COM CASOS ═══════════════ -->
+<section class="light sec-pad" id="casos">
+  <div class="container">
+    <div class="center">
+      <span class="badge" data-reveal>Quem já passou pelo método</span>
+      <h2 class="h-display" data-reveal style="margin-top:18px">Toda desculpa que você tem,<br><span class="dim">alguém aqui já teve.</span></h2>
+    </div>
+
+    <div class="caso" data-reveal>
+      <h3>"Mas eu <span class="g">nunca editei</span> nada na vida…"</h3>
+      <p class="resp">O método começa do <b>zero absoluto</b>. Esses aqui também nunca tinham aberto um editor — do primeiro vídeo à primeira entrega paga:</p>
+      <div class="caso-grid">
+        <div class="tile tile--light"><b>Case 1.1</b><span>Print autorizado</span></div>
+        <div class="tile tile--light"><b>Case 1.2</b><span>Print autorizado</span></div>
+        <div class="tile tile--light"><b>Case 1.3</b><span>Print autorizado</span></div>
+        <div class="tile tile--light"><b>Case 1.4</b><span>Print autorizado</span></div>
+      </div>
+    </div>
+
+    <div class="caso" data-reveal>
+      <h3>"Mas eu <span class="g">não tenho tempo</span>, trabalho o dia inteiro…"</h3>
+      <p class="resp">Renda extra construída em <b>2h por dia</b> — e o antes/depois de tempo de edição: <b>"levava 5h, hoje levo 1h40"</b>.</p>
+      <div class="caso-grid">
+        <div class="tile tile--orange"><b>Antes<br>5h</b><span>Case 2.1 — antes/depois</span></div>
+        <div class="tile tile--light"><b>Case 2.2</b><span>Print autorizado</span></div>
+        <div class="tile tile--light"><b>Case 2.3</b><span>Print autorizado</span></div>
+        <div class="tile tile--light"><b>Case 2.4</b><span>Print autorizado</span></div>
+      </div>
+    </div>
+
+    <div class="caso" data-reveal>
+      <h3>"Mas será que <span class="g">existe cliente</span> pra mim?"</h3>
+      <p class="resp">Prints de fechamento e alunos com <b>agenda cheia</b> — o mercado disputa editor rápido:</p>
+      <div class="caso-grid g3">
+        <div class="tile tile--light"><b>Fechamento 3.1</b><span>Print autorizado</span></div>
+        <div class="tile tile--light"><b>Fechamento 3.2</b><span>Print autorizado</span></div>
+        <div class="tile tile--light"><b>Fechamento 3.3</b><span>Print autorizado</span></div>
+      </div>
+    </div>
+
+    <div class="caso" data-reveal>
+      <h3>"Mas isso <span class="g">dá dinheiro</span> mesmo?"</h3>
+      <p class="resp">Caso individual, real e com <b>autorização por escrito</b> — apresentado como resultado de uma pessoa específica, <b>não típico nem garantido</b>: depende da execução de cada um.</p>
+      <!-- PEDRO: AQUI MORA O RISCO. Depoimento de renda SÓ com autorização expressa e por escrito, valores reais
+           e verificáveis, sempre como caso individual. Nunca generalizar, nunca inventar, nunca "editar" o print. -->
+      <div class="caso-grid g3">
+        <div class="tile tile--light"><b>Caso individual</b><span>Autorizado por escrito</span></div>
+        <div class="tile tile--light"><b>Caso individual</b><span>Autorizado por escrito</span></div>
+        <div class="tile tile--light"><b>Caso individual</b><span>Autorizado por escrito</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 14. OS 3 PILARES DO MÉTODO ═══════════════ -->
+<section class="sec-pad" id="fases">
+  <div class="container">
+    <div class="fases-head">
+      <span class="badge" data-reveal>O método</span>
+      <h2 class="h-big" data-reveal style="margin-top:22px">Toda edição rápida passa pelos <span class="o">mesmos 3 pilares.</span></h2>
+      <p data-reveal>Editor lento improvisa a cada vídeo. Editor 3x repete um processo. São três etapas, sempre na mesma ordem — e é isso que corta o teu tempo pela metade.</p>
+    </div>
+
+    <div style="margin-top:64px">
+      <!-- PILAR 1 — DECUPAGEM -->
+      <div class="fase" data-reveal>
+        <div class="fase-meta"><span class="lab">Decupagem</span><span class="idx">[ pilar 01 ]</span></div>
+        <h3>Separar antes de cortar</h3>
+        <div class="fase-row">
+          <div>
+            <!-- PEDRO: troque por <video src="assets/pilar-decupagem.mp4" poster="..." playsinline preload="metadata"></video> -->
+            <div class="vplayer v169">
+              <div class="tile tile--orange"><b>Decupagem</b><span>vídeo 16:9 — o processo na tela</span></div>
+              <span class="vtag">Pilar 01</span>
+              <button class="vplay" aria-label="Assistir"><svg width="20" height="20" viewBox="0 0 24 24" fill="#000"><polygon points="7,4 21,12 7,20"/></svg></button>
+            </div>
+            <p class="mantra">"Quem entra na timeline sem decupar, edita duas vezes."</p>
+          </div>
+          <ul class="fase-list">
+            <li><span class="pl">+</span><span>Assistir o bruto <b>uma vez só</b> — marcando o que presta e descartando o resto</span></li>
+            <li><span class="pl">+</span><span><b>Escolher o formato antes de editar</b>: cada vídeo já nasce sabendo o que vai ser</span></li>
+            <li><span class="pl">+</span><span><b>Organização do jeito certo</b> — pastas, nomes e projeto prontos pra você nunca mais procurar arquivo</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PILAR 2 — MONTAGEM -->
+      <div class="fase" data-reveal>
+        <div class="fase-meta"><span class="lab">Montagem</span><span class="idx">[ pilar 02 ]</span></div>
+        <h3>O corte que prende</h3>
+        <div class="fase-row">
+          <div>
+            <!-- PEDRO: troque por <video src="assets/pilar-montagem.mp4" poster="..." playsinline preload="metadata"></video> -->
+            <div class="vplayer v169">
+              <div class="tile tile--blue"><b>Montagem</b><span>vídeo 16:9 — o corte acontecendo</span></div>
+              <span class="vtag">Pilar 02</span>
+              <button class="vplay" aria-label="Assistir"><svg width="20" height="20" viewBox="0 0 24 24" fill="#000"><polygon points="7,4 21,12 7,20"/></svg></button>
+            </div>
+            <p class="mantra">"Não é sobre cortar bonito. É sobre não deixar sair."</p>
+          </div>
+          <ul class="fase-list">
+            <li><span class="pl">+</span><span><b>Formatos validados</b> — as estruturas de edição que já funcionam nas redes sociais</span></li>
+            <li><span class="pl">+</span><span><b>Gancho e retenção</b>: o que segura o espectador do primeiro ao último segundo</span></li>
+            <li><span class="pl">+</span><span>Ritmo, corte e trilha <b>sem travar em cada clipe</b></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PILAR 3 — FINALIZAÇÃO -->
+      <div class="fase" data-reveal>
+        <div class="fase-meta"><span class="lab">Finalização</span><span class="idx">[ pilar 03 ]</span></div>
+        <h3>O acabamento que valoriza</h3>
+        <div class="fase-row">
+          <div>
+            <!-- PEDRO: troque por <video src="assets/pilar-finalizacao.mp4" poster="..." playsinline preload="metadata"></video>
+                 Sugestão forte aqui: antes/depois da cor no mesmo clipe. -->
+            <div class="vplayer v169">
+              <div class="tile tile--black"><b>Finalização</b><span>vídeo 16:9 — antes/depois da cor</span></div>
+              <span class="vtag">Pilar 03</span>
+              <button class="vplay" aria-label="Assistir"><svg width="20" height="20" viewBox="0 0 24 24" fill="#000"><polygon points="7,4 21,12 7,20"/></svg></button>
+            </div>
+            <p class="mantra">"É o acabamento que faz o cliente achar que valeu o preço."</p>
+          </div>
+          <ul class="fase-list">
+            <li><span class="pl">+</span><span><b>Colorização simplificada</b> — o passo a passo que dá cara de cinema sem virar colorista</span></li>
+            <li><span class="pl">+</span><span>Som, legenda e detalhes finais que <b>separam amador de profissional</b></span></li>
+            <li><span class="pl">+</span><span>Exportar e entregar <b>do jeito que o cliente espera receber</b></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- PEDRO: os 3 pilares (Decupagem / Montagem / Finalização) são teus. Os bullets abaixo de cada um eu
+         derivei dos 7 módulos que você passou — confira se descrevem mesmo o que a aula entrega e ajuste. -->
+
+  </div>
+</section>
+
+<!-- ═══════════════ 15. SPOILER DOS MÓDULOS ═══════════════ -->
+<section class="sec-pad" style="padding-top:0">
+  <div class="container">
+    <div class="spoiler-head">
+      <span class="badge" data-reveal>🚨 Quer um spoiler?</span>
+      <h2 class="h-display" data-reveal style="margin-top:20px">7 módulos. Zero enrolação.<br><span class="dim">Isso é o que tem lá dentro:</span></h2>
+    </div>
+    <div class="mods">
+      <article class="mod" data-reveal>
+        <div class="mod-top"><span>[ 01 ]</span><span class="dots"><i></i><i style="opacity:.25"></i><i style="opacity:.25"></i></span></div>
+        <h4>Formatos Validados de Edição</h4>
+        <p>Os formatos de edição que realmente funcionam nas redes sociais — você para de inventar e passa a usar o que já performa.</p>
+      </article>
+      <article class="mod" data-reveal style="transition-delay:.08s">
+        <div class="mod-top"><span>[ 02 ]</span><span class="dots"><i></i><i></i><i style="opacity:.25"></i></span></div>
+        <h4>Edição na Prática</h4>
+        <p>Todo o processo de edição de cada formato, sendo editado na tua frente. Do bruto ao vídeo pronto, sem pular etapa.</p>
+      </article>
+      <article class="mod" data-reveal style="transition-delay:.16s">
+        <div class="mod-top"><span>[ 03 ]</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <h4>Equipamentos BB</h4>
+        <p>Os equipamentos bons e baratos pra quem tá começando. Você não precisa gastar caro — precisa comprar certo.</p>
+      </article>
+      <article class="mod" data-reveal style="transition-delay:.24s">
+        <div class="mod-top"><span>[ 04 ]</span><span class="dots"><i></i><i style="opacity:.25"></i><i style="opacity:.25"></i></span></div>
+        <h4>Cor</h4>
+        <p>Colorização simplificada que dá cara de cinema — sem virar colorista e sem plugin caro.</p>
+      </article>
+      <article class="mod bonus-mod" data-reveal style="transition-delay:.32s">
+        <div class="mod-top"><span>[ 05 ]</span><span class="btag">Bônus</span></div>
+        <h4>Como fechar clientes sem ser chato</h4>
+        <p>Como conseguir os primeiros clientes sem parecer desesperado nem sair pedindo trabalho no direct.</p>
+      </article>
+      <article class="mod" data-reveal style="transition-delay:.4s">
+        <div class="mod-top"><span>[ 06 ]</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <h4>Organização do Jeito Certo</h4>
+        <p>Pastas, arquivos e projeto organizados pra você nunca mais perder tempo procurando — a base da edição rápida.</p>
+      </article>
+      <article class="mod bonus-mod" data-reveal style="transition-delay:.48s">
+        <div class="mod-top"><span>[ 07 ]</span><span class="btag">Bônus</span></div>
+        <h4>Gravação na Prática</h4>
+        <p>O jeito simples de gravar que facilita a edição depois. Material bem gravado corta metade do teu trabalho na timeline.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 16. BÔNUS ═══════════════ -->
+<section class="sec-pad" style="padding-top:0" id="bonus">
+  <div class="container">
+    <div class="center" style="margin-bottom:56px">
+      <span class="badge" data-reveal>2 bônus inclusos</span>
+      <h2 class="h-display" data-reveal style="margin-top:18px">Editar rápido resolve o meio.<br><span class="o">Esses dois resolvem as pontas.</span></h2>
+    </div>
+
+    <article class="bonus" data-reveal>
+      <span class="n">[ 05 ]</span>
+      <div><span class="tag">Módulo bônus</span><h3>Como fechar clientes sem ser chato</h3></div>
+      <p>A ponta da frente: como conseguir os primeiros clientes sem parecer desesperado, sem sair pedindo trabalho no direct e sem baixar teu preço pra conseguir o "sim".</p>
+      <div class="val"><span>Valor real</span><b>R$ 197</b></div>
+    </article>
+    <article class="bonus" data-reveal>
+      <span class="n">[ 07 ]</span>
+      <div><span class="tag">Módulo bônus</span><h3>Gravação na Prática</h3></div>
+      <p>A ponta de trás: o jeito simples de gravar que já facilita a edição. Material bem gravado corta metade do teu trabalho antes de você abrir a timeline.</p>
+      <div class="val"><span>Valor real</span><b>R$ 297</b></div>
+    </article>
+
+    <!-- PEDRO: esses são os 2 bônus reais que você me passou (Módulos 5 e 7).
+         Se tiver outros, duplique o bloco. Bônus inventado dá reembolso e dor de cabeça. -->
+  </div>
+</section>
+
+<!-- ═══════════════ 17. OFERTA + PREÇO ═══════════════ -->
+<section class="light sec-pad" id="oferta">
+  <div class="container">
+    <div class="center">
+      <span class="badge" data-reveal>O que você leva hoje</span>
+      <h2 class="h-big" data-reveal style="margin-top:22px">Tudo isso, hoje,<br><span class="o">por menos que um job avulso.</span></h2>
+      <div class="slots" data-reveal style="color:#5c5c5c">
+        <i></i><span>Condição de abertura: <b style="color:#111">[lote / bônus limitado — definir]</b></span>
+      </div>
+    </div>
+
+    <div class="offer-grid">
+      <article class="offer-items" data-reveal="left">
+        <h3>Você recebe acesso a:</h3>
+        <ul class="stack">
+          <li><b>Curso Edição 3x</b><s>R$ 477,00</s></li>
+          <li><b>Bônus: Gravação na Prática</b><s>R$ 297,00</s></li>
+          <li><b>Bônus: Como fechar clientes sem ser chato</b><s>R$ 197,00</s></li>
+          <li class="total">
+            <b>TOTAL:</b>
+            <s>R$ 971,00</s>
+          </li>
+        </ul>
+        <p class="offer-extra"><i>+</i><span>Acesso por <b>12 meses</b>, com atualizações e suporte inclusos.</span></p>
+      </article>
+
+      <article class="offer-price" data-reveal="right">
+        <span class="anchor">de <s>R$ 971</s> por apenas</span>
+        <div class="main">12× R$ 28,63</div>
+        <span class="cash">ou <b style="color:#fff;font-weight:600">R$ 277</b> à vista</span>
+        <p class="daily">Um único cliente na faixa da tabela — <b>R$1.500 a R$2.500</b> — paga esse curso mais de <b>5 vezes</b>.</p>
+        <!-- PEDRO: confirme o valor da parcela no teu checkout. R$277 em 12x com juros da Hotmart
+             dá ~R$28,63; se você optar por 12x SEM juros, o valor correto é R$23,08. -->
+        <a href="[LINK-DO-CHECKOUT]" class="btn btn-accent btn-lg">Quero minha vaga com desconto</a>
+        <div class="secure">
+          <span>🔒 Compra segura</span><span>⚡ Acesso imediato</span><span>↩ Garantia de 14 dias</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 18. QUEM É PEDRO GOULART ═══════════════ -->
+<section class="light sec-pad" style="padding-top:0" id="quem">
+  <div class="container">
+    <div class="center">
+      <span class="badge" data-reveal>Quem te ensina</span>
+      <h2 class="h-display" data-reveal style="margin-top:18px">Afinal, quem é <span class="o">Pedro Goulart?</span></h2>
+    </div>
+    <div class="quem-grid">
+      <div class="quem-txt" data-reveal="left">
+        <p>Editor antes de ser estrategista. Comecei na madrugada, cobrando pouco, errando muito — até entender que o jogo não era talento, era <b>processo e posicionamento</b>.</p>
+        <p>De lá pra cá, participei de um dos maiores crescimentos do mercado digital, virei estrategista de vídeo e trabalhei com os principais players do digital brasileiro.</p>
+        <p>O Edição 3x é tudo que eu aprendi nesse caminho, destilado num método prático. Não é teoria de quem nunca entregou vídeo pra cliente grande — é o processo de quem <b>edita no jogo real</b> e sabe exatamente quanto esse mercado paga, porque vive dentro dele.</p>
+        <p>Hoje eu propago isso na <b>Comunidade Editados</b>: o editor não é mão de obra de corte, é estrategista de audiovisual. E o mercado paga por isso.</p>
+        <!-- PEDRO: confirmar cada fato desta bio antes de publicar — só o que é verificável e você sustenta em público. -->
+      </div>
+      <div class="mosaic" data-reveal="right">
+        <figure class="wide"><img class="imgc" src="assets/pedro-trabalho.jpg" alt="Pedro Goulart em produção" style="object-position:50% 32%"></figure>
+        <figure><img class="imgc" src="assets/pedro-hero.jpg" alt="Pedro Goulart" style="object-position:50% 22%"></figure>
+        <div class="tile tile--orange"><b>Palestra</b><span>[nova foto]</span></div>
+        <div class="tile tile--blue"><b>Bastidor</b><span>[nova foto]</span></div>
+        <div class="tile tile--blueblack"><b>Equipe</b><span>[nova foto]</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 19. GARANTIA ═══════════════ -->
+<section class="sec-pad" id="garantia">
+  <div class="container">
+    <div class="gar">
+      <div class="gar-seal" data-reveal="scale">
+        <b>14</b><span>dias de garantia</span>
+      </div>
+      <div class="gar-txt" data-reveal="right">
+        <span class="badge">Risco zero</span>
+        <h2 style="margin-top:18px">Quer testar na prática, <span class="o">sem risco nenhum?</span></h2>
+        <p>A lei me obriga a te dar 7 dias. Eu te dou <b>14</b> — porque quero que você teste o método <b>editando um projeto real</b>, não só assistindo aula. Entrou, aplicou e não fez sentido? Um e-mail e <b>devolvemos 100%</b>, sem perguntas e sem letra miúda. O risco é meu.</p>
+        <!-- PEDRO: 7 dias é obrigação do CDC — apresentar como direito; a extensão é o argumento de confiança. -->
+      </div>
+    </div>
+    <div class="gar-cta" data-reveal>
+      <a href="[LINK-DO-CHECKOUT]" class="btn btn-accent btn-lg">Quero entrar sem risco</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 20. FAQ ═══════════════ -->
+<section class="light sec-pad" id="faq">
+  <div class="container faq-grid">
+    <div class="faq-left" data-reveal="left">
+      <span class="badge">FAQ</span>
+      <h2 class="h-display">Ficou com alguma dúvida?</h2>
+      <div class="tile tile--orange"><b>3X<i>.</i></b><span>Papo reto</span></div>
+    </div>
+    <div id="faqList" data-reveal="right"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ 21. ÚLTIMO AVISO ═══════════════ -->
+<section class="sec-pad" id="fecho">
+  <div class="container">
+    <div class="warn">
+      <span class="rec" data-reveal><i></i>Último aviso</span>
+      <h2 class="h-big" data-reveal>Daqui a 6 meses,<br><span class="dim">onde você vai estar?</span></h2>
+    </div>
+
+    <div class="cen-grid">
+      <article class="cen" data-reveal="left">
+        <span class="letter">A</span>
+        <span class="cap">Cenário A — tudo igual</span>
+        <h3>Mesmo salário, mesmo aperto.</h3>
+        <p>Mesma sensação de que a internet é festa pra qual você não foi convidado. Ainda pesquisando "renda extra que funciona" às 23h.</p>
+      </article>
+      <article class="cen b" data-reveal="right">
+        <span class="letter">B</span>
+        <span class="cap">Cenário B — virou editor</span>
+        <h3>Uma habilidade que o mercado disputa.</h3>
+        <p>2, 3, 4 clientes fixos pagando todo mês, e a conta de que você tanto precisava fechando — feita por você, no teu tempo, da tua casa.</p>
+      </article>
+    </div>
+
+    <div class="fecho-final" data-reveal>
+      <p>A diferença entre os dois cenários não é sorte, diploma ou talento. É uma <i>habilidade treinável</i> — e a decisão que você toma nos próximos 30 segundos.</p>
+      <p class="s">Cada mês que você adia é um mês da tabela de mercado que fica na mesa de outro editor.</p>
+    </div>
+
+    <div class="fecho-cta" data-reveal>
+      <a href="[LINK-DO-CHECKOUT]" class="btn btn-accent btn-lg">Começar agora</a>
+      <span class="note">Garantia de 14 dias — o risco é nosso</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 22. FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="footer-bg"></div>
+  <div class="container">
+    <h2 class="footer-brand" data-reveal>EDIÇÃO<i>3X</i></h2>
+    <p class="footer-desc" data-reveal>O método de Pedro Goulart que transforma edição de vídeo na habilidade mais demandada do mercado digital — do zero à velocidade de quem atende vários clientes ao mesmo tempo.</p>
+
+    <div class="disclaimer" data-reveal>
+      <b>Aviso legal:</b> os valores citados nesta página refletem preços praticados no mercado de edição de vídeo freelancer e resultados individuais de alunos. <b>Não constituem promessa ou garantia de ganho.</b> Resultados dependem de dedicação, execução e fatores individuais, podendo variar de pessoa para pessoa. Nenhum resultado apresentado deve ser interpretado como típico ou garantido. Este site não é afiliado ao Facebook, Instagram, Google ou qualquer de suas entidades.
+    </div>
+
+    <div class="footer-end">
+      <span>© 2026 Edição 3X — Pedro Goulart · CNPJ [00.000.000/0000-00]</span>
+      <span><a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></span>
+      <span><a href="#hero">Voltar ao topo ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   CONTEÚDO DINÂMICO + ANIMAÇÕES
+   ════════════════════════════════════════════════════════════ */
+const $ = s => document.querySelector(s);
+
+/* ---------- MARQUEE DE VALIDAÇÃO ---------- */
+const MANTRAS = ['Editando de casa','No tempo que sobra','Sem software caro','Começando do zero','Pelo celular','2h por dia','Sem diploma','Em 30 dias de prática'];
+const mqHTML = MANTRAS.map((c,i)=>`<span class="mq-item${i%2?' alt':''}"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>${c}</span>`).join('');
+$('#mqA').innerHTML = mqHTML; $('#mqB').innerHTML = mqHTML;
+
+/* ---------- PLAYERS (carrossel horizontal) ----------
+   PEDRO: troque nome/função e aponte "img" para a foto (ex.: 'assets/hanah.jpg').
+   Deixe img:'' pra manter o placeholder tipográfico. Só use nome que você sustenta em público. */
+const PLAYERS = [
+  {nome:'[Nome do player 01]', papel:'[Formato / entrega — ex.: cortes semanais]', video:'', poster:'', tile:'tile--orange'},
+  {nome:'[Nome do player 02]', papel:'[Formato / entrega]', video:'', poster:'', tile:'tile--blue'},
+  {nome:'[Nome do player 03]', papel:'[Formato / entrega]', video:'', poster:'', tile:'tile--light'},
+  {nome:'[Nome do player 04]', papel:'[Formato / entrega]', video:'', poster:'', tile:'tile--blueblack'},
+  {nome:'[Nome do player 05]', papel:'[Formato / entrega]', video:'', poster:'', tile:'tile--black'},
+  {nome:'[Nome do player 06]', papel:'[Formato / entrega]', video:'', poster:'', tile:'tile--light'}
+];
+$('#playersTrack').innerHTML = PLAYERS.map((p,i)=>`
+  <article class="player">
+    <div class="vplayer v916">
+      ${p.video
+        ? `<video src="${p.video}" ${p.poster?`poster="${p.poster}"`:''} playsinline preload="metadata"></video>`
+        : `<div class="tile ${p.tile}"><b>${String(i+1).padStart(2,'0')}</b><span>vídeo 9:16</span></div>`}
+      <span class="vtag">Editado por mim</span>
+      <button class="vplay" aria-label="Assistir"><svg width="20" height="20" viewBox="0 0 24 24" fill="#000"><polygon points="7,4 21,12 7,20"/></svg></button>
+    </div>
+    <b>${p.nome}</b>
+    <span>${p.papel}</span>
+  </article>`).join('');
+
+(function(){
+  const tr = $('#playersTrack');
+  if(!tr) return;
+  const step = () => (tr.querySelector('.player')?.offsetWidth || 240) + 20;
+  $('#plNext').onclick = ()=> tr.scrollBy({left: step()*2, behavior:'smooth'});
+  $('#plPrev').onclick = ()=> tr.scrollBy({left:-step()*2, behavior:'smooth'});
+
+  /* arrastar com o mouse */
+  let down=false, startX=0, startLeft=0, moved=0;
+  tr.addEventListener('pointerdown', e=>{
+    down=true; moved=0; startX=e.clientX; startLeft=tr.scrollLeft;
+    tr.classList.add('dragging'); tr.setPointerCapture(e.pointerId);
+  });
+  tr.addEventListener('pointermove', e=>{
+    if(!down) return;
+    const dx = e.clientX - startX;
+    moved = Math.max(moved, Math.abs(dx));
+    tr.scrollLeft = startLeft - dx;
+  });
+  const end = e=>{
+    if(!down) return;
+    down=false; tr.classList.remove('dragging');
+    try{ tr.releasePointerCapture(e.pointerId); }catch(_){}
+  };
+  tr.addEventListener('pointerup', end);
+  tr.addEventListener('pointercancel', end);
+  tr.addEventListener('click', e=>{ if(moved>6) e.preventDefault(); }, true);
+})();
+
+/* ---------- PLAYERS DE VÍDEO (pilares + carrossel) ----------
+   Funciona sozinho assim que você trocar o placeholder por uma tag <video>.
+   Toca um de cada vez: começar um pausa todos os outros. */
+(function(){
+  function toggle(box){
+    const v = box.querySelector('video');
+    if(!v) return;                          /* ainda é placeholder */
+    if(v.paused){
+      document.querySelectorAll('.vplayer video').forEach(o=>{
+        if(o!==v){ o.pause(); o.closest('.vplayer').classList.remove('playing'); }
+      });
+      v.setAttribute('controls','');
+      v.play();
+      box.classList.add('playing');
+    } else {
+      v.pause();
+      box.classList.remove('playing');
+    }
+  }
+  document.addEventListener('click', e=>{
+    const box = e.target.closest('.vplayer');
+    if(!box) return;
+    if(e.target.closest('video')) return;   /* deixa os controles nativos agirem */
+    toggle(box);
+  });
+  document.addEventListener('play', e=>{
+    if(e.target.tagName==='VIDEO') e.target.closest('.vplayer')?.classList.add('playing');
+  }, true);
+  document.addEventListener('pause', e=>{
+    if(e.target.tagName==='VIDEO') e.target.closest('.vplayer')?.classList.remove('playing');
+  }, true);
+})();
+
+/* ---------- FAQ ---------- */
+const FAQS = [
+  {q:'Nunca editei nada. Consigo?', a:'Sim — o método começa do <b>zero absoluto</b>. No Módulo 2 você me vê editando cada formato do início ao fim: abre o projeto junto e edita comigo. Você aprende editando, não assistindo.'},
+  {q:'Preciso de computador potente ou equipamento caro?', a:'Não. O <b>Módulo 3 — Equipamentos BB</b> existe exatamente pra isso: mostrar o que é bom e barato pra quem tá começando. Você não precisa gastar caro, precisa comprar certo. [PEDRO: confirmar se o curso cobre edição por celular]'},
+  {q:'Quanto tempo por dia eu preciso?', a:'Dá pra aplicar com <b>1h30–2h por dia</b>. É justamente o que os 3 pilares resolvem: com decupagem e organização no lugar, o mesmo vídeo que levava a noite inteira sai numa fração do tempo.'},
+  {q:'Em quanto tempo eu começo a ganhar?', a:'Depende da <b>tua execução</b> — do teu ritmo aprendendo os formatos e de quando você sai a campo com o Módulo 5. O que o método entrega é o caminho e a habilidade; o resultado é proporcional ao que você fizer com eles.'},
+  {q:'Já edito há anos. Vou aprender algo?', a:'O gargalo de editor experiente raramente é técnica — é <b>processo</b>. Se você ainda improvisa a cada vídeo, decupa mal ou perde tempo procurando arquivo, os Módulos 1 e 6 sozinhos já mudam a tua velocidade.'},
+  {q:'Funciona pra qualquer nicho de cliente?', a:'Sim — o processo é o mesmo pra influencer, clínica, restaurante ou expert. Muda o conteúdo, <b>não mudam os 3 pilares</b>.'},
+  {q:'Eu não sei vender. Como consigo cliente?', a:'Esse é o <b>Módulo 5 — Como fechar clientes sem ser chato</b>: como conseguir os primeiros clientes sem parecer desesperado e sem sair pedindo trabalho no direct.'},
+  {q:'E se o material que eu receber for ruim?', a:'Aí entra o <b>Módulo 7 — Gravação na Prática</b>: o jeito simples de gravar que já facilita a edição. Serve pra você gravar e também pra orientar o cliente — material bem gravado corta metade do teu trabalho na timeline.'},
+  {q:'Como funciona o acesso?', a:'Acesso imediato após a compra, por <b>12 meses (1 ano)</b>, com atualizações incluídas. Você assiste de onde quiser, no seu ritmo.'},
+  {q:'Tem suporte se eu travar?', a:'Sim — <b>[definir canal: comunidade / suporte por e-mail / dúvidas nas aulas]</b>.'},
+  {q:'Qual é o investimento?', a:'<b>R$ 277 à vista</b> ou 12× de R$ 28,63. Pra você comparar: um único cliente fixo, na faixa que o mercado pratica (R$1.500 a R$2.500 por mês), paga esse curso mais de 5 vezes.'},
+  {q:'E se não funcionar pra mim?', a:'Você tem <b>14 dias de garantia incondicional</b>. Um e-mail e devolvemos 100% — sem perguntas.'}
+];
+$('#faqList').innerHTML = FAQS.map((f,i)=>`
+  <div class="acc ${i===0?'open':''}">
+    <button class="acc-head"><h4>${f.q}</h4><span class="acc-icon"></span></button>
+    <div class="acc-body"><p>${f.a}</p></div>
+  </div>`).join('');
+document.querySelectorAll('.acc').forEach(acc=>{
+  const body = acc.querySelector('.acc-body');
+  const sync = ()=> body.style.maxHeight = acc.classList.contains('open') ? body.scrollHeight+'px' : 0;
+  acc.querySelector('.acc-head').onclick = ()=>{
+    document.querySelectorAll('.acc.open').forEach(o=>{ if(o!==acc){o.classList.remove('open'); o.querySelector('.acc-body').style.maxHeight=0;} });
+    acc.classList.toggle('open'); sync();
+  };
+  sync();
+});
+
+/* ---------- REVEAL ON SCROLL ---------- */
+const io = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+}),{threshold:.15, rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+/* ---------- HEADER + CTA FLUTUANTE ---------- */
+const header = $('#header'), fab = $('#fab');
+addEventListener('scroll', ()=>{
+  const y = scrollY;
+  header.classList.toggle('scrolled', y>60);
+  fab.classList.toggle('on', y > innerHeight*0.9);
+}, {passive:true});
+</script>
+</body>
+</html>
