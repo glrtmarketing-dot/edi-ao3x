@@ -552,7 +552,9 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
   .seal{display:none}
 
   /* card de story ancorado no TOPO, a caixa fica com a faixa de baixo */
-  .storycard{width:43%;left:-3%;top:3%;bottom:auto;border-radius:14px}
+  /* card do lado direito: é onde o corpo aparece no mobile, então ele
+     sobrepõe o braço/tronco em vez de flutuar num vazio. O rosto fica livre. */
+  .storycard{width:43%;left:auto;right:-3%;top:3%;bottom:auto;border-radius:14px}
   .sc-name{font-size:11.5px}
   .sc-time{font-size:10px}
   .sc-msg{font-size:10.5px;padding:7px 12px}
