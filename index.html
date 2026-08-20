@@ -521,7 +521,7 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
      .auth-txt e transforma badge/h2/p em irmãos diretos, aí a ordem funciona */
   .auth-grid{display:flex;flex-direction:column;gap:0}
   .auth-txt{display:contents}
-  .auth-txt > .badge{order:-1;align-self:flex-start;margin-bottom:16px}
+  .auth-txt > .badge{order:-1;align-self:center;margin-bottom:16px}
   .auth-img{order:0;margin-bottom:22px}
   .auth-txt h2{order:1;margin-top:0}
   .auth-txt p{order:2}
@@ -539,28 +539,33 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
 /* ─── TABLET / MOBILE: reorganiza a composição do hero ─── */
 @media(max-width:760px){
   /* menos respiro no topo: no mobile o glow não encosta no header */
-  .hero{padding:104px 0 clamp(40px,7vw,64px)}
+  /* compacta o hero pra tudo caber na primeira tela do celular */
+  .hero{padding:72px 0 12px}
+  .hero h1{font-size:22px;line-height:1.1;max-width:none}
+  .hero .sub{margin-top:14px;font-size:13.5px;line-height:1.55}
+  .hero .badge{padding:6px 13px;font-size:10.5px}
   /* palco mais alto: precisa caber o card de story E a caixa de pergunta
      em faixas separadas, sem uma cobrir a outra */
-  .stage{aspect-ratio:1/1.82}
+  .stage{aspect-ratio:1/1.21;margin-top:6px}
 
   /* o selo fica ilegível em ~60px — decorativo, sai */
   .seal{display:none}
 
   /* card de story ancorado no TOPO, a caixa fica com a faixa de baixo */
-  .storycard{width:48%;left:-2%;top:23%;bottom:auto;border-radius:15px}
+  .storycard{width:43%;left:-3%;top:3%;bottom:auto;border-radius:14px}
   .sc-name{font-size:11.5px}
   .sc-time{font-size:10px}
-  .sc-av{width:24px;height:24px}
   .sc-msg{font-size:10.5px;padding:7px 12px}
-  /* libera largura pro nome do expert nao truncar no card estreito */
-  .sc-dots{display:none}
+  /* card estreito: some com "•••" e a hora pra sobrar largura ao nome */
+  .sc-dots,.sc-time{display:none}
+  .sc-av{width:21px;height:21px}
+  .sc-head{gap:5px;padding:0 8px}
   .sc-foot svg{width:15px;height:15px}
 
   /* caixa de pergunta: encolhida ela fica inutilizável.
      Vai pro rodapé do palco, ocupando a largura toda. */
-  .askbox{left:9%;right:9%;top:auto;bottom:1%;width:82%;
-    padding:24px 16px 16px;border-radius:16px}
+  .askbox{left:8%;right:8%;top:auto;bottom:0;width:84%;
+    padding:22px 14px 14px;border-radius:15px}
   .ab-av{width:40px;height:40px;top:-20px}
   .askbox > b{font-size:15px}
   .ab-form{padding:6px 6px 6px 16px}
@@ -569,9 +574,9 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
   .ab-send svg{width:15px;height:15px}
 
   /* Pedro na faixa do meio: acima da caixa, atrás do card */
-  .subject.cut{top:4%;bottom:6%}
-  .subject.cut::after{height:46%;bottom:4%}
-  .stage-type{top:16%;font-size:min(46vw,250px)}
+  .subject.cut{top:-2%;bottom:2%}
+  .subject.cut::after{height:44%;bottom:0}
+  .stage-type{top:14%;font-size:min(40vw,210px)}
 }
 
 @media(max-width:600px){
@@ -1167,7 +1172,8 @@ document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
    pra manter o placeholder numerado.
    ══════════════════════════════════════════════════════════════ */
 const EXPERTS = [
-  {nome:'Hanah Franklin',     foto:'assets/hanah.jpg',      pos:'50% 34%'},
+  /* zoom: opcional. Use quando a foto for de corpo inteiro e o rosto ficar pequeno. */
+  {nome:'Hanah Franklin',     foto:'assets/hanah.jpg',      pos:'50% 14%', zoom:1.45},
   {nome:'Ícaro de Carvalho',  foto:'assets/icaro.jpg',      pos:'54% 16%'},
   {nome:'Marcos Paulo',       foto:'assets/mp.jpg',         pos:'48% 14%'},
   {nome:'Walter Galvão Neto', foto:'assets/DSC07718.JPG',   pos:'50% 26%'},
@@ -1191,7 +1197,8 @@ const STORY_DUR = 4200; /* ms por expert */
   /* slides */
   media.innerHTML = EXPERTS.map((e,i)=>
     e.foto
-      ? `<img src="${e.foto}" alt="" style="object-position:${e.pos}" onerror="this.remove()">`
+      ? `<img src="${e.foto}" alt="" onerror="this.remove()" style="object-position:${e.pos}${
+            e.zoom ? `;transform:scale(${e.zoom});transform-origin:${e.pos}` : ''}">`
       : `<span class="ph-num" data-slide="${i}">${String(i+1).padStart(2,'0')}</span>`
   ).join('');
 
