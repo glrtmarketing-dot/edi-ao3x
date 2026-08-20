@@ -170,7 +170,7 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
 .clients .c5{width:21%;aspect-ratio:4/3;left:-5%;bottom:10%;transform:rotate(3deg);opacity:.36;z-index:3}
 
 /* Pedro na frente, dissolvendo embaixo */
-.subject{position:absolute;left:0;right:0;top:13%;bottom:0;z-index:2;
+.subject{position:absolute;left:0;right:0;top:13%;bottom:0;z-index:2;pointer-events:none;
   -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.55) 82%,transparent 99%);
           mask-image:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.55) 82%,transparent 99%)}
 .subject img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:20px 20px 0 0}
@@ -552,9 +552,9 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
   .seal{display:none}
 
   /* card de story ancorado no TOPO, a caixa fica com a faixa de baixo */
-  /* card do lado direito: é onde o corpo aparece no mobile, então ele
-     sobrepõe o braço/tronco em vez de flutuar num vazio. O rosto fica livre. */
-  .storycard{width:43%;left:auto;right:-3%;top:3%;bottom:auto;border-radius:14px}
+  /* card centralizado, começando abaixo do rosto pra não tapar a cara */
+  .storycard{width:43%;left:50%;right:auto;transform:translateX(-50%);
+    top:34%;bottom:auto;border-radius:14px}
   .sc-name{font-size:11.5px}
   .sc-time{font-size:10px}
   .sc-msg{font-size:10.5px;padding:7px 12px}
@@ -566,18 +566,19 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
 
   /* caixa de pergunta: encolhida ela fica inutilizável.
      Vai pro rodapé do palco, ocupando a largura toda. */
-  .askbox{left:8%;right:8%;top:auto;bottom:0;width:84%;
-    padding:22px 14px 14px;border-radius:15px}
-  .ab-av{width:40px;height:40px;top:-20px}
-  .askbox > b{font-size:15px}
-  .ab-form{padding:6px 6px 6px 16px}
-  .ab-form input{font-size:16px;padding:10px 0}   /* 16px evita o zoom automático do iOS */
-  .ab-send{width:44px;height:44px}                /* alvo de toque recomendado */
-  .ab-send svg{width:15px;height:15px}
+  .askbox{left:auto;right:-4%;top:2%;bottom:auto;width:58%;
+    z-index:1;                                    /* atrás da foto (subject = 2) */
+    padding:19px 11px 11px;border-radius:14px}
+  .ab-av{width:33px;height:33px;top:-16px}
+  .askbox > b{font-size:12.5px;line-height:1.25}
+  .ab-form{margin-top:9px;padding:4px 4px 4px 12px}
+  .ab-form input{font-size:16px;padding:8px 0}    /* 16px evita o zoom automático do iOS */
+  .ab-send{width:38px;height:38px}
+  .ab-send svg{width:13px;height:13px}
 
   /* Pedro na faixa do meio: acima da caixa, atrás do card */
-  .subject.cut{top:-2%;bottom:2%}
-  .subject.cut::after{height:44%;bottom:0}
+  .subject.cut{top:-2%;bottom:-18%}
+  .subject.cut::after{height:36%;bottom:14%}
   .stage-type{top:14%;font-size:min(40vw,210px)}
 }
 
