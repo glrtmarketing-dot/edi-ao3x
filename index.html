@@ -190,12 +190,15 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
    radial laranja do fundo. Só suaviza a transição perto da cintura. */
 .subject.cut::after{
   content:"";position:absolute;left:50%;bottom:-8%;transform:translateX(-50%);
-  width:160%;height:40%;z-index:3;pointer-events:none;
-  background:radial-gradient(58% 108% at 50% 100%,
-    rgba(243,241,236,.92) 0%,
-    rgba(243,241,236,.72) 38%,
-    rgba(243,241,236,.34) 64%,
-    rgba(243,241,236,0)   86%)}
+  width:170%;height:56%;z-index:3;pointer-events:none;
+  background:radial-gradient(72% 122% at 50% 100%,
+    rgba(243,241,236,.88)  0%,
+    rgba(243,241,236,.76) 18%,
+    rgba(243,241,236,.60) 34%,
+    rgba(243,241,236,.42) 50%,
+    rgba(243,241,236,.24) 66%,
+    rgba(243,241,236,.10) 80%,
+    rgba(243,241,236,0)   94%)}
 .subject.cut img{object-fit:contain;object-position:50% 100%;border-radius:0;
   /* glow laranja acompanhando o contorno do recorte + sombra pra assentar */
   filter:
@@ -386,16 +389,22 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
 
 /* ════════════ COMPOSIÇÃO STORIES (hero, coluna direita) ════════════ */
 /* ─── card de story (experts em loop) ─── */
-.storycard{position:absolute;z-index:4;left:-4%;bottom:3%;width:36%;
-  background:#17171a;border:1px solid rgba(255,255,255,.1);border-radius:17px;
+.storycard{position:absolute;z-index:4;left:-4%;bottom:3%;width:40%;
+  aspect-ratio:9/16;                                  /* o card inteiro É o story */
+  background:#0d0d0f;border:1px solid rgba(255,255,255,.1);border-radius:17px;
   overflow:hidden;box-shadow:0 26px 62px rgba(0,0,0,.45)}
-.sc-bars{display:flex;gap:3px;padding:9px 10px 2px}
+/* scrims: dão legibilidade ao chrome que agora flutua sobre a foto */
+.storycard::before{content:"";position:absolute;left:0;right:0;top:0;height:24%;z-index:2;
+  background:linear-gradient(180deg,rgba(0,0,0,.6),transparent);pointer-events:none}
+.storycard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:20%;z-index:2;
+  background:linear-gradient(0deg,rgba(0,0,0,.66),transparent);pointer-events:none}
+.sc-bars{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;gap:3px;padding:9px 10px 0}
 .sc-bars i{flex:1;height:2.5px;border-radius:2px;background:rgba(255,255,255,.26);position:relative;overflow:hidden}
 .sc-bars i b{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
 .sc-bars i.done b{transform:scaleX(1)}
 .sc-bars i.now b{animation:scfill var(--dur,4.2s) linear forwards}
 @keyframes scfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.sc-head{display:flex;align-items:center;gap:6px;padding:9px 10px}
+.sc-head{position:absolute;top:17px;left:0;right:0;z-index:3;display:flex;align-items:center;gap:6px;padding:0 10px}
 .sc-av{width:24px;height:24px;border-radius:50%;flex:none;position:relative;
   padding:1.6px;background:conic-gradient(from 200deg,#ff5a00,#ff2d55,#c837ab,#ff5a00)}
 .sc-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;
@@ -405,12 +414,12 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
 .sc-time{font-size:9px;color:#9a9a9a;flex:none}
 .sc-dots{margin-left:auto;color:#fff;font-size:12px;letter-spacing:1.5px;flex:none;line-height:1}
 .sc-x{color:#fff;font-size:11px;flex:none;opacity:.85;line-height:1}
-.sc-media{position:relative;aspect-ratio:9/16;background:#0d0d0f;overflow:hidden}
+.sc-media{position:absolute;inset:0;background:#0d0d0f;overflow:hidden}
 .sc-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .55s var(--ease)}
 .sc-media img.on{opacity:1}
 .sc-media .ph-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-family:var(--fd);font-size:22px;color:#3a3a3a}
-.sc-foot{display:flex;align-items:center;gap:7px;padding:9px 10px}
+.sc-foot{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;align-items:center;gap:7px;padding:10px}
 .sc-msg{flex:1;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:7px 12px;font-size:9.5px;color:#b0b0b0;min-width:0}
 .sc-foot svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:1.8;flex:none}
 
@@ -508,6 +517,15 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
   .hero-grid,.auth-grid,.offer-grid,.diag-split{grid-template-columns:1fr}
   .hero-media{max-width:460px;margin:0 auto}
   .auth-img{max-width:400px}
+  /* "Quem te ensina" acima da foto no mobile: display:contents dissolve o
+     .auth-txt e transforma badge/h2/p em irmãos diretos, aí a ordem funciona */
+  .auth-grid{display:flex;flex-direction:column;gap:0}
+  .auth-txt{display:contents}
+  .auth-txt > .badge{order:-1;align-self:flex-start;margin-bottom:16px}
+  .auth-img{order:0;margin-bottom:22px}
+  .auth-txt h2{order:1;margin-top:0}
+  .auth-txt p{order:2}
+  .auth-facts{order:3}
   .mods{grid-template-columns:repeat(2,1fr)}
   .proof-grid{grid-template-columns:repeat(2,1fr)}
   .gains{grid-template-columns:1fr}
@@ -530,7 +548,7 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
   .seal{display:none}
 
   /* card de story ancorado no TOPO, a caixa fica com a faixa de baixo */
-  .storycard{width:55%;left:-2%;top:1%;bottom:auto;border-radius:15px}
+  .storycard{width:48%;left:-2%;top:23%;bottom:auto;border-radius:15px}
   .sc-name{font-size:11.5px}
   .sc-time{font-size:10px}
   .sc-av{width:24px;height:24px}
@@ -541,8 +559,8 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
 
   /* caixa de pergunta: encolhida ela fica inutilizável.
      Vai pro rodapé do palco, ocupando a largura toda. */
-  .askbox{left:0;right:0;top:auto;bottom:0;width:100%;
-    padding:26px 18px 18px;border-radius:17px}
+  .askbox{left:9%;right:9%;top:auto;bottom:1%;width:82%;
+    padding:24px 16px 16px;border-radius:16px}
   .ab-av{width:40px;height:40px;top:-20px}
   .askbox > b{font-size:15px}
   .ab-form{padding:6px 6px 6px 16px}
@@ -551,8 +569,8 @@ h1,h2,h3,h4{font-family:var(--fd);font-weight:500;letter-spacing:-.03em}
   .ab-send svg{width:15px;height:15px}
 
   /* Pedro na faixa do meio: acima da caixa, atrás do card */
-  .subject.cut{top:-8%;bottom:18%}
-  .subject.cut::after{height:30%;bottom:16%}
+  .subject.cut{top:4%;bottom:6%}
+  .subject.cut::after{height:46%;bottom:4%}
   .stage-type{top:16%;font-size:min(46vw,250px)}
 }
 
@@ -1149,9 +1167,9 @@ document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
    pra manter o placeholder numerado.
    ══════════════════════════════════════════════════════════════ */
 const EXPERTS = [
-  {nome:'Hanah Franklin',     foto:'assets/hanah.jpg',      pos:'50% 30%'},
-  {nome:'Ícaro de Carvalho',  foto:'assets/icaro.jpg',      pos:'50% 32%'},
-  {nome:'Marcos Paulo',       foto:'assets/mp.jpg',         pos:'42% 38%'},
+  {nome:'Hanah Franklin',     foto:'assets/hanah.jpg',      pos:'50% 34%'},
+  {nome:'Ícaro de Carvalho',  foto:'assets/icaro.jpg',      pos:'54% 16%'},
+  {nome:'Marcos Paulo',       foto:'assets/mp.jpg',         pos:'48% 14%'},
   {nome:'Walter Galvão Neto', foto:'assets/DSC07718.JPG',   pos:'50% 26%'},
   {nome:'Bettina Rudolph',    foto:'assets/bettina.jpg',    pos:'50% 28%'},
   {nome:'Hyeser',             foto:'assets/hyeser.jpg',     pos:'50% 24%'}
