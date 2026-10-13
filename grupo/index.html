@@ -315,28 +315,36 @@ footer .fim{margin-top:14px;color:#5c5c5c}
 const GRUPO_WHATSAPP = 'https://chat.whatsapp.com/I0r3PG4qSMWLlkIYL0BurM?mode=gi_t';
 
 /* ══════════════════════════════════════════════════════════════
-   2) ONDE OS LEADS CAEM
-   Vazio = modo teste: grava só no navegador de quem preencheu,
-   ou seja, NÃO chega até você. Cole a URL do seu serviço
-   (Formspree, webhook do Make/Zapier/n8n, Apps Script, Supabase).
+   2) ONDE OS LEADS CAEM — Google Sheets via Apps Script
+   Cole a URL do seu app publicado, com a chave no fim (?k=...).
+   O passo a passo está em ../apps-script/COMO-PUBLICAR.md
+   Vazio = modo teste: grava só no navegador de quem preencheu.
    ══════════════════════════════════════════════════════════════ */
+const PLANILHA_URL = '';   // ex.: https://script.google.com/macros/s/AKfyc.../exec?k=SUA_CHAVE
+
 const LEADS = {
-  endpoint: '',
   chave: 'edicao3x_grupo',
-  async salvar(lead){
-    if(this.endpoint){
-      const r = await fetch(this.endpoint,{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify(lead)
-      });
-      if(!r.ok) throw new Error('Falha no envio ('+r.status+')');
-      return 'remoto';
-    }
-    const lista = this.listar();
-    lista.unshift(lead);
-    localStorage.setItem(this.chave, JSON.stringify(lista));
-    return 'local';
+  /* Devolve sempre — nunca segura a pessoa na porta do grupo.
+     - text/plain evita o preflight de CORS (o Apps Script não responde a OPTIONS)
+     - keepalive deixa o envio sobreviver à navegação
+     - corrida com timeout: se a rede engasgar, segue mesmo assim */
+  enviar(lead){
+    try{
+      const copia = this.listar(); copia.unshift(lead);
+      localStorage.setItem(this.chave, JSON.stringify(copia));   /* backup local */
+    }catch(_){}
+
+    if(!PLANILHA_URL) return Promise.resolve('local');
+
+    const envio = fetch(PLANILHA_URL,{
+      method:'POST',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(lead),
+      keepalive:true
+    }).then(()=>'planilha').catch(()=>'falhou');
+
+    const limite = new Promise(r=>setTimeout(()=>r('timeout'), 2500));
+    return Promise.race([envio, limite]);
   },
   listar(){ try{ return JSON.parse(localStorage.getItem(this.chave))||[] }catch(_){ return [] } }
 };
@@ -414,18 +422,14 @@ form.addEventListener('submit', async e=>{
   const texto = btn.innerHTML;
   btn.innerHTML = 'Entrando…';
 
-  try{
-    await LEADS.salvar({
-      nome: nome.value.trim(),
-      whatsapp: digitos,
-      origem: location.href,
-      ref: document.referrer || '(direto)',
-      data: new Date().toISOString()
-    });
-  }catch(err){
-    /* não trava a entrada por falha de captura — o grupo é o que importa */
-    console.warn('lead não enviado:', err.message);
-  }
+  const resultado = await LEADS.enviar({
+    nome: nome.value.trim(),
+    whatsapp: digitos,
+    origem: location.href,
+    ref: document.referrer || '(direto)',
+    data: new Date().toISOString()
+  });
+  if(resultado !== 'planilha') console.warn('captura:', resultado);
 
   if(GRUPO_WHATSAPP.startsWith('http')){
     location.href = GRUPO_WHATSAPP;
