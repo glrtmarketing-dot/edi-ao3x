@@ -7,10 +7,10 @@ São 5 passos, uma vez só. Depois disso não precisa mexer mais.
 
 ## 1. Crie a planilha
 
-Nova planilha no Google Sheets. Pode deixar vazia — o script cria a aba
+Nova planilha no Google Sheets. Pode deixar vazia, porque o script cria a aba
 **Leads Grupo** e o cabeçalho sozinho no primeiro lead que chegar.
 
-Dê um nome que você reconheça depois, tipo `Edição 3x — Leads`.
+Dê um nome que você reconheça depois, tipo `Edição 3x | Leads`.
 
 ## 2. Abra o editor de script
 
@@ -19,7 +19,7 @@ Na planilha: **Extensões → Apps Script**.
 Apaga o `function myFunction() {}` que vem de exemplo e cola todo o
 conteúdo de [`Codigo.gs`](Codigo.gs). Salva (⌘S).
 
-> Fazendo por dentro da planilha, o script já fica vinculado a ela —
+> Fazendo por dentro da planilha, o script já fica vinculado a ela,
 > por isso você **não** precisa configurar `PLANILHA_ID`.
 
 ## 3. Crie a senha do webhook
@@ -46,7 +46,7 @@ descobrir a URL e encher sua planilha de lixo.
 > `CHAVE_WEBHOOK` do passo anterior.
 
 Na primeira vez o Google pede autorização e mostra um aviso de
-"app não verificado" — é o seu próprio script. Clique em
+"app não verificado". É o seu próprio script. Clique em
 **Avançado → Acessar (não seguro)**.
 
 Copie a **URL do app da Web**. Ela termina em `/exec`.
@@ -76,7 +76,7 @@ SUA_URL/exec?diag=1&k=SUA_CHAVE
 ```
 
 Responde o nome da planilha, as abas e quantas linhas cada uma tem.
-Se disser `NAO ABRIU`, o script não está vinculado à planilha — refaça
+Se disser `NAO ABRIU`, o script não está vinculado à planilha. Refaça
 o passo 2 por dentro dela, ou defina `PLANILHA_ID` nas propriedades.
 
 **Teste de verdade:** preencha o formulário na página publicada.
@@ -86,8 +86,8 @@ A linha aparece na planilha em segundos.
 
 ## Como foi pensado
 
-**Não duplica.** Mesma pessoa preenchendo de novo não vira linha nova —
-a comparação é pelo telefone normalizado (só dígitos, sempre com 55).
+**Não duplica.** Mesma pessoa preenchendo de novo não vira linha nova,
+porque a comparação é pelo telefone normalizado (só dígitos, sempre com 55).
 
 **Aceita qualquer ordem de colunas.** O script lê o cabeçalho e encaixa
 cada campo na coluna certa. Você pode renomear `WhatsApp` para `Celular`,
@@ -97,7 +97,7 @@ mover de lugar ou inserir colunas suas no meio que continua funcionando.
 planilha. Se a rede engasgar, a pessoa segue pro WhatsApp do mesmo jeito
 e o lead fica salvo no navegador dela como backup.
 
-**`text/plain` no envio** — parece errado mandar JSON assim, mas é
+**`text/plain` no envio.** Parece errado mandar JSON assim, mas é
 proposital: evita o *preflight* de CORS, que o Apps Script não responde.
 O script faz o `JSON.parse` do outro lado.
 
@@ -105,6 +105,6 @@ O script faz o `JSON.parse` do outro lado.
 
 Toda vez que editar o `Codigo.gs`, tem que **Implantar → Gerenciar
 implantações → ✏️ → Versão: Nova versão → Implantar**. Só salvar não
-atualiza o que está no ar — é o erro mais comum.
+atualiza o que está no ar, e esse é o erro mais comum.
 
 A URL continua a mesma, então não precisa mexer na página.

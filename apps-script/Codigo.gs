@@ -1,5 +1,5 @@
 /**
- * Edição 3x — landing do grupo do WhatsApp -> planilha.
+ * Edição 3x: landing do grupo do WhatsApp -> planilha.
  *
  * Recebe o lead da página /grupo/ e grava numa aba da planilha.
  * Sem ManyChat, sem Hotmart: o trabalho aqui é só registrar quem entrou.
@@ -47,7 +47,7 @@ function doGet(e) {
     try {
       var planilha = abrirPlanilha();
       if (!planilha) {
-        info.planilha = 'NAO ABRIU — vincule o script à planilha ou defina PLANILHA_ID';
+        info.planilha = 'NAO ABRIU. Vincule o script à planilha ou defina PLANILHA_ID';
       } else {
         info.planilha = planilha.getName();
         info.abas = planilha.getSheets().map(function (s) {
