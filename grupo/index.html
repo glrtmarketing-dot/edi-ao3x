@@ -68,60 +68,23 @@ h1,h2,h3{font-family:var(--fd);font-weight:600;letter-spacing:-.035em;line-heigh
 .hero .sub{margin-top:14px;font-size:15px;line-height:1.6;color:#4a4a4a}
 .hero .sub b{color:#111;font-weight:600}
 
-/* palco: Pedro + card de story */
-.stage{position:relative;margin:12px -20px -6px;height:min(30vh,215px)}
-.stage-type{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);z-index:0;
-  font-family:var(--fd);font-weight:600;font-size:min(46vw,230px);line-height:.8;letter-spacing:-.06em;
-  color:rgba(17,17,17,.055);white-space:nowrap;pointer-events:none;user-select:none}
-.subject{position:absolute;left:0;right:0;bottom:0;top:-6%;z-index:2;pointer-events:none}
-.subject img{width:100%;height:100%;object-fit:contain;object-position:50% 100%;
-  filter:drop-shadow(0 0 22px rgba(255,90,0,.16)) drop-shadow(0 18px 34px rgba(0,0,0,.2))}
-.subject::after{content:"";position:absolute;left:50%;bottom:-6%;transform:translateX(-50%);
-  width:170%;height:52%;z-index:3;pointer-events:none;
-  background:radial-gradient(72% 120% at 50% 100%,
-    rgba(243,241,236,.9) 0%,rgba(243,241,236,.74) 20%,rgba(243,241,236,.54) 40%,
-    rgba(243,241,236,.3) 62%,rgba(243,241,236,.1) 80%,rgba(243,241,236,0) 94%)}
-
-/* mini card de story com os experts */
-.scard{position:absolute;z-index:4;left:6%;top:14%;width:36%;max-width:150px;aspect-ratio:9/16;
-  background:#0d0d0f;border:1px solid rgba(255,255,255,.12);border-radius:13px;overflow:hidden;
-  box-shadow:0 20px 48px rgba(0,0,0,.34)}
-.scard::before{content:"";position:absolute;left:0;right:0;top:0;height:26%;z-index:2;
-  background:linear-gradient(180deg,rgba(0,0,0,.62),transparent);pointer-events:none}
-.sc-bars{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;gap:3px;padding:7px 7px 0}
-.sc-bars i{flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,.28);position:relative;overflow:hidden}
-.sc-bars i b{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
-.sc-bars i.done b{transform:scaleX(1)}
-.sc-bars i.now b{animation:fill var(--dur,3.6s) linear forwards}
-@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.sc-head{position:absolute;top:14px;left:0;right:0;z-index:3;display:flex;align-items:center;gap:5px;padding:0 7px}
-.sc-av{width:18px;height:18px;border-radius:50%;flex:none;padding:1.4px;
-  background:conic-gradient(from 200deg,#ff5a00,#ff2d55,#c837ab,#ff5a00)}
-.sc-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:1.2px solid #0d0d0f;box-sizing:border-box}
-.sc-name{font-family:var(--fd);font-size:9.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;
-  text-overflow:ellipsis;min-width:0}
-.sc-ver{flex:none;width:9px;height:9px;fill:var(--accent)}
-.sc-media{position:absolute;inset:0;background:#0d0d0f}
-.sc-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
-  transition:opacity .5s var(--ease)}
-.sc-media img.on{opacity:1}
-
 /* ════════ FORMULÁRIO ════════ */
-.form-card{position:relative;z-index:5;background:#111;color:#fff;border-radius:20px;
-  padding:22px 18px;box-shadow:0 24px 60px rgba(0,0,0,.28);margin-top:-10px}
-.form-card h2{font-size:17px;color:#fff;letter-spacing:-.02em}
-.form-card .hint{margin-top:7px;font-size:12.5px;color:#9a9a9a;line-height:1.5}
-.field{margin-top:12px}
+.form-card{position:relative;z-index:5;background:#111;color:#fff;border-radius:18px;
+  padding:20px 16px;box-shadow:0 20px 50px rgba(0,0,0,.26);margin-top:24px;
+  max-width:400px}
+.form-card h2{font-size:15.5px;color:#fff;letter-spacing:-.02em}
+.form-card .hint{margin-top:6px;font-size:12px;color:#9a9a9a;line-height:1.5}
+.field{margin-top:11px}
 .field label{display:block;font-family:var(--fd);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
   color:#8a8a8a;margin-bottom:6px}
 .field input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
-  border-radius:12px;padding:14px 15px;font-size:16px;color:#fff;outline:none;transition:border-color .3s}
+  border-radius:11px;padding:12px 14px;font-size:16px;color:#fff;outline:none;transition:border-color .3s}
 .field input::placeholder{color:#6f6f6f}
 .field input:focus{border-color:var(--accent)}
 .field input.erro{border-color:#ff4d4d}
-.btn-zap{width:100%;margin-top:16px;background:var(--zap);color:#06331a;border-radius:999px;
-  padding:17px 20px;font-family:var(--fd);font-size:13.5px;font-weight:600;letter-spacing:.03em;
-  display:flex;align-items:center;justify-content:center;gap:9px;min-height:54px;
+.btn-zap{width:100%;margin-top:14px;background:var(--zap);color:#06331a;border-radius:999px;
+  padding:15px 20px;font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.03em;
+  display:flex;align-items:center;justify-content:center;gap:9px;min-height:50px;
   box-shadow:0 12px 30px rgba(37,211,102,.32);transition:transform .35s var(--ease),filter .3s}
 .btn-zap:hover{transform:translateY(-2px);filter:brightness(1.05)}
 .btn-zap:disabled{opacity:.7;transform:none;cursor:wait}
@@ -191,7 +154,6 @@ footer .fim{margin-top:14px;color:#5c5c5c}
 [data-rv].in{opacity:1;transform:none}
 
 @media(min-width:560px){
-  .stage{margin-left:0;margin-right:0;height:300px}
   .hero{padding-top:34px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -209,28 +171,9 @@ footer .fim{margin-top:14px;color:#5c5c5c}
 
     <span class="badge" style="margin-top:20px"><i></i>Grupo fechado no WhatsApp</span>
 
-    <h1>Receba os <span class="o">Formatos Validados de Edição</span>.</h1>
+    <h1>Receba o meu <span class="o">método validado</span> para fazer dinheiro com edição de vídeos.</h1>
 
     <p class="sub">Dentro do grupo você vai ter a <b>melhor condição do Edição 3x</b>. Ela será única e não vai existir em nenhum outro lugar.</p>
-
-    <!-- palco visual -->
-    <div class="stage">
-      <span class="stage-type" aria-hidden="true">3X</span>
-
-      <article class="scard" aria-label="Experts atendidos">
-        <div class="sc-media" id="scMedia"></div>
-        <div class="sc-bars" id="scBars"></div>
-        <header class="sc-head">
-          <span class="sc-av"><img id="scAv" alt="" style="display:none"></span>
-          <b class="sc-name" id="scName">—</b>
-          <svg class="sc-ver" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.6 2.1 3.3-.4 1.2 3.1 3 1.5-1 3.2 1 3.2-3 1.5-1.2 3.1-3.3-.4L12 23l-2.6-2.1-3.3.4-1.2-3.1-3-1.5 1-3.2-1-3.2 3-1.5 1.2-3.1 3.3.4z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke="#0d0d0f" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
-        </header>
-      </article>
-
-      <div class="subject">
-        <img src="../assets/pedro-recorte.png" alt="Pedro Goulart" onerror="this.closest('.subject').style.display='none'">
-      </div>
-    </div>
 
     <!-- formulário -->
     <section class="form-card" id="form-topo">
@@ -349,44 +292,15 @@ const LEADS = {
   listar(){ try{ return JSON.parse(localStorage.getItem(this.chave))||[] }catch(_){ return [] } }
 };
 
-/* ---------- experts do mini card ---------- */
+/* ---------- experts (usados nos avatares da prova) ---------- */
 const EXPERTS = [
-  {nome:'Hanah Franklin',     foto:'../assets/hanah.jpg',    pos:'50% 14%', zoom:1.45},
+  {nome:'Hanah Franklin',     foto:'../assets/hanah.jpg',    pos:'50% 14%'},
   {nome:'Ícaro de Carvalho',  foto:'../assets/icaro.jpg',    pos:'54% 16%'},
   {nome:'Marcos Paulo',       foto:'../assets/mp.jpg',       pos:'48% 14%'},
   {nome:'Walter Galvão Neto', foto:'../assets/DSC07718.JPG', pos:'50% 26%'},
   {nome:'Bettina Rudolph',    foto:'../assets/bettina.jpg',  pos:'50% 28%'},
   {nome:'Hyeser',             foto:'../assets/hyeser.jpg',   pos:'50% 24%'}
 ];
-const DUR = 3600;
-
-(function(){
-  const media=document.getElementById('scMedia'), bars=document.getElementById('scBars'),
-        nameEl=document.getElementById('scName'), avEl=document.getElementById('scAv');
-  if(!media) return;
-  bars.innerHTML = EXPERTS.map(()=>'<i><b></b></i>').join('');
-  bars.style.setProperty('--dur',(DUR/1000)+'s');
-  media.innerHTML = EXPERTS.map(e=>
-    `<img src="${e.foto}" alt="" onerror="this.remove()" style="object-position:${e.pos}${
-      e.zoom?`;transform:scale(${e.zoom});transform-origin:${e.pos}`:''}">`).join('');
-
-  const slides=[...media.children]; let segs=[...bars.children]; let i=-1, t;
-  function show(n){
-    i = n % EXPERTS.length;
-    const e = EXPERTS[i];
-    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
-    nameEl.textContent = e.nome;
-    if(e.foto){ avEl.src=e.foto; avEl.style.objectPosition=e.pos; avEl.style.display=''; }
-    segs.forEach((s,k)=>{ s.classList.remove('now','done'); if(k<i) s.classList.add('done'); });
-    const novo = segs[i].cloneNode(true);
-    segs[i].replaceWith(novo); segs[i]=novo; novo.classList.add('now');
-    clearTimeout(t); t=setTimeout(()=>show(i+1), DUR);
-  }
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){ if(i<0) show(0); } else clearTimeout(t);
-  }),{threshold:.2});
-  io.observe(document.querySelector('.scard'));
-})();
 
 /* ---------- avatares da prova ---------- */
 document.getElementById('avatars').innerHTML = EXPERTS.slice(0,5).map(e=>
