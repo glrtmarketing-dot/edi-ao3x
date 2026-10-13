@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Edição 3X — Grupo fechado no WhatsApp</title>
+<meta name="description" content="Entre no grupo fechado e receba os Formatos Validados de Edição — e a condição de abertura do Edição 3x antes de todo mundo.">
+<meta name="theme-color" content="#f3f1ec">
+<meta property="og:title" content="Edição 3X — Grupo fechado no WhatsApp">
+<meta property="og:description" content="É no grupo que eu abro o Edição 3x com a condição que não vai existir em outro lugar.">
+<meta property="og:type" content="website">
+<!--
+  ════════════════════════════════════════════════════════════════
+  EDIÇÃO 3X — LANDING DE CAPTAÇÃO (link da bio)
+  Objetivo único: entrar no grupo do WhatsApp.
+  Fluxo: preenche nome + WhatsApp → grava o lead → redireciona pro grupo.
+
+  ⚠ ANTES DE PUBLICAR, preencher 2 coisas no <script> lá embaixo:
+     1) GRUPO_WHATSAPP → o link de convite do grupo
+     2) LEADS.endpoint  → onde os leads vão cair (senão eles NÃO chegam
+        até você: ficam só no navegador de quem preencheu)
+
+  Assets vêm de ../assets/ (mesmos da página de vendas).
+  ════════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000; --panel:#111111; --light:#f3f1ec; --paper:#fbfaf7; --white:#fff;
+  --accent:#ff5a00; --accent-deep:#e04e00; --blue:#3d7bff;
+  --zap:#25d366;
+  --gray:#8f8f8f; --gray-dark:#5c5c5c;
+  --line:rgba(255,255,255,.14); --line-d:rgba(0,0,0,.12);
+  --fd:'Unbounded',sans-serif; --fb:'Inter',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--light);color:#111;font-family:var(--fb);font-size:15px;line-height:1.5;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:#fff}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+input{font-family:inherit}
+.wrap{max-width:540px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--fd);font-weight:600;letter-spacing:-.035em;line-height:1.08}
+.o{color:var(--accent-deep)}
+
+/* badge */
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid var(--line-d);
+  border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#111;background:rgba(255,255,255,.5)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--zap);flex:none;
+  box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+/* ════════ HERO ════════ */
+.hero{position:relative;padding:26px 0 0;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 42% at 78% 12%,rgba(255,90,0,.15),transparent 70%)}
+.hero .wrap{position:relative;z-index:2}
+.logo{font-family:var(--fd);font-weight:600;font-size:16px;letter-spacing:.02em}
+.logo i{font-style:normal;color:var(--accent-deep)}
+.hero h1{font-size:clamp(27px,7.4vw,34px);margin-top:18px}
+.hero .sub{margin-top:14px;font-size:15px;line-height:1.6;color:#4a4a4a}
+.hero .sub b{color:#111;font-weight:600}
+
+/* palco: Pedro + card de story */
+.stage{position:relative;margin:12px -20px -6px;height:min(30vh,215px)}
+.stage-type{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);z-index:0;
+  font-family:var(--fd);font-weight:600;font-size:min(46vw,230px);line-height:.8;letter-spacing:-.06em;
+  color:rgba(17,17,17,.055);white-space:nowrap;pointer-events:none;user-select:none}
+.subject{position:absolute;left:0;right:0;bottom:0;top:-6%;z-index:2;pointer-events:none}
+.subject img{width:100%;height:100%;object-fit:contain;object-position:50% 100%;
+  filter:drop-shadow(0 0 22px rgba(255,90,0,.16)) drop-shadow(0 18px 34px rgba(0,0,0,.2))}
+.subject::after{content:"";position:absolute;left:50%;bottom:-6%;transform:translateX(-50%);
+  width:170%;height:52%;z-index:3;pointer-events:none;
+  background:radial-gradient(72% 120% at 50% 100%,
+    rgba(243,241,236,.9) 0%,rgba(243,241,236,.74) 20%,rgba(243,241,236,.54) 40%,
+    rgba(243,241,236,.3) 62%,rgba(243,241,236,.1) 80%,rgba(243,241,236,0) 94%)}
+
+/* mini card de story com os experts */
+.scard{position:absolute;z-index:4;left:6%;top:14%;width:36%;max-width:150px;aspect-ratio:9/16;
+  background:#0d0d0f;border:1px solid rgba(255,255,255,.12);border-radius:13px;overflow:hidden;
+  box-shadow:0 20px 48px rgba(0,0,0,.34)}
+.scard::before{content:"";position:absolute;left:0;right:0;top:0;height:26%;z-index:2;
+  background:linear-gradient(180deg,rgba(0,0,0,.62),transparent);pointer-events:none}
+.sc-bars{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;gap:3px;padding:7px 7px 0}
+.sc-bars i{flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,.28);position:relative;overflow:hidden}
+.sc-bars i b{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
+.sc-bars i.done b{transform:scaleX(1)}
+.sc-bars i.now b{animation:fill var(--dur,3.6s) linear forwards}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.sc-head{position:absolute;top:14px;left:0;right:0;z-index:3;display:flex;align-items:center;gap:5px;padding:0 7px}
+.sc-av{width:18px;height:18px;border-radius:50%;flex:none;padding:1.4px;
+  background:conic-gradient(from 200deg,#ff5a00,#ff2d55,#c837ab,#ff5a00)}
+.sc-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:1.2px solid #0d0d0f;box-sizing:border-box}
+.sc-name{font-family:var(--fd);font-size:9.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis;min-width:0}
+.sc-ver{flex:none;width:9px;height:9px;fill:var(--accent)}
+.sc-media{position:absolute;inset:0;background:#0d0d0f}
+.sc-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  transition:opacity .5s var(--ease)}
+.sc-media img.on{opacity:1}
+
+/* ════════ FORMULÁRIO ════════ */
+.form-card{position:relative;z-index:5;background:#111;color:#fff;border-radius:20px;
+  padding:22px 18px;box-shadow:0 24px 60px rgba(0,0,0,.28);margin-top:-10px}
+.form-card h2{font-size:17px;color:#fff;letter-spacing:-.02em}
+.form-card .hint{margin-top:7px;font-size:12.5px;color:#9a9a9a;line-height:1.5}
+.field{margin-top:12px}
+.field label{display:block;font-family:var(--fd);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:#8a8a8a;margin-bottom:6px}
+.field input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;padding:14px 15px;font-size:16px;color:#fff;outline:none;transition:border-color .3s}
+.field input::placeholder{color:#6f6f6f}
+.field input:focus{border-color:var(--accent)}
+.field input.erro{border-color:#ff4d4d}
+.btn-zap{width:100%;margin-top:16px;background:var(--zap);color:#06331a;border-radius:999px;
+  padding:17px 20px;font-family:var(--fd);font-size:13.5px;font-weight:600;letter-spacing:.03em;
+  display:flex;align-items:center;justify-content:center;gap:9px;min-height:54px;
+  box-shadow:0 12px 30px rgba(37,211,102,.32);transition:transform .35s var(--ease),filter .3s}
+.btn-zap:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn-zap:disabled{opacity:.7;transform:none;cursor:wait}
+.btn-zap svg{width:19px;height:19px;fill:#06331a;flex:none}
+.form-legal{margin-top:12px;font-size:10.5px;color:#7a7a7a;line-height:1.55;text-align:center}
+.vagas{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;
+  font-size:11.5px;color:#9a9a9a}
+.vagas i{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;animation:blink 1.4s steps(1) infinite}
+@keyframes blink{50%{opacity:.2}}
+
+/* ════════ O QUE TEM NO GRUPO ════════ */
+.sec{padding:40px 0}
+.sec h2{font-size:clamp(21px,5.6vw,26px);text-align:center;max-width:16ch;margin:0 auto}
+.sec .kicker{display:block;text-align:center;font-family:var(--fd);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px}
+.lista{margin-top:24px}
+.lista li{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line-d);
+  border-radius:15px;padding:16px 16px;margin-bottom:10px}
+.lista i{flex:none;width:28px;height:28px;border-radius:9px;background:var(--accent);color:#000;
+  font-style:normal;font-family:var(--fd);font-size:12px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;margin-top:1px}
+.lista b{display:block;font-family:var(--fd);font-size:14px;letter-spacing:-.01em;line-height:1.3}
+.lista span{display:block;margin-top:5px;font-size:13px;color:#5c5c5c;line-height:1.55}
+
+/* prova: quem já passou pelas mãos dele */
+.prova{background:#111;color:#fff;border-radius:20px;padding:24px 18px;margin-top:8px}
+.prova .kicker{color:var(--accent)}
+.prova h3{font-size:16px;color:#fff;text-align:center;max-width:22ch;margin:0 auto;line-height:1.3}
+.avatars{display:flex;justify-content:center;align-items:center;margin-top:18px}
+.avatars span{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid #111;
+  margin-left:-11px;background:#2a2a2a;flex:none}
+.avatars span:first-child{margin-left:0}
+.avatars img{width:100%;height:100%;object-fit:cover}
+.prova p{margin-top:14px;font-size:12.5px;color:#9a9a9a;text-align:center;line-height:1.6}
+
+/* CTA final */
+.final{text-align:center;padding:10px 0 46px}
+.final h2{margin:0 auto}
+.final p{margin-top:12px;font-size:14px;color:#5c5c5c;line-height:1.6}
+.final .btn-zap{max-width:380px;margin-left:auto;margin-right:auto;margin-top:20px}
+
+/* rodapé */
+footer{background:#0b0b0c;color:#7d7d7d;padding:30px 0 34px;font-size:11px;line-height:1.75}
+footer .wrap{text-align:center}
+footer .marca{font-family:var(--fd);font-size:15px;color:#fff;letter-spacing:-.01em}
+footer .marca i{font-style:normal;color:var(--accent)}
+footer .legal{margin-top:16px;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 15px;text-align:left}
+footer .fim{margin-top:14px;color:#5c5c5c}
+
+/* barra fixa de CTA no mobile */
+.fixa{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(243,241,236,.9);backdrop-filter:blur(14px);border-top:1px solid var(--line-d);
+  transform:translateY(110%);transition:transform .45s var(--ease)}
+.fixa.on{transform:none}
+.fixa .btn-zap{margin:0;max-width:540px;margin-left:auto;margin-right:auto}
+
+/* reveal */
+[data-rv]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+[data-rv].in{opacity:1;transform:none}
+
+@media(min-width:560px){
+  .stage{margin-left:0;margin-right:0;height:300px}
+  .hero{padding-top:34px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  [data-rv]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO + FORMULÁRIO ═══════════ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="logo">EDIÇÃO 3X<i>.</i></div>
+
+    <span class="badge" style="margin-top:20px"><i></i>Grupo fechado no WhatsApp</span>
+
+    <h1>Os <span class="o">Formatos Validados de Edição</span> saem primeiro no grupo.</h1>
+
+    <p class="sub">É lá dentro que eu abro o <b>Edição 3x</b>, com a condição que não vai existir em outro lugar. Sem spam: só o que interessa pra quem quer <b>editar rápido e cobrar por isso</b>.</p>
+
+    <!-- palco visual -->
+    <div class="stage">
+      <span class="stage-type" aria-hidden="true">3X</span>
+
+      <article class="scard" aria-label="Experts atendidos">
+        <div class="sc-media" id="scMedia"></div>
+        <div class="sc-bars" id="scBars"></div>
+        <header class="sc-head">
+          <span class="sc-av"><img id="scAv" alt="" style="display:none"></span>
+          <b class="sc-name" id="scName">—</b>
+          <svg class="sc-ver" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.6 2.1 3.3-.4 1.2 3.1 3 1.5-1 3.2 1 3.2-3 1.5-1.2 3.1-3.3-.4L12 23l-2.6-2.1-3.3.4-1.2-3.1-3-1.5 1-3.2-1-3.2 3-1.5 1.2-3.1 3.3.4z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke="#0d0d0f" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+        </header>
+      </article>
+
+      <div class="subject">
+        <img src="../assets/pedro-recorte.png" alt="Pedro Goulart" onerror="this.closest('.subject').style.display='none'">
+      </div>
+    </div>
+
+    <!-- formulário -->
+    <section class="form-card" id="form-topo">
+      <h2>Entrar no grupo</h2>
+      <p class="hint">Preenche aí embaixo que eu te mando direto pro grupo.</p>
+
+      <form id="formLead" autocomplete="on" novalidate>
+        <div class="field">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Como você se chama?"
+                 autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="zap">Seu WhatsApp</label>
+          <input type="tel" id="zap" name="whatsapp" placeholder="(00) 00000-0000"
+                 inputmode="numeric" autocomplete="tel" maxlength="16" required>
+        </div>
+
+        <button class="btn-zap" type="submit" id="btnEnviar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7L7 20.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          Quero entrar no grupo
+        </button>
+
+        <p class="form-legal">Ao entrar você concorda em receber mensagens sobre o Edição 3x. Dá pra sair do grupo quando quiser.</p>
+      </form>
+
+      <div class="vagas"><i></i><span>Grupo com vagas limitadas — <b style="color:#fff">[definir nº]</b> restantes</span></div>
+    </section>
+  </div>
+</header>
+
+<!-- ═══════════ O QUE TEM NO GRUPO ═══════════ -->
+<section class="sec">
+  <div class="wrap">
+    <span class="kicker" data-rv>O que rola lá dentro</span>
+    <h2 data-rv>Não é lista de transmissão.<br>É onde a coisa acontece.</h2>
+
+    <ul class="lista">
+      <li data-rv>
+        <i>1</i>
+        <div>
+          <b>A condição de abertura</b>
+          <span>O Edição 3x abre primeiro no grupo, com a melhor condição. Quem está fora entra depois e paga mais.</span>
+        </div>
+      </li>
+      <li data-rv>
+        <i>2</i>
+        <div>
+          <b>Formatos Validados de Edição</b>
+          <span>Os formatos que já funcionam nas redes — liberados lá dentro antes de qualquer outro canal.</span>
+        </div>
+      </li>
+      <li data-rv>
+        <i>3</i>
+        <div>
+          <b>Edição ao vivo, na prática</b>
+          <span>Eu abro projeto real e mostro o processo do bruto ao vídeo pronto, respondendo pergunta de quem está no grupo.</span>
+        </div>
+      </li>
+      <li data-rv>
+        <i>4</i>
+        <div>
+          <b>Como conseguir os primeiros clientes</b>
+          <span>O caminho pra fechar sem parecer desesperado e sem sair pedindo trabalho no direct.</span>
+        </div>
+      </li>
+    </ul>
+
+    <!-- prova -->
+    <div class="prova" data-rv>
+      <span class="kicker">Quem te ensina</span>
+      <h3>Pedro Goulart — editor e estrategista de vídeo de alguns dos maiores players do digital.</h3>
+      <div class="avatars" id="avatars"></div>
+      <p>Nomes e imagens usados com autorização. <!-- PEDRO: confirmar autorização por escrito de cada um antes de publicar --></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA FINAL ═══════════ -->
+<section class="final">
+  <div class="wrap">
+    <h2 data-rv>O grupo abre e fecha.<br><span class="o">Entrar agora é de graça.</span></h2>
+    <p data-rv>Depois que lotar, só na próxima turma — e a condição de abertura não se repete.</p>
+    <button class="btn-zap" data-rv type="button" onclick="document.getElementById('nome').focus();document.getElementById('form-topo').scrollIntoView({block:'center'})">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7L7 20.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+      Entrar no grupo agora
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════ RODAPÉ ═══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="marca">EDIÇÃO<i>3X</i></div>
+    <div class="legal">
+      <b style="color:#a9a9a9">Aviso legal.</b> Este grupo é um canal de conteúdo e divulgação do curso Edição 3x.
+      Os valores praticados no mercado de edição de vídeo freelancer e os resultados de alunos citados são
+      <b style="color:#a9a9a9">individuais e não constituem promessa ou garantia de ganho</b>. Resultados dependem
+      de dedicação, execução e fatores individuais. Este site não é afiliado ao WhatsApp, Meta, Instagram ou Google.
+    </div>
+    <div class="fim">© 2026 Edição 3X — Pedro Goulart · <a href="#" style="color:#7d7d7d;text-decoration:underline">Privacidade</a></div>
+  </div>
+</footer>
+
+<!-- barra fixa -->
+<div class="fixa" id="fixa">
+  <button class="btn-zap" type="button" onclick="document.getElementById('nome').focus();document.getElementById('form-topo').scrollIntoView({block:'center'})">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7L7 20.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+    Quero entrar no grupo
+  </button>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   1) LINK DO GRUPO  — cole aqui o convite do WhatsApp
+   ══════════════════════════════════════════════════════════════ */
+const GRUPO_WHATSAPP = '[LINK-DO-GRUPO]';   // ex.: https://chat.whatsapp.com/XXXXXXXX
+
+/* ══════════════════════════════════════════════════════════════
+   2) ONDE OS LEADS CAEM
+   Vazio = modo teste: grava só no navegador de quem preencheu,
+   ou seja, NÃO chega até você. Cole a URL do seu serviço
+   (Formspree, webhook do Make/Zapier/n8n, Apps Script, Supabase).
+   ══════════════════════════════════════════════════════════════ */
+const LEADS = {
+  endpoint: '',
+  chave: 'edicao3x_grupo',
+  async salvar(lead){
+    if(this.endpoint){
+      const r = await fetch(this.endpoint,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(lead)
+      });
+      if(!r.ok) throw new Error('Falha no envio ('+r.status+')');
+      return 'remoto';
+    }
+    const lista = this.listar();
+    lista.unshift(lead);
+    localStorage.setItem(this.chave, JSON.stringify(lista));
+    return 'local';
+  },
+  listar(){ try{ return JSON.parse(localStorage.getItem(this.chave))||[] }catch(_){ return [] } }
+};
+
+/* ---------- experts do mini card ---------- */
+const EXPERTS = [
+  {nome:'Hanah Franklin',     foto:'../assets/hanah.jpg',    pos:'50% 14%', zoom:1.45},
+  {nome:'Ícaro de Carvalho',  foto:'../assets/icaro.jpg',    pos:'54% 16%'},
+  {nome:'Marcos Paulo',       foto:'../assets/mp.jpg',       pos:'48% 14%'},
+  {nome:'Walter Galvão Neto', foto:'../assets/DSC07718.JPG', pos:'50% 26%'},
+  {nome:'Bettina Rudolph',    foto:'../assets/bettina.jpg',  pos:'50% 28%'},
+  {nome:'Hyeser',             foto:'../assets/hyeser.jpg',   pos:'50% 24%'}
+];
+const DUR = 3600;
+
+(function(){
+  const media=document.getElementById('scMedia'), bars=document.getElementById('scBars'),
+        nameEl=document.getElementById('scName'), avEl=document.getElementById('scAv');
+  if(!media) return;
+  bars.innerHTML = EXPERTS.map(()=>'<i><b></b></i>').join('');
+  bars.style.setProperty('--dur',(DUR/1000)+'s');
+  media.innerHTML = EXPERTS.map(e=>
+    `<img src="${e.foto}" alt="" onerror="this.remove()" style="object-position:${e.pos}${
+      e.zoom?`;transform:scale(${e.zoom});transform-origin:${e.pos}`:''}">`).join('');
+
+  const slides=[...media.children]; let segs=[...bars.children]; let i=-1, t;
+  function show(n){
+    i = n % EXPERTS.length;
+    const e = EXPERTS[i];
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    nameEl.textContent = e.nome;
+    if(e.foto){ avEl.src=e.foto; avEl.style.objectPosition=e.pos; avEl.style.display=''; }
+    segs.forEach((s,k)=>{ s.classList.remove('now','done'); if(k<i) s.classList.add('done'); });
+    const novo = segs[i].cloneNode(true);
+    segs[i].replaceWith(novo); segs[i]=novo; novo.classList.add('now');
+    clearTimeout(t); t=setTimeout(()=>show(i+1), DUR);
+  }
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){ if(i<0) show(0); } else clearTimeout(t);
+  }),{threshold:.2});
+  io.observe(document.querySelector('.scard'));
+})();
+
+/* ---------- avatares da prova ---------- */
+document.getElementById('avatars').innerHTML = EXPERTS.slice(0,5).map(e=>
+  `<span><img src="${e.foto}" alt="" style="object-position:${e.pos}" onerror="this.parentElement.remove()"></span>`
+).join('');
+
+/* ---------- máscara do telefone ---------- */
+const zap = document.getElementById('zap');
+zap.addEventListener('input', e=>{
+  let v = e.target.value.replace(/\D/g,'').slice(0,11);
+  if(v.length > 6)      v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+  else if(v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+  else if(v.length)     v = `(${v}`;
+  e.target.value = v;
+});
+
+/* ---------- envio: grava o lead e manda pro grupo ---------- */
+const form = document.getElementById('formLead');
+const btn  = document.getElementById('btnEnviar');
+
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  const nome = document.getElementById('nome');
+  const digitos = zap.value.replace(/\D/g,'');
+
+  let erro = false;
+  [nome, zap].forEach(c=>c.classList.remove('erro'));
+  if(nome.value.trim().length < 2){ nome.classList.add('erro'); erro = true; }
+  if(digitos.length < 10){ zap.classList.add('erro'); erro = true; }
+  if(erro){ (nome.classList.contains('erro') ? nome : zap).focus(); return; }
+
+  btn.disabled = true;
+  const texto = btn.innerHTML;
+  btn.innerHTML = 'Entrando…';
+
+  try{
+    await LEADS.salvar({
+      nome: nome.value.trim(),
+      whatsapp: digitos,
+      origem: location.href,
+      ref: document.referrer || '(direto)',
+      data: new Date().toISOString()
+    });
+  }catch(err){
+    /* não trava a entrada por falha de captura — o grupo é o que importa */
+    console.warn('lead não enviado:', err.message);
+  }
+
+  if(GRUPO_WHATSAPP.startsWith('http')){
+    location.href = GRUPO_WHATSAPP;
+  }else{
+    btn.disabled = false; btn.innerHTML = texto;
+    alert('O link do grupo ainda não foi configurado nesta página.\n\nEdite a constante GRUPO_WHATSAPP no código.');
+  }
+});
+
+/* ---------- reveal ---------- */
+const io2 = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ e.target.classList.add('in'); io2.unobserve(e.target); }
+}),{threshold:.14, rootMargin:'0px 0px -5% 0px'});
+document.querySelectorAll('[data-rv]').forEach(el=>io2.observe(el));
+
+/* ---------- barra fixa: aparece sempre que o botão real não está à vista ----------
+   (observa o botão, não o card: no carregamento o card aparece mas o botão
+   ainda está abaixo da dobra, e aí ficaríamos sem nenhum CTA visível) */
+const fixa = document.getElementById('fixa');
+const io3 = new IntersectionObserver(es=>es.forEach(e=>{
+  fixa.classList.toggle('on', !e.isIntersecting);
+}),{threshold:.9});
+io3.observe(document.getElementById('btnEnviar'));
+</script>
+</body>
+</html>
