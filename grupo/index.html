@@ -146,6 +146,14 @@ h1,h2,h3{font-family:var(--fd);font-weight:600;letter-spacing:-.035em;line-heigh
 .lista b{display:block;font-family:var(--fd);font-size:14px;letter-spacing:-.01em;line-height:1.3}
 .lista span{display:block;margin-top:5px;font-size:13px;color:#5c5c5c;line-height:1.55}
 
+/* retrato + texto da história */
+.retrato{margin-top:20px;border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-width:300px;
+  margin-left:auto;margin-right:auto;background:#e4e0d8}
+.retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.texto{margin-top:20px}
+.texto p{font-size:14.5px;line-height:1.7;color:#4a4a4a;margin-bottom:14px}
+.texto p b{color:#111;font-weight:600}
+
 /* prova: quem já passou pelas mãos dele */
 .prova{background:#111;color:#fff;border-radius:20px;padding:24px 18px;margin-top:8px}
 .prova .kicker{color:var(--accent)}
@@ -201,9 +209,9 @@ footer .fim{margin-top:14px;color:#5c5c5c}
 
     <span class="badge" style="margin-top:20px"><i></i>Grupo fechado no WhatsApp</span>
 
-    <h1>Os <span class="o">Formatos Validados de Edição</span> saem primeiro no grupo.</h1>
+    <h1>Receba os <span class="o">Formatos Validados de Edição</span>.</h1>
 
-    <p class="sub">É lá dentro que eu abro o <b>Edição 3x</b>, com a condição que não vai existir em outro lugar. Sem spam: só o que interessa pra quem quer <b>editar rápido e cobrar por isso</b>.</p>
+    <p class="sub">Dentro do grupo você vai ter a <b>melhor condição do Edição 3x</b>. Ela será única e não vai existir em nenhum outro lugar.</p>
 
     <!-- palco visual -->
     <div class="stage">
@@ -254,62 +262,27 @@ footer .fim{margin-top:14px;color:#5c5c5c}
   </div>
 </header>
 
-<!-- ═══════════ O QUE TEM NO GRUPO ═══════════ -->
+<!-- ═══════════ 2. A HISTÓRIA ═══════════ -->
 <section class="sec">
   <div class="wrap">
-    <span class="kicker" data-rv>O que rola lá dentro</span>
-    <h2 data-rv>Não é lista de transmissão.<br>É onde a coisa acontece.</h2>
+    <span class="kicker" data-rv>Quem te ensina</span>
+    <h2 data-rv>Eu comecei editando de madrugada, cobrando pouco.</h2>
 
-    <ul class="lista">
-      <li data-rv>
-        <i>1</i>
-        <div>
-          <b>A condição de abertura</b>
-          <span>O Edição 3x abre primeiro no grupo, com a melhor condição. Quem está fora entra depois e paga mais.</span>
-        </div>
-      </li>
-      <li data-rv>
-        <i>2</i>
-        <div>
-          <b>Formatos Validados de Edição</b>
-          <span>Os formatos que já funcionam nas redes — liberados lá dentro antes de qualquer outro canal.</span>
-        </div>
-      </li>
-      <li data-rv>
-        <i>3</i>
-        <div>
-          <b>Edição ao vivo, na prática</b>
-          <span>Eu abro projeto real e mostro o processo do bruto ao vídeo pronto, respondendo pergunta de quem está no grupo.</span>
-        </div>
-      </li>
-      <li data-rv>
-        <i>4</i>
-        <div>
-          <b>Como conseguir os primeiros clientes</b>
-          <span>O caminho pra fechar sem parecer desesperado e sem sair pedindo trabalho no direct.</span>
-        </div>
-      </li>
-    </ul>
+    <figure class="retrato" data-rv>
+      <img src="../assets/pedro-hero.jpg" alt="Pedro Goulart" onerror="this.closest('.retrato').remove()">
+    </figure>
 
-    <!-- prova -->
+    <div class="texto">
+      <p data-rv>Achava que precisava de mais curso, mais plugin, mais equipamento. Até entender que o mercado não paga pelo capricho — paga por <b>entrega previsível</b>.</p>
+      <p data-rv>Foi testando formato atrás de formato, no meu trabalho e no dos maiores players do digital, que eu mapeei os <b>Formatos Validados de Edição</b>: as estruturas que se repetem nos vídeos que performam.</p>
+      <p data-rv>É isso que eu levo pro grupo — destilado, sem enrolação.</p>
+    </div>
+
     <div class="prova" data-rv>
-      <span class="kicker">Quem te ensina</span>
-      <h3>Pedro Goulart — editor e estrategista de vídeo de alguns dos maiores players do digital.</h3>
+      <span class="kicker">Já editei para</span>
       <div class="avatars" id="avatars"></div>
       <p>Nomes e imagens usados com autorização. <!-- PEDRO: confirmar autorização por escrito de cada um antes de publicar --></p>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════ CTA FINAL ═══════════ -->
-<section class="final">
-  <div class="wrap">
-    <h2 data-rv>O grupo abre e fecha.<br><span class="o">Entrar agora é de graça.</span></h2>
-    <p data-rv>Depois que lotar, só na próxima turma — e a condição de abertura não se repete.</p>
-    <button class="btn-zap" data-rv type="button" onclick="document.getElementById('nome').focus();document.getElementById('form-topo').scrollIntoView({block:'center'})">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7L7 20.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-      Entrar no grupo agora
-    </button>
   </div>
 </section>
 
